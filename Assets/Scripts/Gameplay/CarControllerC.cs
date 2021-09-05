@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using System;
 
 public class CarControllerC : MonoBehaviour
 {
-
+    
     public float horizontalInput;
     public float verticalInput;
     private float steerAngle;
@@ -33,12 +35,20 @@ public class CarControllerC : MonoBehaviour
     // public WheelFrictionCurve rearWheelFC;
     public WheelFrictionCurve rearWheelFCBrake;
 
-    private GameManager1 gameManager1;
+    private GameManager gameManager;
+    private ScoreKeeper scoreKeeper;
 
     public float engineRPM;
 
     public ParticleSystem particlePickup;
 
+    public static event Action onPickup;
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+    }
 
     private void Start()
     {
@@ -47,7 +57,7 @@ public class CarControllerC : MonoBehaviour
         rearWheelFCBrake.stiffness = rearWheelFCBrake.stiffness * .3f;
 
 
-        gameManager1 = GameManager1.Instance;
+        
         carRb.centerOfMass = new Vector3(centerOfMass.localPosition.x, centerOfMass.localPosition.y, centerOfMass.localPosition.z);
 
     }
@@ -156,7 +166,7 @@ public class CarControllerC : MonoBehaviour
         Steer();
         UpdateWheelPoses();
 
-        if (gameManager1.gameIsActive)
+        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
         {
             Accelerate();
 
@@ -211,11 +221,15 @@ public class CarControllerC : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.gameObject.CompareTag("Pickup"))
+        if (other.CompareTag("Pickup"))
         {
-            if (gameManager1.gameIsActive)
+            if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
             {
+                Destroy(other.gameObject);
                 particlePickup.Play();
+                onPickup?.Invoke();
+                scoreKeeper.UpdateScore(other.GetComponent<Points>().value);
+                
 
             }
         }

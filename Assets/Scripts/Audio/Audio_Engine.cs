@@ -15,17 +15,17 @@ public class Audio_Engine : MonoBehaviour
     public float maxRPM;
     public float currentRPM;
 
-    private GameManager1 gameManager1;
+    private GameManager gameManager;
 
-    private void Start()
+    private void Awake()
     {
-        gameManager1 = GameManager1.Instance;
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameManager1.gameIsActive)
+        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
         {
             speedPerc = car.currentSpeed / car.maxSpeed;
 

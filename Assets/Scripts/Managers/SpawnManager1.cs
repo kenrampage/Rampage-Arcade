@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class SpawnManager1 : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class SpawnManager1 : MonoBehaviour
     public float maxScale;
     public float minScale;
 
-    private GameManager1 gameManager1;
+    private GameManager gameManager;
 
     public int startObstacles;
     public int currentObstacles;
@@ -26,10 +27,19 @@ public class SpawnManager1 : MonoBehaviour
 
     public List<GameObject> spawnedObstacles = new List<GameObject>();
 
+    private void OnEnable()
+    {
+        CarControllerC.onPickup += RespawnLevelObjects;
+    }
+
+    private void OnDisable()
+    {
+        CarControllerC.onPickup -= RespawnLevelObjects;
+    }
 
     private void Start()
     {
-        gameManager1 = GameManager1.Instance;
+        // gameManager = GameManager.Instance;
         currentObstacles = startObstacles;
         SpawnLevelObjects();
     }
@@ -41,11 +51,10 @@ public class SpawnManager1 : MonoBehaviour
         {
             Destroy(player.gameObject);
             player = null;
-            GameManager1.Instance.player = null;
+
         }
 
         player = Instantiate(playerPrefab, playerSpawnPoint.transform.position, playerSpawnPoint.transform.rotation);
-        GameManager1.Instance.player = player;
 
         SpawnObstacles();
         SpawnPickups();
@@ -72,12 +81,14 @@ public class SpawnManager1 : MonoBehaviour
         RemoveObstacles();
         SpawnObstacles();
         SpawnPickups();
+
+        print("Objects Respawned!");
     }
 
     public void GetRandomSpawnLocation()
     {
         spawnRange = spawnArea.GetComponent<BoxCollider>().bounds.extents;
-        spawnPos = new Vector3(Random.Range(-spawnRange.x, spawnRange.x), 0, Random.Range(-spawnRange.z, spawnRange.z));
+        spawnPos = new Vector3(UnityEngine.Random.Range(-spawnRange.x, spawnRange.x), 0, UnityEngine.Random.Range(-spawnRange.z, spawnRange.z));
 
     }
 
@@ -86,7 +97,7 @@ public class SpawnManager1 : MonoBehaviour
     {
         for (int i = 0; i < currentObstacles; i++)
         {
-            SpawnObstacle(Random.Range(0, obstacles.Length));
+            SpawnObstacle(UnityEngine.Random.Range(0, obstacles.Length));
         }
 
     }
@@ -98,7 +109,7 @@ public class SpawnManager1 : MonoBehaviour
         GameObject spawnedObject = Instantiate(obstacles[i], spawnPos, obstacles[i].transform.rotation);
         spawnedObstacles.Add(spawnedObject);
         // print("Obstacle " + (spawnedObstacles.Count - 1) + " spawned!");
-        float newScale = Random.Range(minScale, maxScale);
+        float newScale = UnityEngine.Random.Range(minScale, maxScale);
         spawnedObject.transform.localScale = new Vector3(newScale, newScale, newScale);
 
     }
@@ -121,7 +132,7 @@ public class SpawnManager1 : MonoBehaviour
         {
             GetRandomSpawnLocation();
             Instantiate(pickups[i], spawnPos, pickups[i].transform.rotation);
-            // print("Bolt Spawned!");
+            print("Bolt Spawned!");
         }
     }
 

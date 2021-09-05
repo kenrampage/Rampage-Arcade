@@ -10,16 +10,14 @@ public class TimerDisplay : MonoBehaviour
     public Color endColor;
     private GameManager1 gameManager1;
 
+    [SerializeField] private Timer timer;
 
 
-    private void Start()
-    {
-        gameManager1 = GameManager1.Instance;
-    }
+
     // Update is called once per frame
     void Update()
     {
-        float fillPerc = gameManager1.currentTime / gameManager1.roundTime;
+        float fillPerc = timer.time / timer.baseTime;
         
         image.fillAmount = fillPerc;
         image.color = Color.Lerp(endColor, startColor, fillPerc);

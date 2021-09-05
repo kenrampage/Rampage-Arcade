@@ -3,31 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager1 : Singleton<GameManager1>
+public class GameManager1 : GameManager
 {
 
-    public int currentScore;
-    public float roundTime;
-    public float currentTime;
-    public bool gameIsActive;
+    // public int currentScore;
+    // public float roundTime;
+    // public float currentTime;
+    // public bool gameIsActive;
 
-    public GameObject startUI;
-    public GameObject pauseUI;
-    public GameObject gameUI;
-    public GameObject endUI;
+    // public GameObject startUI;
+    // public GameObject pauseUI;
+    // public GameObject gameUI;
+    // public GameObject endUI;
 
     public SpawnManager1 spawnManager1;
-    
-    public GameObject player;
 
-    public bool timerOn;
-    public float delayTime;
+    // public GameObject player;
 
-    public SFX_PlayOneShot sfxPlayer;
-    public int sfxIndexPause;
-    public int sfxIndexUnPause;
+    // public bool timerOn;
+    // public float delayTime;
 
-    public MusicManager musicManager;
+    // public SFX_PlayOneShot sfxPlayer;
+    // public int sfxIndexPause;
+    // public int sfxIndexUnPause;
+
+    // public MusicManager musicManager;
+    // public UIManager uiManager;
+
+    // public enum GameState
+    // {
+    //     LEVELSTART,
+    //     GAMEACTIVE,
+    //     GAMEPAUSED,
+    //     LEVELEND,
+    // }
+
+    // public GameState currentGameState;
+    // public GameState previousGameState;
 
 
     // override public void Awake()
@@ -43,126 +55,103 @@ public class GameManager1 : Singleton<GameManager1>
 
 
 
-    // Update is called once per frame
-    void Update()
-    {
-        TimerCountdown();
+    // // Update is called once per frame
+    // void Update()
+    // {
 
-        if (currentTime <= 0)
-        {
-            currentTime = roundTime;
-            EndGame();
-        }
+    //     if (Input.GetKeyDown(KeyCode.Escape)
+    //     {
+    //         PauseGame();
+    //     }
+    //     else if (Input.GetKeyDown(KeyCode.Escape)
+    //     {
+    //         UnpauseGame();
+    //     }
+    // }
 
-        if (Input.GetKeyDown(KeyCode.Escape) && gameUI.gameObject.activeSelf)
-        {
-            PauseGame();
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape) && pauseUI.gameObject.activeSelf)
-        {
-            UnpauseGame();
-        }
-    }
+    // public void StartGame()
+    // {
 
-    public void StartGame()
-    {
-        startUI.SetActive(false);
-        pauseUI.SetActive(false);
-        gameUI.SetActive(true);
-        endUI.SetActive(false);
-        Time.timeScale = 1f;
-        gameIsActive = true;
+    //     Time.timeScale = 1f;
+    //     // gameIsActive = true;
 
-    }
+    // }
 
-    public void PauseGame()
-    {
-        startUI.SetActive(false);
-        pauseUI.SetActive(true);
-        gameUI.SetActive(false);
-        endUI.SetActive(false);
-        gameIsActive = false;
-        Time.timeScale = 0f;
-        timerOn = false;
-        sfxPlayer.PlaySoundEvent(sfxIndexPause);
-        musicManager.HighPassOn();
-    }
+    // public void PauseGame()
+    // {
+    //     // gameIsActive = false;
+    //     Time.timeScale = 0f;
+    //     // timerOn = false;
+    //     // sfxPlayer.PlaySoundEvent(sfxIndexPause);
+    //     // musicManager.HighPassOn();
+    // }
 
-    public void UnpauseGame()
-    {
-        startUI.SetActive(false);
-        pauseUI.SetActive(false);
-        gameUI.SetActive(true);
-        endUI.SetActive(false);
-        timerOn = true;
-        Time.timeScale = 1f;
-        gameIsActive = true;
-        sfxPlayer.PlaySoundEvent(sfxIndexUnPause);
-        musicManager.HighPassOff();
-    }
+    // public void UnpauseGame()
+    // {
+
+    //     // timerOn = true;
+    //     Time.timeScale = 1f;
+    //     // gameIsActive = true;
+    //     // sfxPlayer.PlaySoundEvent(sfxIndexUnPause);
+    //     // musicManager.HighPassOff();
+    // }
 
     public void EndGame()
     {
-        startUI.SetActive(false);
-        pauseUI.SetActive(false);
-        gameUI.SetActive(false);
-        endUI.SetActive(true);
-        gameIsActive = false;
-        timerOn = false;
-        sfxPlayer.PlaySoundEvent(4);
-        musicManager.HighPassOn();
+
+        // gameIsActive = false;
+        // timerOn = false;
+        // sfxPlayer.PlaySoundEvent(4);
+        // musicManager.HighPassOn();
     }
 
-    public void TimerCountdown()
-    {
-        if (gameIsActive && timerOn)
-        {
-            currentTime = currentTime - Time.deltaTime;
-        }
+    // public void TimerCountdown()
+    // {
+    //     if (gameIsActive && timerOn)
+    //     {
+    //         currentTime = currentTime - Time.deltaTime;
+    //     }
 
-    }
+    // }
 
-    public void IncreaseScore()
-    {
-        currentScore++;
-    }
+    // public void IncreaseScore()
+    // {
+    //     currentScore++;
+    // }
 
-    public void ResetTimer()
-    {
-        currentTime = roundTime;
-    }
+    // public void ResetTimer()
+    // {
+    //     currentTime = roundTime;
+    // }
 
-    public void InitializeLevel()
-    {
+    // public void InitializeLevel()
+    // {
 
-        currentScore = 0;
-        ResetTimer();
-        gameIsActive = false;
-        startUI.SetActive(true);
-        pauseUI.SetActive(false);
-        gameUI.SetActive(false);
-        endUI.SetActive(false);
-        musicManager.HighPassOff();
-    }
+    //     // currentScore = 0;
+    //     // ResetTimer();
+    //     gameIsActive = false;
 
-    public void LoadMainMenu()
-    {
-        Time.timeScale = 1f;
-        StartCoroutine("LoadLevelDelay", "MainMenu");
-    }
+    //     // musicManager.HighPassOff();
+    // }
 
-    public void ReloadScene()
-    {
-        Time.timeScale = 1f;
-        StartCoroutine("LoadLevelDelay", SceneManager.GetActiveScene().name);
-    }
+    // public void LoadMainMenu()
+    // {
+    //     Time.timeScale = 1f;
+    //     StartCoroutine("LoadLevelDelay", "MainMenu");
+    // }
+
+    // public void ReloadScene()
+    // {
+    //     Time.timeScale = 1f;
+    //     StartCoroutine("LoadLevelDelay", SceneManager.GetActiveScene().name);
+    // }
 
 
-    public IEnumerator LoadLevelDelay(string sceneName)
-    {
-        yield return new WaitForSeconds(delayTime);
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-    }
+    // public IEnumerator LoadLevelDelay(string sceneName)
+    // {
+    //     yield return new WaitForSeconds(delayTime);
+    //     SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+    // }
 
 
 }

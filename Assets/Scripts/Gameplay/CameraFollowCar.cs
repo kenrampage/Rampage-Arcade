@@ -11,19 +11,19 @@ public class CameraFollowCar : MonoBehaviour
     [SerializeField] private float translateSpeed;
     [SerializeField] private float rotationSpeed;
 
-    private GameManager1 gameManager1;
+
 
     private void Start()
     {
 
-        gameManager1 = GameManager1.Instance;
-        target = gameManager1.player.transform;
+        
+        target = GameObject.FindGameObjectWithTag("Player").transform;
 
     }
 
     private void Update()
     {
-        // target = gameManager1.player.transform;
+        // target = gameManager.player.transform;
         // HandleTranslation();
         // HandleRotation();
     }

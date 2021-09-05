@@ -605,7 +605,7 @@ MonoBehaviour:
   m_text: KING OF THE HILL
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: a657c56097809da4fac8f3afab3dca38, type: 2}
-  m_sharedMaterial: {fileID: 8166911125701586453, guid: a657c56097809da4fac8f3afab3dca38, type: 2}
+  m_sharedMaterial: {fileID: -9052656444081023272, guid: a657c56097809da4fac8f3afab3dca38, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2339,7 +2339,7 @@ MonoBehaviour:
   m_text: Clicky Munchy
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23a3c33aab65c96438a27acebde77a4b, type: 2}
-  m_sharedMaterial: {fileID: -5941522331499266008, guid: 23a3c33aab65c96438a27acebde77a4b, type: 2}
+  m_sharedMaterial: {fileID: 4925104012277393563, guid: 23a3c33aab65c96438a27acebde77a4b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

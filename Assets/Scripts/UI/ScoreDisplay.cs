@@ -6,17 +6,20 @@ using TMPro;
 public class ScoreDisplay : MonoBehaviour
 {
     public TextMeshProUGUI text;
-    private GameManager1 gameManager1;
+    [SerializeField] private ScoreKeeper scoreKeeper;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        gameManager1 = GameManager1.Instance;
+        if(scoreKeeper == null)
+        {
+            scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        text.text = gameManager1.currentScore.ToString();
+        text.text = scoreKeeper.score.ToString();
     }
 }

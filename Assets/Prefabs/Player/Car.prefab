@@ -370,7 +370,6 @@ GameObject:
   - component: {fileID: 8611991668007070703}
   - component: {fileID: 8611991668005765047}
   - component: {fileID: 8611991668004866823}
-  - component: {fileID: 1849837152170535749}
   m_Layer: 0
   m_Name: Veh_Car_Blue_Z
   m_TagString: Untagged
@@ -441,20 +440,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &1849837152170535749
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8611991668006788073}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 6df34ee591500634282ce8431bcb6976, type: 3}
 --- !u!1 &8611991668006832349
 GameObject:
   m_ObjectHideFlags: 0
@@ -629,6 +614,7 @@ GameObject:
   - component: {fileID: 8936794862758176432}
   - component: {fileID: 8936794862758176447}
   - component: {fileID: 8936794862758176446}
+  - component: {fileID: 3172450820391056975}
   - component: {fileID: 284724028}
   m_Layer: 0
   m_Name: Car
@@ -721,6 +707,25 @@ MonoBehaviour:
   brakeOn: 0
   engineRPM: 0
   particlePickup: {fileID: 901165899672314672}
+--- !u!114 &3172450820391056975
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8936794862758176445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d68e19083448c64aa6a0b2838e8f991, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvents:
+  - event:/Pickups/Pickup 1
+  soundEffectsOn: 1
+  triggerOn: 1
+  eventIndex: 0
+  spawnBufferDefault: 0.1
+  otherTag: Pickup
 --- !u!114 &284724028
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8534191502426403093}
   - component: {fileID: 8534191502426403094}
   m_Layer: 0
-  m_Name: OverlayCanvas
+  m_Name: Fade Effect Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

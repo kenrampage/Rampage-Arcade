@@ -7,16 +7,16 @@ public class RotateThis1 : MonoBehaviour
 
     public Vector3 rotationSpeed;
     public bool rotateAlways;
-    private GameManager1 gameManager1;
+    private GameManager gameManager;
 
-    private void Start()
+    private void Awake()
     {
-        gameManager1 = GameManager1.Instance;
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     private void Update()
     {
-        if (gameManager1.gameIsActive || rotateAlways)
+        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE || rotateAlways)
         {
             this.transform.Rotate(rotationSpeed * Time.unscaledDeltaTime, Space.Self);
         }
