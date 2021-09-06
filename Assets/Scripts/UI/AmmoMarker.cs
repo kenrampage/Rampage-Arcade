@@ -4,22 +4,24 @@ using UnityEngine;
 
 public class AmmoMarker : MonoBehaviour
 {
-    private GameManager2 gameManager2;
+    // private GameManager2 gameManager2;
+
+    private Ammo ammo;
 
     public GameObject[] ammoMarkers;
 
     public int ammoValue;
 
-    private void Start()
+    private void Awake()
     {
-        gameManager2 = GameManager2.Instance;
+        ammo = FindObjectOfType<Ammo>();
     }
 
     private void Update()
     {
-        ammoValue = gameManager2.currentAmmo;
+        ammoValue = ammo.currentAmmo;
 
-        switch (gameManager2.currentAmmo)
+        switch (ammoValue)
         {
             case 8:
                 for (int i = 0; i < ammoMarkers.Length; i++)

@@ -5,37 +5,34 @@ using UnityEngine;
 public class ProjectileCollision : MonoBehaviour
 {
 
-    private GameManager2 gameManager2;
+    private GameManager gameManager;
+    private ScoreKeeper scoreKeeper;
+    private SFXPlayer2D sfxPlayer;
 
-    // private void OnCollisionEnter(Collision other)
-    // {
-    //     if (other.transform.tag == "Enemy")
-    //     {
-    //         this.gameObject.SetActive(false);
-    //         Destroy(other.gameObject);
-    //         GameManager2.Instance.IncreaseScore();
-    //     }
-    // }
+    [SerializeField] private string barrierTag;
+    [SerializeField] private string enemyTag;
 
-    private void Start()
+    private void Awake()
     {
-        gameManager2 = GameManager2.Instance;
+        sfxPlayer = FindObjectOfType<SFXPlayer2D>();
+        gameManager = FindObjectOfType<GameManager>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.transform.tag == "Barrier")
+        if (other.transform.tag == barrierTag)
         {
             this.gameObject.SetActive(false);
         }
 
-        if (other.transform.tag == "Enemy")
+        if (other.transform.tag == enemyTag)
         {
-            gameManager2.sfxPlayer.PlaySoundEvent(7);
+            sfxPlayer.PlaySoundEvent(7);
             this.gameObject.SetActive(false);
             Destroy(other.gameObject);
-            GameManager2.Instance.IncreaseScore();
+            scoreKeeper.IncrementScore();
         }
     }
 

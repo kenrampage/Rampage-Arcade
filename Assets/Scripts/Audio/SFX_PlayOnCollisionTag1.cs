@@ -26,7 +26,7 @@ public class SFX_PlayOnCollisionTag1 : MonoBehaviour
 
     private void Awake()
     {
-        // gameManager = GameManager.Instance;
+        gameManager = FindObjectOfType<GameManager>();
         spawnBufferOn = true;
         spawnBufferCurrent = spawnBufferDefault;
         rb = GetComponent<Rigidbody>();

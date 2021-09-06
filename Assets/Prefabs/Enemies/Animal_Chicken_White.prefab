@@ -565,6 +565,7 @@ GameObject:
   - component: {fileID: 6856243427269847912}
   - component: {fileID: 6856243427269847894}
   - component: {fileID: 4650077118315727832}
+  - component: {fileID: 6097128168508074006}
   m_Layer: 0
   m_Name: Animal_Chicken_White
   m_TagString: Enemy
@@ -658,6 +659,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 12
+  gameManager: {fileID: 0}
 --- !u!65 &6856243427269847894
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -688,6 +690,18 @@ MonoBehaviour:
   - event:/Animals/Chicken Cluck
   soundEffectsOn: 1
   chanceThreshhold: 0.6
+--- !u!114 &6097128168508074006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6856243427269847892}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021af687381af5d4ea70cbd76c8458bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6856243427358924158
 GameObject:
   m_ObjectHideFlags: 0

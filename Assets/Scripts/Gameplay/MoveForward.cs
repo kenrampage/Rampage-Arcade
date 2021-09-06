@@ -3,13 +3,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveForward : MonoBehaviour
-
 {
-
     public float speed = 40f;
 
-    private void Update()
+    [SerializeField] private GameManager gameManager;
+
+    private void Awake()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed);
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
+    private void FixedUpdate()
+    {
+        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
+        {
+            transform.Translate(Vector3.forward * Time.deltaTime * speed);
+
+        }
     }
 }

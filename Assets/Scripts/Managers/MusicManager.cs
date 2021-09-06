@@ -21,6 +21,16 @@ public class MusicManager : MonoBehaviour
     public float fadeInTime;
 
 
+    private void OnEnable()
+    {
+        GameManager.onGameStateChanged += HandleGameStateChanged;
+    }
+
+    private void OnDisable()
+    {
+        GameManager.onGameStateChanged -= HandleGameStateChanged;
+    }
+
 
     private void Start()
     {
@@ -122,5 +132,30 @@ public class MusicManager : MonoBehaviour
     public void HighPassOff()
     {
         eventInstance.setParameterByName("HighPass", 0);
+    }
+
+    private void HandleGameStateChanged(GameManager.GameState currentGameState)
+    {
+        switch (currentGameState)
+        {
+            case GameManager.GameState.LEVELSTART:
+                HighPassOff();
+                break;
+
+            case GameManager.GameState.GAMEACTIVE:
+                HighPassOff();
+                break;
+
+            case GameManager.GameState.GAMEPAUSED:
+                HighPassOn();
+                break;
+
+            case GameManager.GameState.LEVELEND:
+                HighPassOn();
+                break;
+
+            default:
+                break;
+        }
     }
 }

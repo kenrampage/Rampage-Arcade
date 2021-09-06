@@ -19,7 +19,7 @@ public class GameManager4 : Singleton<GameManager4>
 
     public float delayTime;
 
-    public SFX_PlayOneShot sfxPlayer;
+    public SFXPlayer2D sfxPlayer;
     public int sfxIndexPause;
     public int sfxIndexUnPause;
 

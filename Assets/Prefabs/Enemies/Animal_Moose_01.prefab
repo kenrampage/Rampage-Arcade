@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 7259598960844192424}
   - component: {fileID: 7259598960844192422}
   - component: {fileID: 4854970852288997223}
+  - component: {fileID: 1351797973278100815}
   m_Layer: 0
   m_Name: Animal_Moose_01
   m_TagString: Enemy
@@ -308,7 +309,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 76f55cbd3070de9459d9f9978299228c, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 0
@@ -359,6 +360,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 22
+  gameManager: {fileID: 0}
 --- !u!65 &7259598960844192422
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -388,6 +390,18 @@ MonoBehaviour:
   - event:/Animals/Moose Call
   soundEffectsOn: 1
   chanceThreshhold: 0.6
+--- !u!114 &1351797973278100815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7259598960743197479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 021af687381af5d4ea70cbd76c8458bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7259598960743198753
 GameObject:
   m_ObjectHideFlags: 0

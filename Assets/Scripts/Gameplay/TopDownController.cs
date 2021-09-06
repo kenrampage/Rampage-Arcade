@@ -2,52 +2,50 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class TopDownController : MonoBehaviour
 {
     public float horizontalInput;
     private float speed = 20.0f;
     private float xRange = 20;
-    public GameObject model;
     public float projectileHeight;
 
-    public GameManager2 gameManager2;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private Ammo ammo;
+    [SerializeField] private GameObject playerModel;
+    [SerializeField] private SFXPlayer2D sfxPlayer;
 
-
-    public Camera gameCamera;
 
     public ObjectPooler objectPooler;
+    public GameObject lookTarget;
 
-    public Vector3 lookTarget;
+    
+    // public GameObject mouseTarget;
 
-
-
-    private void Start()
+    private void Awake()
     {
-        gameManager2 = GameManager2.Instance;
-        gameCamera = Camera.main;
+        gameManager = FindObjectOfType<GameManager>();
     }
-
 
     // Update is called once per frame
     void Update()
     {
-        SetAimDirection();
+        SetLookDirection();
 
-        if (gameManager2.gameIsActive)
+        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
         {
 
             if (Input.GetMouseButtonDown(0))
             {
 
-                if (gameManager2.currentAmmo > 0)
+                if (ammo.currentAmmo > 0)
                 {
                     FireProjectile();
-                    gameManager2.DecreaseAmmo();
-                    gameManager2.sfxPlayer.PlaySoundEvent(4);
+                    ammo.DecreaseAmmo();
+                    sfxPlayer.PlaySoundEvent(4);
                 }
                 else
                 {
-                    gameManager2.sfxPlayer.PlaySoundEvent(5);
+                    sfxPlayer.PlaySoundEvent(5);
                     // Debug.Log("Out of Ammo!");
                 }
 
@@ -55,8 +53,8 @@ public class PlayerController : MonoBehaviour
 
             if (Input.GetMouseButtonDown(1))
             {
-                gameManager2.ResetAmmo();
-                gameManager2.sfxPlayer.PlaySoundEvent(6);
+                ammo.ResetAmmo();
+                sfxPlayer.PlaySoundEvent(6);
             }
 
             // Check for left and right bounds
@@ -76,43 +74,26 @@ public class PlayerController : MonoBehaviour
 
         }
 
-
     }
 
 
-    // Calculates direction and angle between player and mouse
-    public void SetAimDirection()
+
+
+    private void SetLookDirection()
     {
-
-        if (gameManager2.gameIsActive)
-        {
-            Ray ray = gameCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, LayerMask.GetMask("Ground")))
-            {
-                lookTarget = new Vector3(raycastHit.point.x, transform.position.y, raycastHit.point.z);
-                model.transform.LookAt(lookTarget);
-
-            }
-
-        }
+        playerModel.transform.LookAt(new Vector3(lookTarget.transform.position.x, playerModel.transform.position.y, lookTarget.transform.position.z));
     }
 
     public void FireProjectile()
     {
-        // Instantiate(projectilePrefab, new Vector3(transform.position.x, projectileHeight, transform.position.z), model.transform.rotation);
-
-        // No longer necessary to Instantiate prefabs
-
-
         // Get an object object from the pool
         GameObject pooledProjectile = ObjectPooler.SharedInstance.GetPooledObject();
         if (pooledProjectile != null)
         {
             pooledProjectile.SetActive(true); // activate it
             pooledProjectile.transform.position = new Vector3(transform.position.x, projectileHeight, transform.position.z); // position it at player
-            pooledProjectile.transform.rotation = model.transform.rotation;
-            // pooledProjectile.transform.rotation = Quaternion.Euler(0, 0, 0);
-            // pooledProjectile.GetComponent<Rigidbody>().AddForce(aimDirection,ForceMode.VelocityChange);
+            pooledProjectile.transform.rotation = playerModel.transform.rotation;
+
         }
 
     }

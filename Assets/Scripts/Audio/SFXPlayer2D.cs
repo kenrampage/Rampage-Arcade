@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
-public class SFX_PlayOneShot : MonoBehaviour
+public class SFXPlayer2D : MonoBehaviour
 {
 
     [EventRef] public string[] soundEvents;

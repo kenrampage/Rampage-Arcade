@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager2 : MonoBehaviour
+public class AnimalSpawner : MonoBehaviour
 {
     public GameObject[] animalPrefabs;
     public Vector3 spawnRangeMin;
@@ -15,13 +15,19 @@ public class SpawnManager2 : MonoBehaviour
 
     private Vector3 spawnPos;
 
-    public GameManager2 gameManager2;
+    private GameManager gameManager;
+    private ScoreKeeper scoreKeeper;
 
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager2 = GameManager2.Instance;
+        
         spawnIntervalCurrent = spawnIntervalStart;
         spawnTimer = spawnIntervalCurrent;
 
@@ -31,7 +37,7 @@ public class SpawnManager2 : MonoBehaviour
     void Update()
     {
 
-        if (gameManager2.gameIsActive == true)
+        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
         {
             spawnTimer -= Time.deltaTime;
             // print(spawnTimer);
@@ -39,9 +45,9 @@ public class SpawnManager2 : MonoBehaviour
             if (spawnTimer <= 0)
             {
                 SpawnRandomAnimal();
-                if(spawnIntervalCurrent > spawnIntervalMin)
+                if (spawnIntervalCurrent > spawnIntervalMin)
                 {
-                    spawnIntervalCurrent = spawnIntervalStart - (gameManager2.currentScore * spawnIntervalDecrease);
+                    spawnIntervalCurrent = spawnIntervalStart - (scoreKeeper.score * spawnIntervalDecrease);
                 }
                 spawnTimer = spawnIntervalCurrent;
             }
@@ -62,6 +68,6 @@ public class SpawnManager2 : MonoBehaviour
     void GenerateSpawnPos()
     {
         spawnPos = new Vector3(Random.Range(spawnRangeMin.x, spawnRangeMax.x), 0, Random.Range(spawnRangeMin.z, spawnRangeMax.z));
-        
+
     }
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class UIManager : MonoBehaviour
 {
@@ -12,15 +11,15 @@ public class UIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.onGameStateChanged += UpdateUI;
+        GameManager.onGameStateChanged += HandleGameStateChanged;
     }
 
     private void OnDisable()
     {
-        GameManager.onGameStateChanged -= UpdateUI;
+        GameManager.onGameStateChanged -= HandleGameStateChanged;
     }
 
-    private void UpdateUI(GameManager.GameState currentGameState)
+    private void HandleGameStateChanged(GameManager.GameState currentGameState)
     {
         switch (currentGameState)
         {

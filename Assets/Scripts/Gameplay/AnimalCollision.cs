@@ -4,33 +4,22 @@ using UnityEngine;
 
 public class AnimalCollision : MonoBehaviour
 {
-    private GameManager2 gameManager2;
+    private GameManager gameManager;
 
-    private void Start()
+
+    private void Awake()
     {
-        gameManager2 = GameManager2.Instance;
+        gameManager = FindObjectOfType<GameManager>();
     }
-
-    // private void OnCollisionEnter(Collision other)
-    // {
-    //     print("Game Over");
-
-    //     if (other.transform.tag == "Barrier")
-    //     {
-    //         print("Game Over");
-    //         Destroy(this.gameObject);
-    //         gameManager2.EndGame();
-    //     }
-    // }
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if (other.transform.tag == "Barrier" && gameManager2.gameIsActive)
+
+        if (other.transform.tag == "Barrier" && gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
         {
             print("Game Over");
             Destroy(this.gameObject);
-            gameManager2.EndGame();
+            gameManager.EndLevel();
         }
 
     }

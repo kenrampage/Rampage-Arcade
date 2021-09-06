@@ -4,33 +4,35 @@ using UnityEngine;
 
 public class RaycastMouse : MonoBehaviour
 {
-    [SerializeField] private Camera mainCamera;
-    public int layerMask = 3;
-    private GameManager2 gameManager2;
-    private MeshRenderer meshRenderer;
+    private Camera mainCamera;
+    private GameManager gameManager;
+
+    [SerializeField] private GameObject mouseCursor;
+    [SerializeField] private string targetLayer;
+    [SerializeField] private Vector3 offset;
 
 
-    private void Start()
+    private void Awake()
     {
-        gameManager2 = GameManager2.Instance;
-        meshRenderer = GetComponent<MeshRenderer>();
+        mainCamera = Camera.main;
+        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameManager2.gameIsActive)
+        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
         {
-            meshRenderer.enabled = true;
+            mouseCursor.SetActive(true);
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, LayerMask.GetMask("Ground")))
+            if (Physics.Raycast(ray, out RaycastHit raycastHit, Mathf.Infinity, LayerMask.GetMask(targetLayer)))
             {
-                transform.position = new Vector3(raycastHit.point.x, raycastHit.point.y, raycastHit.point.z);
+                mouseCursor.transform.position = new Vector3(raycastHit.point.x + offset.x, raycastHit.point.y + offset.y, raycastHit.point.z + offset.z);
             }
         }
         else
         {
-            meshRenderer.enabled = false;
+            mouseCursor.SetActive(false);
         }
     }
 }

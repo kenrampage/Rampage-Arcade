@@ -14,15 +14,15 @@ public class GameManager2 : Singleton<GameManager2>
     public GameObject gameUI;
     public GameObject endUI;
 
-    public SpawnManager2 spawnManager2;
+    public AnimalSpawner animalSpawner;
     public GameObject player;
 
-    public int currentAmmo;
-    public int maxAmmo;
+    // public int currentAmmo;
+    // public int maxAmmo;
 
     public float delayTime;
 
-    public SFX_PlayOneShot sfxPlayer;
+    public SFXPlayer2D sfxPlayer;
     public int sfxIndexPause;
     public int sfxIndexUnPause;
 
@@ -36,7 +36,7 @@ public class GameManager2 : Singleton<GameManager2>
 
     private void Start()
     {
-        ResetAmmo();
+        // ResetAmmo();
         InitializeLevel();
     }
 
@@ -150,15 +150,15 @@ public class GameManager2 : Singleton<GameManager2>
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 
-    public void DecreaseAmmo()
-    {
-        currentAmmo--;
-    }
+    // public void DecreaseAmmo()
+    // {
+    //     currentAmmo--;
+    // }
 
-    public void ResetAmmo()
-    {
-        currentAmmo = maxAmmo;
-    }
+    // public void ResetAmmo()
+    // {
+    //     currentAmmo = maxAmmo;
+    // }
 
 
 }

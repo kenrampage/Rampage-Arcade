@@ -28,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893123505252345438}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2896896709643661141}
@@ -47,6 +47,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd26412013bf70a4c8c3f1ed88d7ff28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barrierTag: Barrier
+  enemyTag: Enemy
 --- !u!114 &7457551573977466973
 MonoBehaviour:
   m_ObjectHideFlags: 0

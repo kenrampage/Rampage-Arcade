@@ -7,7 +7,7 @@ public class Target : MonoBehaviour
     private Rigidbody targetRb;
     private GameManager5 gameManager5;
     public ParticleSystem explosionParticle;
-    private SFX_PlayOneShot sfxPlayer;
+    private SFXPlayer2D sfxPlayer;
     public int sfxIndex;
 
     public float minForce = 12;
