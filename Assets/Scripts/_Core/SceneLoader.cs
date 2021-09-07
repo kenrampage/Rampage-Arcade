@@ -5,19 +5,24 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public string sceneName;
-    public float delayTime;
+    [SerializeField] private float loadDelay;
 
-    public void LoadLevel()
+    public void LoadMainMenu()
     {
-        StartCoroutine("LoadLevelDelay");
+        Time.timeScale = 1f;
+        StartCoroutine("LoadLevelDelay", "MainMenu");
     }
 
-    public IEnumerator LoadLevelDelay()
+    public void ReloadScene()
     {
-        yield return new WaitForSeconds(delayTime);
-        SceneManager.LoadScene(sceneName,LoadSceneMode.Single);
+        Time.timeScale = 1f;
+        StartCoroutine("LoadLevelDelay", SceneManager.GetActiveScene().name);
     }
 
 
+    public IEnumerator LoadLevelDelay(string sceneName)
+    {
+        yield return new WaitForSeconds(loadDelay);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+    }
 }

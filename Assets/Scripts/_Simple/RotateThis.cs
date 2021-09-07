@@ -14,7 +14,7 @@ public class RotateThis : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE || rotateAlways)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE || rotateAlways)
         {
             this.transform.Rotate(rotationSpeed * Time.unscaledDeltaTime, Space.Self);
         }

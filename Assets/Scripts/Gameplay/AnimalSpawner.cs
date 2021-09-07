@@ -37,7 +37,7 @@ public class AnimalSpawner : MonoBehaviour
     void Update()
     {
 
-        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             spawnTimer -= Time.deltaTime;
             // print(spawnTimer);

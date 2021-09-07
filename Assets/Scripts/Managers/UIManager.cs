@@ -9,40 +9,40 @@ public class UIManager : MonoBehaviour
     public GameObject gameUI;
     public GameObject endUI;
 
-    private void OnEnable()
-    {
-        GameManager.onGameStateChanged += HandleGameStateChanged;
-    }
+    // private void OnEnable()
+    // {
+    //     GameManager.onGameStateChanged += HandleGameStateChanged;
+    // }
 
-    private void OnDisable()
-    {
-        GameManager.onGameStateChanged -= HandleGameStateChanged;
-    }
+    // private void OnDisable()
+    // {
+    //     GameManager.onGameStateChanged -= HandleGameStateChanged;
+    // }
 
-    private void HandleGameStateChanged(GameManager.GameState currentGameState)
-    {
-        switch (currentGameState)
-        {
-            case GameManager.GameState.LEVELSTART:
-                StartUIOn();
-                break;
+    // private void HandleGameStateChanged(GameState currentGameState)
+    // {
+    //     switch (currentGameState)
+    //     {
+    //         case GameState.LEVELSTART:
+    //             StartUIOn();
+    //             break;
 
-            case GameManager.GameState.GAMEACTIVE:
-                GameUIOn();
-                break;
+    //         case GameState.GAMEACTIVE:
+    //             GameUIOn();
+    //             break;
 
-            case GameManager.GameState.GAMEPAUSED:
-                PauseUIOn();
-                break;
+    //         case GameState.GAMEPAUSED:
+    //             PauseUIOn();
+    //             break;
 
-            case GameManager.GameState.LEVELEND:
-                EndUIOn();
-                break;
+    //         case GameState.LEVELEND:
+    //             EndUIOn();
+    //             break;
 
-            default:
-                break;
-        }
-    }
+    //         default:
+    //             break;
+    //     }
+    // }
 
 
     public void StartUIOn()
@@ -77,9 +77,5 @@ public class UIManager : MonoBehaviour
         gameUI.SetActive(false);
         endUI.SetActive(true);
     }
-
-
-
-
 
 }

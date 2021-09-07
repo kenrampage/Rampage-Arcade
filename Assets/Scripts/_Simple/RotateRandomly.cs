@@ -28,7 +28,7 @@ public class RotateRandomly : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             transform.Rotate(rotationDirection * rotationSpeed, Space.Self);
         }

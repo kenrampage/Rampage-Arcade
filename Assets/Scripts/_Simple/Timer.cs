@@ -34,29 +34,29 @@ public class Timer : MonoBehaviour
 
         if (time <= 0)
         {
-            gameManager.CurrentGameState = GameManager.GameState.LEVELEND;
+            gameManager.CurrentGameState = GameState.LEVELEND;
         }
     }
 
 
-    private void UpdateTimerState(GameManager.GameState currentGameState)
+    private void UpdateTimerState(GameState currentGameState)
     {
 
         switch (currentGameState)
         {
-            case GameManager.GameState.LEVELSTART:
+            case GameState.LEVELSTART:
                 TimerOff();
                 break;
 
-            case GameManager.GameState.GAMEACTIVE:
+            case GameState.GAMEACTIVE:
                 TimerOn();
                 break;
 
-            case GameManager.GameState.GAMEPAUSED:
+            case GameState.GAMEPAUSED:
                 TimerOff();
                 break;
 
-            case GameManager.GameState.LEVELEND:
+            case GameState.LEVELEND:
                 TimerOff();
                 break;
 

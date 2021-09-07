@@ -1,20 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using FMODUnity;
 
-public class PlayerController3 : MonoBehaviour
+public class RunnerController : MonoBehaviour
 {
 
     private Rigidbody playerRb;
     private Animator playerAnim;
-    private AudioSource playerAudio;
-    public ParticleSystem explosionParticle;
-    public ParticleSystem dirtParticle;
-    public ParticleSystem floatParticle;
-    public ParticleSystem pickupParticle;
-    public AudioClip jumpSound;
-    public AudioClip crashSound;
 
     private float vertVelocity;
     public float jumpTimeCurrent;
@@ -28,23 +22,41 @@ public class PlayerController3 : MonoBehaviour
     private bool isOnGround;
     private bool isJumping;
 
-    private GameManager3 gameManager3;
+    private GameManager gameManager;
+    private ScoreKeeper scoreKeeper;
+    // private SoundPlayer2D soundPlayer2D;
 
     public float sfxFallRate;
 
     public StudioEventEmitter sfxEmitterHover;
+
+
+    [SerializeField] private UnityEvent onJump;
+    [SerializeField] private UnityEvent onLand;
+    [SerializeField] private UnityEvent onHoverStart;
+    [SerializeField] private UnityEvent onHoverEnd;
+    [SerializeField] private UnityEvent onPickup;
+    [SerializeField] private UnityEvent onStep;
+    [SerializeField] private UnityEvent onCrash;
+
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        // soundPlayer2D = FindObjectOfType<SoundPlayer2D>();
+
+        playerRb = GetComponent<Rigidbody>();
+        playerAnim = GetComponent<Animator>();
+        // playerAudio = GetComponent<AudioSource>();
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
 
         jumpTimeCurrent = jumpTimeMax;
-        gameManager3 = GameManager3.Instance;
-
-        playerRb = GetComponent<Rigidbody>();
-        playerAnim = GetComponent<Animator>();
-        playerAudio = GetComponent<AudioSource>();
-        // print(Physics.gravity);
         Physics.gravity = new Vector3(0, -gravity, 0);
     }
 
@@ -61,7 +73,7 @@ public class PlayerController3 : MonoBehaviour
             jumpInput = false;
         }
 
-        if (!gameManager3.gameIsActive)
+        if (gameManager.CurrentGameState != GameState.GAMEACTIVE)
         {
             sfxEmitterHover.Stop();
         }
@@ -84,41 +96,36 @@ public class PlayerController3 : MonoBehaviour
             jumpTimeCurrent = jumpTimeMax;
             playerAnim.SetBool("Grounded", true);
 
-            floatParticle.Stop();
+            // floatParticle.Stop();
 
-            if (gameManager3.gameIsActive)
+            if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
             {
                 StartRunning();
             }
 
-
+            onLand?.Invoke();
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameManager3.gameIsActive)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             if (other.gameObject.CompareTag("Obstacle"))
             {
 
                 playerAnim.SetBool("Death_b", true);
                 playerAnim.SetInteger("DeathType_int", 1);
-                Debug.Log("Game Over!");
-                explosionParticle.Play();
                 sfxEmitterHover.Stop();
-                // gameManager3.sfxPlayer.PlaySoundEvent(6);
-                dirtParticle.Stop();
-                // playerAudio.PlayOneShot(crashSound, 1f);
-                gameManager3.EndGame();
+                onCrash?.Invoke();
 
             }
 
             if (other.gameObject.CompareTag("Pickup"))
             {
-
-                pickupParticle.Play();
-
+                scoreKeeper.IncrementScore();
+                Destroy(other.gameObject);
+                onPickup?.Invoke();
             }
         }
     }
@@ -130,15 +137,13 @@ public class PlayerController3 : MonoBehaviour
         if (isOnGround && jumpInput)
         {
             vertVelocity = 0;
-            // playerRb.AddForce(Vector3.up * (jumpForce), ForceMode.VelocityChange);
             playerRb.velocity = Vector3.up * jumpForce;
             isOnGround = false;
             isJumping = true;
             playerAnim.SetTrigger("Jump_trig");
             StopRunning();
             playerAnim.SetBool("Grounded", false);
-            gameManager3.sfxPlayer.PlaySoundEvent(4);
-            // dirtParticle.Stop();
+            onJump?.Invoke();
 
         }
 
@@ -147,7 +152,6 @@ public class PlayerController3 : MonoBehaviour
             if (jumpTimeCurrent > (jumpTimeMax * jumpTimeThreshold))
             {
                 playerAnim.SetTrigger("Jump_trig");
-                // playerRb.AddForce(Vector3.up * (jumpForce), ForceMode.VelocityChange);
                 playerRb.velocity = Vector3.up * jumpForce;
                 jumpTimeCurrent -= Time.deltaTime;
 
@@ -156,7 +160,6 @@ public class PlayerController3 : MonoBehaviour
             if (jumpTimeCurrent <= (jumpTimeMax * jumpTimeThreshold))
             {
                 playerAnim.SetTrigger("Jump_trig");
-                // playerRb.AddForce(Vector3.up * (jumpForce / 2), ForceMode.VelocityChange);
                 playerRb.velocity = Vector3.up * (jumpForce / 2);
                 jumpTimeCurrent -= Time.deltaTime;
 
@@ -179,12 +182,8 @@ public class PlayerController3 : MonoBehaviour
         {
             playerAnim.SetTrigger("Jump_trig");
             vertVelocity = vertVelocity - (Time.deltaTime * fallRate);
-
-
-
-            // playerRb.AddForce(new Vector3(0, vertVelocity, 0), ForceMode.VelocityChange);
             playerRb.velocity = new Vector3(0, vertVelocity, 0);
-            floatParticle.Play();
+            onHoverStart?.Invoke();
 
             if (!sfxEmitterHover.IsPlaying())
             {
@@ -196,18 +195,22 @@ public class PlayerController3 : MonoBehaviour
                 sfxEmitterHover.SetParameter("Fall Velocity", vertVelocity);
             }
 
+            
+
         }
 
         if (!isJumping && !isOnGround && !jumpInput)
         {
             // playerRb.velocity = Vector3.zero;
             playerRb.AddForce(new Vector3(0, 0, 0), ForceMode.VelocityChange);
-            floatParticle.Stop();
+            // floatParticle.Stop();
 
             if (sfxEmitterHover.IsPlaying())
             {
                 sfxEmitterHover.Stop();
             }
+
+            onHoverEnd?.Invoke();
 
         }
 
@@ -216,13 +219,18 @@ public class PlayerController3 : MonoBehaviour
     public void StartRunning()
     {
         playerAnim.SetBool("IsRunning", true);
-        dirtParticle.Play();
+        // dirtParticle.Play();
     }
 
     public void StopRunning()
     {
         playerAnim.SetBool("IsRunning", false);
-        dirtParticle.Stop();
+        // dirtParticle.Stop();
+    }
+
+    public void PlayerStep()
+    {
+        onStep?.Invoke();
     }
 
 }

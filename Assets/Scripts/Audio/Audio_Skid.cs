@@ -33,7 +33,7 @@ public class Audio_Skid : MonoBehaviour
     void Update()
     {
 
-        if(gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
+        if(gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             speedPerc = car.currentSpeed / car.maxSpeed;
         } else

@@ -52,7 +52,7 @@ public class SFX_PlayOnTriggerEnter : MonoBehaviour
     {
         if (other.gameObject.CompareTag(otherTag))
         {
-            if (soundEvents[eventIndex] != null && soundEffectsOn && triggerOn && !spawnBufferOn && gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
+            if (soundEvents[eventIndex] != null && soundEffectsOn && triggerOn && !spawnBufferOn && gameManager.CurrentGameState == GameState.GAMEACTIVE)
             {
                 PlaySoundEvent(eventIndex);
 

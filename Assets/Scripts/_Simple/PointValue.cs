@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Points : MonoBehaviour 
+public class PointValue : MonoBehaviour 
 {
 
     public int value;

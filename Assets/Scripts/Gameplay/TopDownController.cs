@@ -12,7 +12,7 @@ public class TopDownController : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Ammo ammo;
     [SerializeField] private GameObject playerModel;
-    [SerializeField] private SFXPlayer2D sfxPlayer;
+    [SerializeField] private SoundPlayer2D sfxPlayer;
 
 
     public ObjectPooler objectPooler;
@@ -31,7 +31,7 @@ public class TopDownController : MonoBehaviour
     {
         SetLookDirection();
 
-        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
 
             if (Input.GetMouseButtonDown(0))

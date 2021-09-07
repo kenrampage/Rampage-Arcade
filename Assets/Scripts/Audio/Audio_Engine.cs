@@ -25,7 +25,7 @@ public class Audio_Engine : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             speedPerc = car.currentSpeed / car.maxSpeed;
 

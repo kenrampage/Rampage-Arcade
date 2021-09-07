@@ -15,7 +15,7 @@ public class MoveForward : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             transform.Translate(Vector3.forward * Time.deltaTime * speed);
 

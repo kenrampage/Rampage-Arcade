@@ -7,7 +7,7 @@ public class Target : MonoBehaviour
     private Rigidbody targetRb;
     private GameManager5 gameManager5;
     public ParticleSystem explosionParticle;
-    private SFXPlayer2D sfxPlayer;
+    private SoundPlayer2D sfxPlayer;
     public int sfxIndex;
 
     public float minForce = 12;
@@ -31,7 +31,7 @@ public class Target : MonoBehaviour
         targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque());
 
-        sfxPlayer = gameManager5.sfxPlayer;
+        // sfxPlayer = gameManager5.sfxPlayer;
 
     }
 
@@ -45,7 +45,7 @@ public class Target : MonoBehaviour
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
             gameManager5.UpdateScore(pointValue);
             Instantiate(pointPrefab, transform.position, pointPrefab.transform.rotation);
-            sfxPlayer.PlaySoundEvent(sfxIndex);
+            // sfxPlayer.PlaySoundEvent(sfxIndex);
         }
 
     }

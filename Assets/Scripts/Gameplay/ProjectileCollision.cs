@@ -7,14 +7,14 @@ public class ProjectileCollision : MonoBehaviour
 
     private GameManager gameManager;
     private ScoreKeeper scoreKeeper;
-    private SFXPlayer2D sfxPlayer;
+    private SoundPlayer2D sfxPlayer;
 
     [SerializeField] private string barrierTag;
     [SerializeField] private string enemyTag;
 
     private void Awake()
     {
-        sfxPlayer = FindObjectOfType<SFXPlayer2D>();
+        sfxPlayer = FindObjectOfType<SoundPlayer2D>();
         gameManager = FindObjectOfType<GameManager>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }

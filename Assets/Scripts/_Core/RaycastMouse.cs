@@ -21,7 +21,7 @@ public class RaycastMouse : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             mouseCursor.SetActive(true);
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);

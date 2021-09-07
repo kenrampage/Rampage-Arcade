@@ -165,7 +165,7 @@ public class CarControllerC : MonoBehaviour
         Steer();
         UpdateWheelPoses();
 
-        if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             Accelerate();
 
@@ -222,12 +222,12 @@ public class CarControllerC : MonoBehaviour
 
         if (other.CompareTag("Pickup"))
         {
-            if (gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
+            if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
             {
                 Destroy(other.gameObject);
                 particlePickup.Play();
                 onPickup?.Invoke();
-                scoreKeeper.UpdateScore(other.GetComponent<Points>().value);
+                scoreKeeper.UpdateScore(other.GetComponent<PointValue>().value);
                 
 
             }

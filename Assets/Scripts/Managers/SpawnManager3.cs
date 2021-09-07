@@ -34,13 +34,19 @@ public class SpawnManager3 : MonoBehaviour
     private float pickupTimer;
     private Vector3 pickupPos;
 
-    private GameManager3 gameManager3;
+    private GameManager gameManager;
+    private ScoreKeeper scoreKeeper;
 
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager3 = GameManager3.Instance;
+
         InitializeSpawnTimers();
 
     }
@@ -49,18 +55,18 @@ public class SpawnManager3 : MonoBehaviour
     void Update()
     {
 
-        if (gameManager3.gameIsActive == true)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             obstacleTimer -= Time.deltaTime;
             pickupTimer -= Time.deltaTime;
-            
+
 
             if (obstacleTimer <= 0)
             {
                 SpawnObstacle();
                 if (obstacleIntervalMultiplier > obstacleIntervalMultiplierMin)
                 {
-                    obstacleIntervalMultiplier = obstacleIntervalMultiplierStart - (gameManager3.currentScore * obstacleIntervalMultiplierDecrease);
+                    obstacleIntervalMultiplier = obstacleIntervalMultiplierStart - (scoreKeeper.score * obstacleIntervalMultiplierDecrease);
                 }
                 obstacleTimer = Random.Range(obstacleIntervalMin, obstacleIntervalMax) * obstacleIntervalMultiplier;
             }
@@ -70,7 +76,7 @@ public class SpawnManager3 : MonoBehaviour
                 SpawnPickup();
                 if (pickupIntervalMultiplier > pickupIntervalMultiplierMin)
                 {
-                    pickupIntervalMultiplier = pickupIntervalMultiplierStart - (gameManager3.currentScore * pickupIntervalMultiplierDecrease);
+                    pickupIntervalMultiplier = pickupIntervalMultiplierStart - (scoreKeeper.score * pickupIntervalMultiplierDecrease);
                 }
                 pickupTimer = Random.Range(pickupIntervalMin, pickupIntervalMax) * pickupIntervalMultiplier;
             }
@@ -88,7 +94,7 @@ public class SpawnManager3 : MonoBehaviour
         GameObject obstacle = Instantiate(obstaclePrefabs[obstacleIndex], obstaclePos, obstaclePrefabs[obstacleIndex].transform.rotation);
         float newScale = Random.Range(obstacleSizeMin, obstacleSizeMax);
         obstacle.transform.localScale = new Vector3(newScale, newScale, newScale);
-        
+
     }
 
     void GenerateObstacleSpawnPos()
@@ -103,7 +109,7 @@ public class SpawnManager3 : MonoBehaviour
         GeneratePickupSpawnPos();
 
         Instantiate(pickupPrefabs[pickupIndex], pickupPos, pickupPrefabs[pickupIndex].transform.rotation);
-        
+
     }
 
     void GeneratePickupSpawnPos()

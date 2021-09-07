@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
-public class MusicManager : MonoBehaviour
+public class MusicPlayer2D : MonoBehaviour
 {
     public bool randomize;
     public int eventIndex;
@@ -134,23 +134,23 @@ public class MusicManager : MonoBehaviour
         eventInstance.setParameterByName("HighPass", 0);
     }
 
-    private void HandleGameStateChanged(GameManager.GameState currentGameState)
+    private void HandleGameStateChanged(GameState currentGameState)
     {
         switch (currentGameState)
         {
-            case GameManager.GameState.LEVELSTART:
+            case GameState.LEVELSTART:
                 HighPassOff();
                 break;
 
-            case GameManager.GameState.GAMEACTIVE:
+            case GameState.GAMEACTIVE:
                 HighPassOff();
                 break;
 
-            case GameManager.GameState.GAMEPAUSED:
+            case GameState.GAMEPAUSED:
                 HighPassOn();
                 break;
 
-            case GameManager.GameState.LEVELEND:
+            case GameState.LEVELEND:
                 HighPassOn();
                 break;
 

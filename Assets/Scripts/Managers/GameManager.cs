@@ -5,15 +5,12 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public enum GameState
-    {
-        LEVELSTART,
-        GAMEACTIVE,
-        GAMEPAUSED,
-        LEVELEND,
-    }
 
     public static event Action<GameState> onGameStateChanged;
+    public static event Action onGamePauseToggled;
+
+
+
     private GameState currentGameState;
     public GameState CurrentGameState
     {
@@ -35,7 +32,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             TogglePause();
         }
@@ -47,12 +44,12 @@ public class GameManager : MonoBehaviour
         CurrentGameState = GameState.LEVELSTART;
     }
 
-    public void StartGame()
+    public void StartLevel()
     {
         CurrentGameState = GameState.GAMEACTIVE;
     }
 
-    public void PauseGame()
+    public void PauseLevel()
     {
         CurrentGameState = GameState.GAMEPAUSED;
     }
@@ -68,10 +65,12 @@ public class GameManager : MonoBehaviour
         {
             case GameState.GAMEACTIVE:
                 CurrentGameState = GameState.GAMEPAUSED;
+                onGamePauseToggled?.Invoke();
                 break;
 
             case GameState.GAMEPAUSED:
                 CurrentGameState = GameState.GAMEACTIVE;
+                onGamePauseToggled?.Invoke();
                 break;
 
             default:

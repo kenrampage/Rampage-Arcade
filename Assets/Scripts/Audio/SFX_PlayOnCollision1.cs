@@ -63,7 +63,7 @@ public class SFX_PlayOnCollision1 : MonoBehaviour
         //     }
         // }
 
-        if (soundEvents[collisionEventIndex] != null && soundEffectsOn && collisionOn && gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE && !spawnBufferOn)
+        if (soundEvents[collisionEventIndex] != null && soundEffectsOn && collisionOn && gameManager.CurrentGameState == GameState.GAMEACTIVE && !spawnBufferOn)
         {
             PlaySoundEvent(collisionEventIndex, rb.velocity.magnitude);
 

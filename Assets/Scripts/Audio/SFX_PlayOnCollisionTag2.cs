@@ -16,7 +16,7 @@ public class SFX_PlayOnCollisionTag2 : MonoBehaviour
     public float spawnBufferDefault = .1f;
     private float spawnBufferCurrent;
 
-    private GameManager2 gameManager2;
+    // private GameManager2 gameManager2;
 
     // public float expirationTimerDefault;
     // public float expirationTimer;
@@ -27,7 +27,7 @@ public class SFX_PlayOnCollisionTag2 : MonoBehaviour
 
     private void Awake()
     {
-        gameManager2 = GameManager2.Instance;
+        // gameManager2 = GameManager2.Instance;
         spawnBufferOn = true;
         spawnBufferCurrent = spawnBufferDefault;
         rb = GetComponent<Rigidbody>();
@@ -65,7 +65,7 @@ public class SFX_PlayOnCollisionTag2 : MonoBehaviour
         // }
         if (other.gameObject.CompareTag(otherTag))
         {
-            if (soundEvents[collisionEventIndex] != null && soundEffectsOn && collisionOn  && !spawnBufferOn && gameManager2.gameIsActive)
+            if (soundEvents[collisionEventIndex] != null && soundEffectsOn && collisionOn  && !spawnBufferOn)
             {
                 PlaySoundEvent(collisionEventIndex);
 
@@ -78,7 +78,7 @@ public class SFX_PlayOnCollisionTag2 : MonoBehaviour
     {
         if (other.gameObject.CompareTag(otherTag))
         {
-            if (soundEvents[collisionEventIndex] != null && soundEffectsOn && triggerOn  && !spawnBufferOn && gameManager2.gameIsActive)
+            if (soundEvents[collisionEventIndex] != null && soundEffectsOn && triggerOn  && !spawnBufferOn)
             {
                 PlaySoundEvent(collisionEventIndex);
 

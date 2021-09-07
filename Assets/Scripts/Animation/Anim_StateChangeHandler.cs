@@ -22,23 +22,23 @@ public class Anim_StateChangeHandler : MonoBehaviour
         GameManager.onGameStateChanged -= HandleGameStateChanged;
     }
 
-    private void HandleGameStateChanged(GameManager.GameState currentGameState)
+    private void HandleGameStateChanged(GameState currentGameState)
     {
         switch (currentGameState)
         {
-            case GameManager.GameState.LEVELSTART:
+            case GameState.LEVELSTART:
                 PauseAnimation();
                 break;
 
-            case GameManager.GameState.GAMEACTIVE:
+            case GameState.GAMEACTIVE:
                 StartAnimation();
                 break;
 
-            case GameManager.GameState.GAMEPAUSED:
+            case GameState.GAMEPAUSED:
                 PauseAnimation();
                 break;
 
-            case GameManager.GameState.LEVELEND:
+            case GameState.LEVELEND:
                 PauseAnimation();
                 break;
 

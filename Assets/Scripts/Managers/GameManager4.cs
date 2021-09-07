@@ -19,11 +19,11 @@ public class GameManager4 : Singleton<GameManager4>
 
     public float delayTime;
 
-    public SFXPlayer2D sfxPlayer;
+    // public SFXPlayer2D sfxPlayer;
     public int sfxIndexPause;
     public int sfxIndexUnPause;
 
-    public MusicManager musicManager;
+    // public MusicManager musicManager;
 
 
     // override public void Awake()
@@ -74,8 +74,8 @@ public class GameManager4 : Singleton<GameManager4>
         endUI.SetActive(false);
         gameIsActive = false;
         Time.timeScale = 0f;
-        sfxPlayer.PlaySoundEvent(sfxIndexPause);
-        musicManager.HighPassOn();
+        // sfxPlayer.PlaySoundEvent(sfxIndexPause);
+        // musicManager.HighPassOn();
     }
 
     public void UnpauseGame()
@@ -86,8 +86,8 @@ public class GameManager4 : Singleton<GameManager4>
         endUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsActive = true;
-        sfxPlayer.PlaySoundEvent(sfxIndexUnPause);
-        musicManager.HighPassOff();
+        // sfxPlayer.PlaySoundEvent(sfxIndexUnPause);
+        // musicManager.HighPassOff();
 
     }
 
@@ -99,8 +99,8 @@ public class GameManager4 : Singleton<GameManager4>
         endUI.SetActive(true);
         gameIsActive = false;
         Time.timeScale = 0f;
-        musicManager.HighPassOn();
-        sfxPlayer.PlaySoundEvent(3);
+        // musicManager.HighPassOn();
+        // sfxPlayer.PlaySoundEvent(3);
     }
 
 

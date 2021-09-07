@@ -3,15 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UI_FadeEffect : MonoBehaviour
+public class UIFadeEffect : MonoBehaviour
 {
+    [SerializeField] private bool startOpaque;
+    [SerializeField] private GameObject panel;
+    [SerializeField] private float fadeOutTime;
+    [SerializeField] private float fadeInTime;
 
-    public bool startOpaque;
-    public Image image;
-    public RectTransform rectTransform;
-    public float fadeInTime;
+    private Image image;
+    private RectTransform rectTransform;
 
     private float targetAlpha;
+
+    private void Awake()
+    {
+        image = panel.GetComponent<Image>();
+        rectTransform = panel.GetComponent<RectTransform>();
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +27,7 @@ public class UI_FadeEffect : MonoBehaviour
         if (startOpaque)
         {
             image.color = new Color(image.color.r, image.color.g, image.color.g, 1);
-            FadeInEffect();
+            FadeIn();
         }
         else
         {
@@ -27,7 +35,7 @@ public class UI_FadeEffect : MonoBehaviour
         }
     }
 
-    public void FadeInEffect()
+    public void FadeIn()
     {
         if (image.color.a == 1)
         {
@@ -42,7 +50,7 @@ public class UI_FadeEffect : MonoBehaviour
 
     }
 
-    public void FadeOutEffect(float fadeOutTime)
+    public void FadeOut()
     {
         if (image.color.a == 1)
         {

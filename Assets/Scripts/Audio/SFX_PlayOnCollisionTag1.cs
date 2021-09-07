@@ -64,7 +64,7 @@ public class SFX_PlayOnCollisionTag1 : MonoBehaviour
         // }
         if (other.gameObject.CompareTag(otherTag))
         {
-            if (soundEvents[collisionEventIndex] != null && soundEffectsOn && collisionOn && gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE && !spawnBufferOn)
+            if (soundEvents[collisionEventIndex] != null && soundEffectsOn && collisionOn && gameManager.CurrentGameState == GameState.GAMEACTIVE && !spawnBufferOn)
             {
                 PlaySoundEvent(collisionEventIndex);
 

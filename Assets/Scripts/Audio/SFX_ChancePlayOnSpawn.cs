@@ -11,27 +11,10 @@ public class SFX_ChancePlayOnSpawn : MonoBehaviour
 
     public float chanceThreshhold;
 
-    // public bool collisionOn = true;
-    // public int collisionEventIndex;
-
-    // private bool spawnBufferOn = true;
-    // public float spawnBufferDefault = .1f;
-    // private float spawnBufferCurrent;
-
-    private GameManager2 gameManager2;
-
-    // public float expirationTimerDefault;
-    // public float expirationTimer;
-
-    // public string otherTag;
-
     private Rigidbody rb;
 
     private void Awake()
     {
-        gameManager2 = GameManager2.Instance;
-        // spawnBufferOn = true;
-        // spawnBufferCurrent = spawnBufferDefault;
         rb = GetComponent<Rigidbody>();
     }
 

@@ -5,7 +5,7 @@ using System;
 
 public class BoltCollision : MonoBehaviour
 {
-    [SerializeField] private SFXPlayer2D sfxPlayer;
+    // [SerializeField] private SFXPlayer2D sfxPlayer;
     // public static event Action onBoltPickup;
 
 

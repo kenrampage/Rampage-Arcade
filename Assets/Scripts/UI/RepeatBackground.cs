@@ -25,8 +25,7 @@ public class RepeatBackground : MonoBehaviour
     void Update()
     {
         if (transform.position.x < loopPos)
-        {   
-            print("looped");
+        {
             transform.position = startPos;
         }
     }

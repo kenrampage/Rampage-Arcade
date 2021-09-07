@@ -15,7 +15,7 @@ public class AnimalCollision : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
-        if (other.transform.tag == "Barrier" && gameManager.CurrentGameState == GameManager.GameState.GAMEACTIVE)
+        if (other.transform.tag == "Barrier" && gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             print("Game Over");
             Destroy(this.gameObject);
