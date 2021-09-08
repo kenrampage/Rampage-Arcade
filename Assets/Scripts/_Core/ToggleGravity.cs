@@ -1,17 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ToggleGravity : MonoBehaviour
 {
-
-    [SerializeField] private Vector3 initialGravity;
+    private Vector3 initialGravity;
 
     private void Awake()
     {
         initialGravity = Physics.gravity;
     }
-
 
     public void EnableGravity()
     {

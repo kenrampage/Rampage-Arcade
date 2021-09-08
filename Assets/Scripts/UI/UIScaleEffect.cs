@@ -8,8 +8,8 @@ public class UIScaleEffect : MonoBehaviour
     private RectTransform rectTransform;
     private Vector3 originalScale;
 
-    [SerializeField] private float scaleAmount;
-    [SerializeField] private float scaleSpeed;
+    [SerializeField] private float scaleAmount = 1.05f;
+    [SerializeField] private float scaleSpeed = .2f;
 
     private void Awake()
     {

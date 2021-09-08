@@ -7,6 +7,7 @@ public class HandleGameStateChanged : MonoBehaviour
     [SerializeField] private UnityEvent onGameActivated;
     [SerializeField] private UnityEvent onGamePaused;
     [SerializeField] private UnityEvent onLevelEnd;
+    [SerializeField] private UnityEvent onTransition;
 
     private void OnEnable()
     {
@@ -36,6 +37,10 @@ public class HandleGameStateChanged : MonoBehaviour
 
             case GameState.LEVELEND:
                 onLevelEnd?.Invoke();
+                break;
+
+            case GameState.TRANSITION:
+                onTransition?.Invoke();
                 break;
 
             default:

@@ -24,16 +24,23 @@ public class PlayerController4 : MonoBehaviour
     public float deathHeight;
     public float fadeTime;
 
-    private GameManager4 gameManager4;
+    private GameManager gameManager;
+    [SerializeField] SpawnManager4 spawnManager4;
 
     public float forwardInput;
 
     private float currentSpeed;
 
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
-        gameManager4 = GameManager4.Instance;
+        
         hasPowerUp = false;
         playerRb = GetComponent<Rigidbody>();
         focalPoint = GameObject.Find("Focal Point");
@@ -57,9 +64,9 @@ public class PlayerController4 : MonoBehaviour
 
         if (transform.position.y <= -10)
         {
-            if (gameManager4.gameIsActive)
+            if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
             {
-                gameManager4.EndGame();
+                gameManager.EndLevel();
 
             }
         }
@@ -68,7 +75,7 @@ public class PlayerController4 : MonoBehaviour
         {
             powerupDurationCurrent -= Time.deltaTime;
             powerupTimer.fillAmount = powerupDurationCurrent / powerupDuration;
-            
+
             if (powerupDurationCurrent <= 0)
             {
                 PowerupOff();
@@ -80,7 +87,7 @@ public class PlayerController4 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (gameManager4.gameIsActive)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             playerRb.AddForce(focalPoint.transform.forward * forwardInput * speed);
         }
@@ -94,7 +101,7 @@ public class PlayerController4 : MonoBehaviour
         if (other.CompareTag("Powerup"))
         {
             Destroy(other.gameObject);
-            gameManager4.spawnManager4.powerupCountCurrent--;
+            spawnManager4.powerupCountCurrent--;
             PowerupOn();
             FMODUnity.RuntimeManager.PlayOneShotAttached(soundEvents[2], gameObject);
         }

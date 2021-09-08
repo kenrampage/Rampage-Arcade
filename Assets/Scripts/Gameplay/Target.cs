@@ -5,7 +5,7 @@ using UnityEngine;
 public class Target : MonoBehaviour
 {
     private Rigidbody targetRb;
-    private GameManager5 gameManager5;
+    private GameManager gameManager;
     public ParticleSystem explosionParticle;
     private SoundPlayer2D sfxPlayer;
     public int sfxIndex;
@@ -19,19 +19,26 @@ public class Target : MonoBehaviour
     public int pointValue;
     public GameObject pointPrefab;
 
+    private ScoreKeeper scoreKeeper;
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        targetRb = GetComponent<Rigidbody>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
-        targetRb = GetComponent<Rigidbody>();
-        gameManager5 = GameManager5.Instance;
-
+        
         transform.position = RandomSpawnPos();
 
         targetRb.AddForce(RandomForce(), ForceMode.Impulse);
         targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque());
 
-        // sfxPlayer = gameManager5.sfxPlayer;
+        // sfxPlayer = gameManager.sfxPlayer;
 
     }
 
@@ -39,11 +46,11 @@ public class Target : MonoBehaviour
     // Destroys this game object on mouse down
     private void OnMouseDown()
     {
-        if (gameManager5.gameIsActive)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             Destroy(gameObject);
             Instantiate(explosionParticle, transform.position, explosionParticle.transform.rotation);
-            gameManager5.UpdateScore(pointValue);
+            scoreKeeper.UpdateScore(pointValue);
             Instantiate(pointPrefab, transform.position, pointPrefab.transform.rotation);
             // sfxPlayer.PlaySoundEvent(sfxIndex);
         }
@@ -57,7 +64,7 @@ public class Target : MonoBehaviour
 
     //     if (!gameObject.CompareTag("Bad"))
     //     {
-    //         gameManager5.EndGame();
+    //         gameManager.EndGame();
     //     }
 
     // }

@@ -26,7 +26,7 @@ public class GameManager5 : Singleton<GameManager5>
 
     public SpawnManager5 spawnManager5;
 
-    public int difficulty;
+    // public int difficulty;
 
     public float delayTime;
 
@@ -69,7 +69,7 @@ public class GameManager5 : Singleton<GameManager5>
         endUI.SetActive(false);
         Time.timeScale = 1f;
         gameIsActive = true;
-        spawnManager5.StartSpawning(difficulty);
+        // spawnManager5.StartSpawning(difficulty);
 
     }
 
@@ -160,8 +160,5 @@ public class GameManager5 : Singleton<GameManager5>
 
     }
 
-    public void SetDifficulty(int d)
-    {
-        difficulty = d;
-    }
+
 }

@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System;
 using UnityEngine;
 
@@ -9,9 +7,7 @@ public class GameManager : MonoBehaviour
     public static event Action<GameState> onGameStateChanged;
     public static event Action onGamePauseToggled;
 
-
-
-    private GameState currentGameState;
+    public GameState currentGameState;
     public GameState CurrentGameState
     {
         get
@@ -59,17 +55,22 @@ public class GameManager : MonoBehaviour
         CurrentGameState = GameState.LEVELEND;
     }
 
+    public void TransitionLevel()
+    {
+        CurrentGameState = GameState.TRANSITION;
+    }
+
     private void TogglePause()
     {
         switch (CurrentGameState)
         {
             case GameState.GAMEACTIVE:
-                CurrentGameState = GameState.GAMEPAUSED;
+                PauseLevel();
                 onGamePauseToggled?.Invoke();
                 break;
 
             case GameState.GAMEPAUSED:
-                CurrentGameState = GameState.GAMEACTIVE;
+                StartLevel();
                 onGamePauseToggled?.Invoke();
                 break;
 

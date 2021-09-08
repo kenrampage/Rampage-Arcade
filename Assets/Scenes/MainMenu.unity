@@ -209,22 +209,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11280319}
+      - m_Target: {fileID: 196675117}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 4
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1750253292}
-        m_TargetAssemblyTypeName: UI_FadeEffect, Assembly-CSharp
-        m_MethodName: FadeOutEffect
-        m_Mode: 4
+      - m_Target: {fileID: 1616173681}
+        m_TargetAssemblyTypeName: UIFadeEffect, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -233,8 +233,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 437960170}
-        m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+      - m_Target: {fileID: 1693367471}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
         m_MethodName: PlaySoundEvent
         m_Mode: 3
         m_Arguments:
@@ -245,14 +245,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 437960170}
-        m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+      - m_Target: {fileID: 1693367471}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
         m_MethodName: DisableSoundEffects
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -316,11 +316,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 11280314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac3f9f4a18d09394ca951b9b78800e84, type: 3}
+  m_Script: {fileID: 11500000, guid: 67a7c175caa972c4f935da5084ad04e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Level 4
-  delayTime: 1
+  scaleAmount: 1.05
+  scaleSpeed: 0.2
 --- !u!114 &11280320
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,9 +338,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 11280321}
-          m_TargetAssemblyTypeName: MenuButtonEffect, Assembly-CSharp
-          m_MethodName: MouseOver
+        - m_Target: {fileID: 11280319}
+          m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
+          m_MethodName: Scale
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -350,10 +350,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 437960170}
-          m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+        - m_Target: {fileID: 1693367471}
+          m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
           m_MethodName: PlaySoundEvent
           m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11280321}
+          m_TargetAssemblyTypeName: UIMenuThumbnailSwitcher, Assembly-CSharp
+          m_MethodName: SetThumbnailImage
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -366,9 +378,21 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 11280319}
+          m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
+          m_MethodName: ScaleReset
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 11280321}
-          m_TargetAssemblyTypeName: MenuButtonEffect, Assembly-CSharp
-          m_MethodName: MouseExit
+          m_TargetAssemblyTypeName: UIMenuThumbnailSwitcher, Assembly-CSharp
+          m_MethodName: ResetThumbnailImage
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -387,14 +411,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 11280314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f58893cf559c0140a37f95989f7ec4b, type: 3}
+  m_Script: {fileID: 11500000, guid: bf63eb91f398a764ab2fe067c5ec78a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectTransform: {fileID: 11280315}
-  scaleAmount: 1.05
-  scaleSpeed: 0.2
-  thumbnail: {fileID: 2800000, guid: a1f0796d6ccfdbe4d9c83b0387092092, type: 3}
-  originalThumbnail: {fileID: 0}
+  thumbnailTexture: {fileID: 2800000, guid: a1f0796d6ccfdbe4d9c83b0387092092, type: 3}
   thumbnailTarget: {fileID: 992849663}
 --- !u!1 &32738068
 GameObject:
@@ -431,8 +451,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.828125, y: 308.78848}
-  m_SizeDelta: {x: 819.632, y: 229.646}
+  m_AnchoredPosition: {x: -0.83, y: 358}
+  m_SizeDelta: {x: 1043.36, y: 301.43}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &32738070
 MonoBehaviour:
@@ -454,10 +474,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5-GAMES-IN-1
+  m_text: 'RAMPAGE
+
+    ARCADE'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5e501e2dfa454e04ba1e692dab88b0ae, type: 2}
-  m_sharedMaterial: {fileID: -4823464112991679996, guid: 5e501e2dfa454e04ba1e692dab88b0ae, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: a657c56097809da4fac8f3afab3dca38, type: 2}
+  m_sharedMaterial: {fileID: -9052656444081023272, guid: a657c56097809da4fac8f3afab3dca38, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -481,19 +503,19 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 126.75
+  m_fontSize: 188.35
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 150
+  m_fontSizeMax: 200
   m_fontStyle: 0
   m_HorizontalAlignment: 2
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: -40
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -545,6 +567,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   text: {fileID: 32738070}
   waveSize: 10
+--- !u!1 &99053818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 99053819}
+  m_Layer: 0
+  m_Name: ---CAMERAS & LIGHTING---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &99053819
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 99053818}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &149966572
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,6 +731,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149966572}
   m_CullTransparentMesh: 1
+--- !u!1 &196675116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 196675118}
+  - component: {fileID: 196675117}
+  m_Layer: 0
+  m_Name: Scene Loader
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &196675117
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196675116}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d5d6be3d259718640aa73f04a93501f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  loadDelay: 1
+--- !u!4 &196675118
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 196675116}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &232529786
 GameObject:
   m_ObjectHideFlags: 0
@@ -765,22 +861,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 232529791}
+      - m_Target: {fileID: 196675117}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 5
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1750253292}
-        m_TargetAssemblyTypeName: UI_FadeEffect, Assembly-CSharp
-        m_MethodName: FadeOutEffect
-        m_Mode: 4
+      - m_Target: {fileID: 1616173681}
+        m_TargetAssemblyTypeName: UIFadeEffect, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -789,8 +885,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 437960170}
-        m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+      - m_Target: {fileID: 1693367471}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
         m_MethodName: PlaySoundEvent
         m_Mode: 3
         m_Arguments:
@@ -801,14 +897,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 437960170}
-        m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+      - m_Target: {fileID: 1693367471}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
         m_MethodName: DisableSoundEffects
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -872,11 +968,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 232529786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac3f9f4a18d09394ca951b9b78800e84, type: 3}
+  m_Script: {fileID: 11500000, guid: 67a7c175caa972c4f935da5084ad04e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Level 5
-  delayTime: 1
+  scaleAmount: 1.05
+  scaleSpeed: 0.2
 --- !u!114 &232529792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -894,9 +990,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 232529793}
-          m_TargetAssemblyTypeName: MenuButtonEffect, Assembly-CSharp
-          m_MethodName: MouseOver
+        - m_Target: {fileID: 232529791}
+          m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
+          m_MethodName: Scale
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -906,10 +1002,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 437960170}
-          m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+        - m_Target: {fileID: 1693367471}
+          m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
           m_MethodName: PlaySoundEvent
           m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 232529793}
+          m_TargetAssemblyTypeName: UIMenuThumbnailSwitcher, Assembly-CSharp
+          m_MethodName: SetThumbnailImage
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -922,9 +1030,21 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 232529791}
+          m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
+          m_MethodName: ScaleReset
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 232529793}
-          m_TargetAssemblyTypeName: MenuButtonEffect, Assembly-CSharp
-          m_MethodName: MouseExit
+          m_TargetAssemblyTypeName: UIMenuThumbnailSwitcher, Assembly-CSharp
+          m_MethodName: ResetThumbnailImage
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -943,14 +1063,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 232529786}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f58893cf559c0140a37f95989f7ec4b, type: 3}
+  m_Script: {fileID: 11500000, guid: bf63eb91f398a764ab2fe067c5ec78a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectTransform: {fileID: 232529787}
-  scaleAmount: 1.05
-  scaleSpeed: 0.2
-  thumbnail: {fileID: 2800000, guid: 47816cb0f964b0f4f830e18206ad5733, type: 3}
-  originalThumbnail: {fileID: 0}
+  thumbnailTexture: {fileID: 2800000, guid: 47816cb0f964b0f4f830e18206ad5733, type: 3}
   thumbnailTarget: {fileID: 992849663}
 --- !u!1 &322941359
 GameObject:
@@ -984,53 +1100,6 @@ Transform:
   - {fileID: 441963890}
   m_Father: {fileID: 794500719}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &437960169
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 437960171}
-  - component: {fileID: 437960170}
-  m_Layer: 0
-  m_Name: SFXManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &437960170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437960169}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7befb7ded1ec7a4787333ce916ceda0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEvents:
-  - event:/Menu/Menu Hover
-  - event:/Menu/Menu Select
-  soundEffectsOn: 1
---- !u!4 &437960171
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 437960169}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &441963889
 GameObject:
@@ -1259,7 +1328,7 @@ GameObject:
   - component: {fileID: 504691903}
   - component: {fileID: 504691902}
   m_Layer: 0
-  m_Name: MusicManager
+  m_Name: Music Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1364,7 +1433,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &794500715
 GameObject:
@@ -1466,7 +1535,7 @@ RectTransform:
   - {fileID: 992849662}
   - {fileID: 322941360}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1559,22 +1628,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 869436815}
+      - m_Target: {fileID: 196675117}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 1
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1750253292}
-        m_TargetAssemblyTypeName: UI_FadeEffect, Assembly-CSharp
-        m_MethodName: FadeOutEffect
-        m_Mode: 4
+      - m_Target: {fileID: 1616173681}
+        m_TargetAssemblyTypeName: UIFadeEffect, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1583,8 +1652,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 437960170}
-        m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+      - m_Target: {fileID: 1693367471}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
         m_MethodName: PlaySoundEvent
         m_Mode: 3
         m_Arguments:
@@ -1595,14 +1664,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 437960170}
-        m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+      - m_Target: {fileID: 1693367471}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
         m_MethodName: DisableSoundEffects
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -1666,11 +1735,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 869436810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac3f9f4a18d09394ca951b9b78800e84, type: 3}
+  m_Script: {fileID: 11500000, guid: 67a7c175caa972c4f935da5084ad04e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Level 1
-  delayTime: 1
+  scaleAmount: 1.05
+  scaleSpeed: 0.2
 --- !u!114 &869436816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1688,9 +1757,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 869436817}
-          m_TargetAssemblyTypeName: MenuButtonEffect, Assembly-CSharp
-          m_MethodName: MouseOver
+        - m_Target: {fileID: 869436815}
+          m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
+          m_MethodName: Scale
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1700,10 +1769,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 437960170}
-          m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+        - m_Target: {fileID: 1693367471}
+          m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
           m_MethodName: PlaySoundEvent
           m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 869436817}
+          m_TargetAssemblyTypeName: UIMenuThumbnailSwitcher, Assembly-CSharp
+          m_MethodName: SetThumbnailImage
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1716,9 +1797,21 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 869436815}
+          m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
+          m_MethodName: ScaleReset
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 869436817}
-          m_TargetAssemblyTypeName: MenuButtonEffect, Assembly-CSharp
-          m_MethodName: MouseExit
+          m_TargetAssemblyTypeName: UIMenuThumbnailSwitcher, Assembly-CSharp
+          m_MethodName: ResetThumbnailImage
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -1737,14 +1830,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 869436810}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f58893cf559c0140a37f95989f7ec4b, type: 3}
+  m_Script: {fileID: 11500000, guid: bf63eb91f398a764ab2fe067c5ec78a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectTransform: {fileID: 869436811}
-  scaleAmount: 1.05
-  scaleSpeed: 0.2
-  thumbnail: {fileID: 2800000, guid: a46928309d4a8484582743d71952ff53, type: 3}
-  originalThumbnail: {fileID: 0}
+  thumbnailTexture: {fileID: 2800000, guid: a46928309d4a8484582743d71952ff53, type: 3}
   thumbnailTarget: {fileID: 992849663}
 --- !u!1 &992849661
 GameObject:
@@ -1818,6 +1907,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 992849661}
   m_CullTransparentMesh: 1
+--- !u!1 &1024676770
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1024676771}
+  m_Layer: 0
+  m_Name: ---UI---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1024676771
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1024676770}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1040748766
 GameObject:
   m_ObjectHideFlags: 0
@@ -2050,6 +2169,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094428310}
   m_CullTransparentMesh: 1
+--- !u!1 &1422600824
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1422600825}
+  m_Layer: 0
+  m_Name: ---SYSTEM---
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1422600825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1422600824}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1426096172
 GameObject:
   m_ObjectHideFlags: 0
@@ -2277,7 +2426,7 @@ Transform:
   m_LocalScale: {x: 4, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 90, y: -180, z: 0}
 --- !u!1 &1568714604
 GameObject:
@@ -2425,8 +2574,9 @@ GameObject:
   - component: {fileID: 1616173679}
   - component: {fileID: 1616173678}
   - component: {fileID: 1616173677}
+  - component: {fileID: 1616173681}
   m_Layer: 0
-  m_Name: OverlayCanvas
+  m_Name: Fade Effect Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2506,13 +2656,76 @@ RectTransform:
   m_Children:
   - {fileID: 1750253289}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1616173681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1616173676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 066b6864f07d022459de976d9f915287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startOpaque: 1
+  panel: {fileID: 1750253288}
+  fadeOutTime: 1
+  fadeInTime: 1
+--- !u!1 &1693367469
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1693367470}
+  - component: {fileID: 1693367471}
+  m_Layer: 0
+  m_Name: UI Sound Player
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1693367470
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693367469}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1693367471
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1693367469}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7befb7ded1ec7a4787333ce916ceda0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvents:
+  - event:/Menu/Menu Hover
+  - event:/Menu/Menu Select
+  soundEffectsOn: 1
 --- !u!1 &1750253288
 GameObject:
   m_ObjectHideFlags: 0
@@ -2522,7 +2735,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1750253289}
-  - component: {fileID: 1750253292}
   - component: {fileID: 1750253291}
   - component: {fileID: 1750253290}
   m_Layer: 0
@@ -2589,22 +2801,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1750253288}
   m_CullTransparentMesh: 1
---- !u!114 &1750253292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1750253288}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 066b6864f07d022459de976d9f915287, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startOpaque: 0
-  image: {fileID: 1750253290}
-  rectTransform: {fileID: 1750253289}
-  fadeInTime: 0
 --- !u!1 &1882839242
 GameObject:
   m_ObjectHideFlags: 0
@@ -2691,22 +2887,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1882839247}
+      - m_Target: {fileID: 196675117}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 2
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1750253292}
-        m_TargetAssemblyTypeName: UI_FadeEffect, Assembly-CSharp
-        m_MethodName: FadeOutEffect
-        m_Mode: 4
+      - m_Target: {fileID: 1616173681}
+        m_TargetAssemblyTypeName: UIFadeEffect, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2715,8 +2911,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 437960170}
-        m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+      - m_Target: {fileID: 1693367471}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
         m_MethodName: PlaySoundEvent
         m_Mode: 3
         m_Arguments:
@@ -2727,14 +2923,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 437960170}
-        m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+      - m_Target: {fileID: 1693367471}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
         m_MethodName: DisableSoundEffects
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -2798,11 +2994,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1882839242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac3f9f4a18d09394ca951b9b78800e84, type: 3}
+  m_Script: {fileID: 11500000, guid: 67a7c175caa972c4f935da5084ad04e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Level 2
-  delayTime: 1
+  scaleAmount: 1.05
+  scaleSpeed: 0.2
 --- !u!114 &1882839248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2820,9 +3016,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1882839249}
-          m_TargetAssemblyTypeName: MenuButtonEffect, Assembly-CSharp
-          m_MethodName: MouseOver
+        - m_Target: {fileID: 1882839247}
+          m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
+          m_MethodName: Scale
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2832,10 +3028,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 437960170}
-          m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+        - m_Target: {fileID: 1693367471}
+          m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
           m_MethodName: PlaySoundEvent
           m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1882839249}
+          m_TargetAssemblyTypeName: UIMenuThumbnailSwitcher, Assembly-CSharp
+          m_MethodName: SetThumbnailImage
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2848,9 +3056,21 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 1882839247}
+          m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
+          m_MethodName: ScaleReset
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 1882839249}
-          m_TargetAssemblyTypeName: MenuButtonEffect, Assembly-CSharp
-          m_MethodName: MouseExit
+          m_TargetAssemblyTypeName: UIMenuThumbnailSwitcher, Assembly-CSharp
+          m_MethodName: ResetThumbnailImage
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2869,14 +3089,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1882839242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f58893cf559c0140a37f95989f7ec4b, type: 3}
+  m_Script: {fileID: 11500000, guid: bf63eb91f398a764ab2fe067c5ec78a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectTransform: {fileID: 1882839243}
-  scaleAmount: 1.05
-  scaleSpeed: 0.2
-  thumbnail: {fileID: 2800000, guid: 2d7b49b78889fdf409c46a4738542ead, type: 3}
-  originalThumbnail: {fileID: 0}
+  thumbnailTexture: {fileID: 2800000, guid: 2d7b49b78889fdf409c46a4738542ead, type: 3}
   thumbnailTarget: {fileID: 992849663}
 --- !u!1 &1961007528
 GameObject:
@@ -3173,22 +3389,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2070110980}
+      - m_Target: {fileID: 196675117}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadLevel
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Level 3
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1750253292}
-        m_TargetAssemblyTypeName: UI_FadeEffect, Assembly-CSharp
-        m_MethodName: FadeOutEffect
-        m_Mode: 4
+      - m_Target: {fileID: 1616173681}
+        m_TargetAssemblyTypeName: UIFadeEffect, Assembly-CSharp
+        m_MethodName: FadeOut
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3197,8 +3413,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 437960170}
-        m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+      - m_Target: {fileID: 1693367471}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
         m_MethodName: PlaySoundEvent
         m_Mode: 3
         m_Arguments:
@@ -3209,14 +3425,14 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 437960170}
-        m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+      - m_Target: {fileID: 1693367471}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
         m_MethodName: DisableSoundEffects
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
+          m_IntArgument: 1
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
@@ -3280,11 +3496,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2070110975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac3f9f4a18d09394ca951b9b78800e84, type: 3}
+  m_Script: {fileID: 11500000, guid: 67a7c175caa972c4f935da5084ad04e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Level 3
-  delayTime: 1
+  scaleAmount: 1.05
+  scaleSpeed: 0.2
 --- !u!114 &2070110981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3302,9 +3518,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 2070110982}
-          m_TargetAssemblyTypeName: MenuButtonEffect, Assembly-CSharp
-          m_MethodName: MouseOver
+        - m_Target: {fileID: 2070110980}
+          m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
+          m_MethodName: Scale
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3314,10 +3530,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-        - m_Target: {fileID: 437960170}
-          m_TargetAssemblyTypeName: SFX_PlayOneShot, Assembly-CSharp
+        - m_Target: {fileID: 1693367471}
+          m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
           m_MethodName: PlaySoundEvent
           m_Mode: 3
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 2070110982}
+          m_TargetAssemblyTypeName: UIMenuThumbnailSwitcher, Assembly-CSharp
+          m_MethodName: SetThumbnailImage
+          m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3330,9 +3558,21 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
+        - m_Target: {fileID: 2070110980}
+          m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
+          m_MethodName: ScaleReset
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
         - m_Target: {fileID: 2070110982}
-          m_TargetAssemblyTypeName: MenuButtonEffect, Assembly-CSharp
-          m_MethodName: MouseExit
+          m_TargetAssemblyTypeName: UIMenuThumbnailSwitcher, Assembly-CSharp
+          m_MethodName: ResetThumbnailImage
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -3351,12 +3591,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 2070110975}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f58893cf559c0140a37f95989f7ec4b, type: 3}
+  m_Script: {fileID: 11500000, guid: bf63eb91f398a764ab2fe067c5ec78a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rectTransform: {fileID: 2070110976}
-  scaleAmount: 1.05
-  scaleSpeed: 0.2
-  thumbnail: {fileID: 2800000, guid: dabdeb28c956f1a43884c19e599b672b, type: 3}
-  originalThumbnail: {fileID: 0}
+  thumbnailTexture: {fileID: 2800000, guid: dabdeb28c956f1a43884c19e599b672b, type: 3}
   thumbnailTarget: {fileID: 992849663}

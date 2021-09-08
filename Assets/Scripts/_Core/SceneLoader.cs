@@ -10,17 +10,21 @@ public class SceneLoader : MonoBehaviour
     public void LoadMainMenu()
     {
         Time.timeScale = 1f;
-        StartCoroutine("LoadLevelDelay", "MainMenu");
+        StartCoroutine("LoadSceneWithDelay", "MainMenu");
     }
 
     public void ReloadScene()
     {
         Time.timeScale = 1f;
-        StartCoroutine("LoadLevelDelay", SceneManager.GetActiveScene().name);
+        StartCoroutine("LoadSceneWithDelay", SceneManager.GetActiveScene().name);
     }
 
+    public void LoadScene(string sceneName)
+    {
+        StartCoroutine("LoadSceneWithDelay", sceneName);
+    }
 
-    public IEnumerator LoadLevelDelay(string sceneName)
+    public IEnumerator LoadSceneWithDelay(string sceneName)
     {
         yield return new WaitForSeconds(loadDelay);
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);

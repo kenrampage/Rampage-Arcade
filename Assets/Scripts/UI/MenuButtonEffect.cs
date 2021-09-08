@@ -15,14 +15,14 @@ public class MenuButtonEffect : MonoBehaviour
     public Texture originalThumbnail;
     public RawImage thumbnailTarget;
 
-    private void Start()
-    {
+    // private void Start()
+    // {
         
-        originalThumbnail = thumbnailTarget.texture;
-        thumbnailTarget.color = new Color(0, 0, 0, 0);
-        originalScale = rectTransform.localScale;
+    //     originalThumbnail = thumbnailTarget.texture;
+    //     thumbnailTarget.color = new Color(0, 0, 0, 0);
+    //     originalScale = rectTransform.localScale;
 
-    }
+    // }
 
 
     public void MouseOver()

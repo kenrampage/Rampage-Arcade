@@ -4,4 +4,5 @@ public enum GameState
     GAMEACTIVE,
     GAMEPAUSED,
     LEVELEND,
+    TRANSITION,
 }

@@ -15,13 +15,21 @@ public class Enemy : MonoBehaviour
     private bool isDefeated;
 
 
-    private GameManager4 gameManager4;
+    private GameManager gameManager;
+    private ScoreKeeper scoreKeeper;
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+    }
+
+
 
     // Start is called before the first frame update
     void Start()
     {
         isDefeated = false;
-        gameManager4 = GameManager4.Instance;
         enemyRb = GetComponent<Rigidbody>();
         player = GameObject.Find("Player");
 
@@ -37,7 +45,7 @@ public class Enemy : MonoBehaviour
         if (transform.position.y < deathHeight && !isDefeated)
         {
             isDefeated = true;
-            gameManager4.IncreaseScore();
+            scoreKeeper.IncrementScore();
             LeanTween.alpha(this.gameObject, 0, fadeTime);
             FMODUnity.RuntimeManager.PlayOneShotAttached(soundEvent_Death, this.gameObject);
         }
@@ -55,7 +63,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (gameManager4.gameIsActive && !isDefeated)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE && !isDefeated)
         {
             enemyRb.AddForce(lookDirection * speed);
 

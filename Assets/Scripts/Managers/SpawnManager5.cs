@@ -11,37 +11,36 @@ public class SpawnManager5 : MonoBehaviour
     public float spawnRateMin;
     public float waveRate;
 
-    private GameManager5 gameManager5;
+    private GameManager gameManager;
+    [SerializeField] private DifficultyKeeper difficultyKeeper;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        gameManager5 = GameManager5.Instance;
+        difficultyKeeper = FindObjectOfType<DifficultyKeeper>();
+        gameManager = FindObjectOfType<GameManager>();
     }
-
-
 
     IEnumerator SpawnTarget()
     {
-        while (gameManager5.gameIsActive)
+        while (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             yield return new WaitForSeconds(spawnRateCurrent);
             int index = Random.Range(0, targets.Count);
             Instantiate(targets[index]);
 
-            if(spawnRateCurrent > spawnRateMin)
+            if (spawnRateCurrent > spawnRateMin)
             {
                 spawnRateCurrent -= waveRate;
                 print("Current Rate: " + spawnRateCurrent);
             }
-            
+
         }
     }
 
-    public void StartSpawning(int difficulty)
+    public void StartSpawning()
     {
-        spawnRateCurrent = spawnRateBase / difficulty;
-        spawnRateMin = (spawnRateBase / difficulty) / 3f;
+        spawnRateCurrent = spawnRateBase / difficultyKeeper.difficulty;
+        spawnRateMin = (spawnRateBase / difficultyKeeper.difficulty) / 3f;
 
         StartCoroutine(SpawnTarget());
     }

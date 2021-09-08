@@ -7,8 +7,8 @@ public class UIFadeEffect : MonoBehaviour
 {
     [SerializeField] private bool startOpaque;
     [SerializeField] private GameObject panel;
-    [SerializeField] private float fadeOutTime;
-    [SerializeField] private float fadeInTime;
+    [SerializeField] private float fadeOutTime = 1f;
+    [SerializeField] private float fadeInTime = 1f;
 
     private Image image;
     private RectTransform rectTransform;

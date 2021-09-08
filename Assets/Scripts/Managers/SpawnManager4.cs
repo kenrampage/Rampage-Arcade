@@ -12,14 +12,17 @@ public class SpawnManager4 : MonoBehaviour
     public int powerupCountTarget;
     public int waveNumber = 1;
 
-    private GameManager4 gameManager4;
+    private GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager4 = GameManager4.Instance;
         SpawnWave(waveNumber);
-
     }
 
     // Update is called once per frame
@@ -27,10 +30,10 @@ public class SpawnManager4 : MonoBehaviour
     {
         enemyCount = FindObjectsOfType<Enemy>().Length;
 
-        if (enemyCount == 0)
+        if (enemyCount <= 0 && gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             waveNumber++;
-            
+
             print("Powerup # Target: " + powerupCountTarget);
             SpawnWave(waveNumber);
         }

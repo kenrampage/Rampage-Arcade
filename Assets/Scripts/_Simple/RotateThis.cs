@@ -12,7 +12,7 @@ public class RotateThis : MonoBehaviour
         gameManager = FindObjectOfType<GameManager>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         if (gameManager.CurrentGameState == GameState.GAMEACTIVE || rotateAlways)
         {

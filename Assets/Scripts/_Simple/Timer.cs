@@ -12,13 +12,13 @@ public class Timer : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.onGameStateChanged += UpdateTimerState;
+        GameManager.onGameStateChanged += HandleGameStateChanged;
         CarControllerC.onPickup += ResetTimer;
     }
 
     private void OnDisable()
     {
-        GameManager.onGameStateChanged -= UpdateTimerState;
+        GameManager.onGameStateChanged -= HandleGameStateChanged;
         CarControllerC.onPickup -= ResetTimer;
     }
 
@@ -34,12 +34,14 @@ public class Timer : MonoBehaviour
 
         if (time <= 0)
         {
+            ResetTimer();
+            TimerOff();
             gameManager.CurrentGameState = GameState.LEVELEND;
         }
     }
 
 
-    private void UpdateTimerState(GameState currentGameState)
+    private void HandleGameStateChanged(GameState currentGameState)
     {
 
         switch (currentGameState)

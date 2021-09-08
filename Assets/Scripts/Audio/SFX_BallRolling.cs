@@ -16,12 +16,17 @@ public class SFX_BallRolling : MonoBehaviour
     private Rigidbody rb;
     public float currentSpeed;
 
-    private GameManager4 gameManager4;
+    private GameManager gameManager;
+
+    private void Awake()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-        gameManager4 = GameManager4.Instance;
+        
         rb = GetComponent<Rigidbody>();
 
         emitter.Event = soundEvent;
@@ -33,7 +38,7 @@ public class SFX_BallRolling : MonoBehaviour
     void Update()
     {
         currentSpeed = rb.velocity.magnitude;
-        if (gameManager4.gameIsActive)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
             emitter.SetParameter("Ball Speed", currentSpeed);
         }

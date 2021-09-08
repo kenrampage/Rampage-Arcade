@@ -15,7 +15,7 @@ public class RunnerController : MonoBehaviour
     public float jumpForce = 10f;
     public float jumpTimeMax;
     public float jumpTimeThreshold;
-    public float gravity;
+    public float gravityForce;
     public float fallRate;
 
     private bool jumpInput;
@@ -24,11 +24,7 @@ public class RunnerController : MonoBehaviour
 
     private GameManager gameManager;
     private ScoreKeeper scoreKeeper;
-    // private SoundPlayer2D soundPlayer2D;
-
-    public float sfxFallRate;
-
-    public StudioEventEmitter sfxEmitterHover;
+     public StudioEventEmitter sfxEmitterHover;
 
 
     [SerializeField] private UnityEvent onJump;
@@ -44,20 +40,17 @@ public class RunnerController : MonoBehaviour
     {
         gameManager = FindObjectOfType<GameManager>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
-        // soundPlayer2D = FindObjectOfType<SoundPlayer2D>();
-
+ 
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
-        // playerAudio = GetComponent<AudioSource>();
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-
         jumpTimeCurrent = jumpTimeMax;
-        Physics.gravity = new Vector3(0, -gravity, 0);
+        playerRb.useGravity = false;
     }
 
     // Update is called once per frame
@@ -84,6 +77,7 @@ public class RunnerController : MonoBehaviour
     private void FixedUpdate()
     {
         Jump();
+        ApplyGravity();
     }
 
     // Handles isOnGround, and gameOver variables plus collision with the ground and obstacle tags
@@ -96,11 +90,10 @@ public class RunnerController : MonoBehaviour
             jumpTimeCurrent = jumpTimeMax;
             playerAnim.SetBool("Grounded", true);
 
-            // floatParticle.Stop();
-
             if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
             {
-                StartRunning();
+                playerAnim.SetBool("IsRunning", true);
+
             }
 
             onLand?.Invoke();
@@ -133,104 +126,98 @@ public class RunnerController : MonoBehaviour
 
     private void Jump()
     {
-
-        if (isOnGround && jumpInput)
+        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
         {
-            vertVelocity = 0;
-            playerRb.velocity = Vector3.up * jumpForce;
-            isOnGround = false;
-            isJumping = true;
-            playerAnim.SetTrigger("Jump_trig");
-            StopRunning();
-            playerAnim.SetBool("Grounded", false);
-            onJump?.Invoke();
 
-        }
-
-        if (isJumping && jumpInput)
-        {
-            if (jumpTimeCurrent > (jumpTimeMax * jumpTimeThreshold))
+            if (isOnGround && jumpInput)
             {
-                playerAnim.SetTrigger("Jump_trig");
+                vertVelocity = 0;
                 playerRb.velocity = Vector3.up * jumpForce;
-                jumpTimeCurrent -= Time.deltaTime;
-
-            }
-
-            if (jumpTimeCurrent <= (jumpTimeMax * jumpTimeThreshold))
-            {
+                isOnGround = false;
+                isJumping = true;
                 playerAnim.SetTrigger("Jump_trig");
-                playerRb.velocity = Vector3.up * (jumpForce / 2);
-                jumpTimeCurrent -= Time.deltaTime;
+                playerAnim.SetBool("IsRunning", false);
+                playerAnim.SetBool("Grounded", false);
+                onJump?.Invoke();
 
             }
 
-            if (jumpTimeCurrent <= 0)
+            if (isJumping && jumpInput)
+            {
+                if (jumpTimeCurrent > (jumpTimeMax * jumpTimeThreshold))
+                {
+                    playerAnim.SetTrigger("Jump_trig");
+                    playerRb.velocity = Vector3.up * jumpForce;
+                    jumpTimeCurrent -= Time.deltaTime;
+
+                }
+
+                if (jumpTimeCurrent <= (jumpTimeMax * jumpTimeThreshold))
+                {
+                    playerAnim.SetTrigger("Jump_trig");
+                    playerRb.velocity = Vector3.up * (jumpForce / 2);
+                    jumpTimeCurrent -= Time.deltaTime;
+
+                }
+
+                if (jumpTimeCurrent <= 0)
+                {
+                    isJumping = false;
+                }
+            }
+
+
+
+            if (!jumpInput)
             {
                 isJumping = false;
             }
-        }
 
-
-
-        if (!jumpInput)
-        {
-            isJumping = false;
-        }
-
-        if (!isJumping && !isOnGround && jumpInput)
-        {
-            playerAnim.SetTrigger("Jump_trig");
-            vertVelocity = vertVelocity - (Time.deltaTime * fallRate);
-            playerRb.velocity = new Vector3(0, vertVelocity, 0);
-            onHoverStart?.Invoke();
-
-            if (!sfxEmitterHover.IsPlaying())
+            if (!isJumping && !isOnGround && jumpInput)
             {
-                sfxEmitterHover.Play();
+                playerAnim.SetTrigger("Jump_trig");
+                vertVelocity = vertVelocity - (Time.deltaTime * fallRate);
+                playerRb.velocity = new Vector3(0, vertVelocity, 0);
+                onHoverStart?.Invoke();
+
+                if (!sfxEmitterHover.IsPlaying())
+                {
+                    sfxEmitterHover.Play();
+
+                }
+                else if (sfxEmitterHover.IsPlaying())
+                {
+                    sfxEmitterHover.SetParameter("Fall Velocity", vertVelocity);
+                }
+
+
 
             }
-            else if (sfxEmitterHover.IsPlaying())
+
+            if (!isJumping && !isOnGround && !jumpInput)
             {
-                sfxEmitterHover.SetParameter("Fall Velocity", vertVelocity);
+                playerRb.AddForce(new Vector3(0, 0, 0), ForceMode.VelocityChange);
+        
+                if (sfxEmitterHover.IsPlaying())
+                {
+                    sfxEmitterHover.Stop();
+                }
+
+                onHoverEnd?.Invoke();
+
             }
-
-            
-
         }
 
-        if (!isJumping && !isOnGround && !jumpInput)
-        {
-            // playerRb.velocity = Vector3.zero;
-            playerRb.AddForce(new Vector3(0, 0, 0), ForceMode.VelocityChange);
-            // floatParticle.Stop();
-
-            if (sfxEmitterHover.IsPlaying())
-            {
-                sfxEmitterHover.Stop();
-            }
-
-            onHoverEnd?.Invoke();
-
-        }
-
-    }
-
-    public void StartRunning()
-    {
-        playerAnim.SetBool("IsRunning", true);
-        // dirtParticle.Play();
-    }
-
-    public void StopRunning()
-    {
-        playerAnim.SetBool("IsRunning", false);
-        // dirtParticle.Stop();
     }
 
     public void PlayerStep()
     {
         onStep?.Invoke();
+    }
+
+    private void ApplyGravity()
+    {
+        playerRb.AddForce(new Vector3(0, -gravityForce, 0) * playerRb.mass);
     }
 
 }
