@@ -32,7 +32,9 @@ public class ProjectileCollision : MonoBehaviour
             sfxPlayer.PlaySoundEvent(7);
             this.gameObject.SetActive(false);
             Destroy(other.gameObject);
-            scoreKeeper.IncrementScore();
+
+            var otherPointValue = other.GetComponent<PointValue>();
+            otherPointValue.UpdateScore();
         }
     }
 

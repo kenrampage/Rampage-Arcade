@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ScoreKeeper : MonoBehaviour
@@ -10,16 +8,6 @@ public class ScoreKeeper : MonoBehaviour
     private void Start()
     {
         ResetScore();
-    }
-
-    public void IncrementScore()
-    {
-        score ++;
-    }
-
-    public void UpdateScore(int value)
-    {
-        score += value;
     }
 
     public void ResetScore()

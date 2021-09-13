@@ -23,8 +23,7 @@ public class RunnerController : MonoBehaviour
     private bool isJumping;
 
     private GameManager gameManager;
-    private ScoreKeeper scoreKeeper;
-     public StudioEventEmitter sfxEmitterHover;
+    public StudioEventEmitter sfxEmitterHover;
 
 
     [SerializeField] private UnityEvent onJump;
@@ -39,8 +38,7 @@ public class RunnerController : MonoBehaviour
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        scoreKeeper = FindObjectOfType<ScoreKeeper>();
- 
+
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
     }
@@ -116,7 +114,8 @@ public class RunnerController : MonoBehaviour
 
             if (other.gameObject.CompareTag("Pickup"))
             {
-                scoreKeeper.IncrementScore();
+                other.GetComponent<PointValue>().UpdateScore();
+
                 Destroy(other.gameObject);
                 onPickup?.Invoke();
             }
@@ -197,7 +196,7 @@ public class RunnerController : MonoBehaviour
             if (!isJumping && !isOnGround && !jumpInput)
             {
                 playerRb.AddForce(new Vector3(0, 0, 0), ForceMode.VelocityChange);
-        
+
                 if (sfxEmitterHover.IsPlaying())
                 {
                     sfxEmitterHover.Stop();

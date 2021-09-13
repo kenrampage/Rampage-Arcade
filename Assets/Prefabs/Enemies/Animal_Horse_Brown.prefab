@@ -666,6 +666,7 @@ GameObject:
   - component: {fileID: 3058574747650206929}
   - component: {fileID: 3058574747650206931}
   - component: {fileID: 5898323629044426837}
+  - component: {fileID: -2401950440715102617}
   - component: {fileID: 2298656944384653585}
   m_Layer: 0
   m_Name: Animal_Horse_Brown
@@ -789,6 +790,19 @@ MonoBehaviour:
   - event:/Animals/Horse Snort
   soundEffectsOn: 1
   chanceThreshhold: 0.6
+--- !u!114 &-2401950440715102617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3058574747650206933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c4413dc8ff9ed49a60ef5850226f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 1
 --- !u!114 &2298656944384653585
 MonoBehaviour:
   m_ObjectHideFlags: 0

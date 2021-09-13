@@ -1,24 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIFadeEffect : MonoBehaviour
+public class UIImageFadeEffect : MonoBehaviour
 {
     [SerializeField] private bool startOpaque;
-    [SerializeField] private GameObject panel;
+    [SerializeField] private GameObject targetObject;
     [SerializeField] private float fadeOutTime = 1f;
     [SerializeField] private float fadeInTime = 1f;
 
     private Image image;
     private RectTransform rectTransform;
-
     private float targetAlpha;
 
     private void Awake()
     {
-        image = panel.GetComponent<Image>();
-        rectTransform = panel.GetComponent<RectTransform>();
+        image = targetObject.GetComponent<Image>();
+        rectTransform = targetObject.GetComponent<RectTransform>();
     }
 
     // Start is called before the first frame update
@@ -47,7 +44,6 @@ public class UIFadeEffect : MonoBehaviour
         }
 
         LeanTween.alpha(rectTransform, targetAlpha, fadeInTime);
-
     }
 
     public void FadeOut()

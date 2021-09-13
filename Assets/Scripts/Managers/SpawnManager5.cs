@@ -11,6 +11,13 @@ public class SpawnManager5 : MonoBehaviour
     public float spawnRateMin;
     public float waveRate;
 
+    public float minForce = 12;
+    public float maxForce = 16;
+    public float maxTorque = 10;
+    public float xRange = 4;
+    public float ySpawnPos = -2;
+
+
     private GameManager gameManager;
     [SerializeField] private DifficultyKeeper difficultyKeeper;
 
@@ -26,7 +33,10 @@ public class SpawnManager5 : MonoBehaviour
         {
             yield return new WaitForSeconds(spawnRateCurrent);
             int index = Random.Range(0, targets.Count);
-            Instantiate(targets[index]);
+            var targetRb = Instantiate(targets[index]).GetComponent<Rigidbody>();
+            transform.position = RandomSpawnPos();
+            targetRb.AddForce(RandomForce(), ForceMode.Impulse);
+            targetRb.AddTorque(RandomTorque(), RandomTorque(), RandomTorque());
 
             if (spawnRateCurrent > spawnRateMin)
             {
@@ -44,4 +54,25 @@ public class SpawnManager5 : MonoBehaviour
 
         StartCoroutine(SpawnTarget());
     }
+
+
+    // Returns random UP force in Vector3
+    Vector3 RandomForce()
+    {
+        return Vector3.up * Random.Range(minForce, maxForce);
+
+    }
+
+    // Returns random torque as float values
+    float RandomTorque()
+    {
+        return Random.Range(-maxTorque, maxTorque);
+    }
+
+    // Returns random spawn positions in Vector3
+    Vector3 RandomSpawnPos()
+    {
+        return new Vector3(Random.Range(-xRange, xRange), ySpawnPos, 0);
+    }
+
 }

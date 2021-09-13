@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 7259598960844192424}
   - component: {fileID: 7259598960844192422}
   - component: {fileID: 4854970852288997223}
+  - component: {fileID: 7738891937504806543}
   - component: {fileID: 1351797973278100815}
   m_Layer: 0
   m_Name: Animal_Moose_01
@@ -390,6 +391,19 @@ MonoBehaviour:
   - event:/Animals/Moose Call
   soundEffectsOn: 1
   chanceThreshhold: 0.6
+--- !u!114 &7738891937504806543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7259598960743197479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c4413dc8ff9ed49a60ef5850226f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 1
 --- !u!114 &1351797973278100815
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -14,8 +14,11 @@ GameObject:
   - component: {fileID: 4196839212038176044}
   - component: {fileID: 4196839212038176083}
   - component: {fileID: 1711264590545325544}
+  - component: {fileID: -5032778659998083177}
+  - component: {fileID: -6236024671603909737}
+  - component: {fileID: 3526863081360062863}
   m_Layer: 0
-  m_Name: Good 2
+  m_Name: Clicker Points +10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -125,12 +128,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a227b2dd22ba5904586eecb02cc302e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosionParticle: {fileID: 2088871590894813759, guid: 745208c9d6e104225bd99e1ab894e3bb, type: 3}
-  sfxIndex: 4
-  minForce: 12
-  maxForce: 16
-  maxTorque: 50
-  xRange: 6
-  ySpawnPos: -2
-  pointValue: 10
-  pointPrefab: {fileID: 5926138357282350549, guid: fa472a05c0474e944afa28c5cb1a650d, type: 3}
+  onObjectClicked:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: -6236024671603909737}
+        m_TargetAssemblyTypeName: SpawnObjects, Assembly-CSharp
+        m_MethodName: SpawnAllObjects
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 3526863081360062863}
+        m_TargetAssemblyTypeName: DestroyObject, Assembly-CSharp
+        m_MethodName: DestroyThisObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -5032778659998083177}
+        m_TargetAssemblyTypeName: PointValue, Assembly-CSharp
+        m_MethodName: UpdateScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &-5032778659998083177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196839212038159063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c4413dc8ff9ed49a60ef5850226f79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  value: 10
+--- !u!114 &-6236024671603909737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196839212038159063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44eaed2d59105f240bba000a4d962897, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectsToSpawn:
+  - {fileID: 2920601571711475044, guid: fa472a05c0474e944afa28c5cb1a650d, type: 3}
+  - {fileID: 3371569193385938658, guid: 745208c9d6e104225bd99e1ab894e3bb, type: 3}
+  spawnOffset: {x: 0, y: 0, z: 0}
+--- !u!114 &3526863081360062863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196839212038159063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165a1500dd703b14f9c7f303cd02b1ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyOnSpawn: 0
+  delay: 0

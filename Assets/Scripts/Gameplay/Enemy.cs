@@ -16,12 +16,12 @@ public class Enemy : MonoBehaviour
 
 
     private GameManager gameManager;
-    private ScoreKeeper scoreKeeper;
+    private PointValue pointValue;
 
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        pointValue = FindObjectOfType<PointValue>();
     }
 
 
@@ -45,7 +45,7 @@ public class Enemy : MonoBehaviour
         if (transform.position.y < deathHeight && !isDefeated)
         {
             isDefeated = true;
-            scoreKeeper.IncrementScore();
+            pointValue.UpdateScore();
             LeanTween.alpha(this.gameObject, 0, fadeTime);
             FMODUnity.RuntimeManager.PlayOneShotAttached(soundEvent_Death, this.gameObject);
         }

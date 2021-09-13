@@ -1782,6 +1782,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: {x: 0, y: 100, z: 0}
   rotateAlways: 1
+  gameManager5: {fileID: 0}
 --- !u!1001 &567588596
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3518,6 +3519,11 @@ MonoBehaviour:
   spawnRateCurrent: 0
   spawnRateMin: 0
   waveRate: 0.01
+  minForce: 12
+  maxForce: 16
+  maxTorque: 10
+  xRange: 4
+  ySpawnPos: -2
   difficultyKeeper: {fileID: 795647957}
 --- !u!4 &887441910
 Transform:
@@ -4493,7 +4499,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1934918823}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIFadeEffect, Assembly-CSharp
         m_MethodName: FadeOut
         m_Mode: 1
@@ -4735,7 +4741,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1934918823}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIFadeEffect, Assembly-CSharp
         m_MethodName: FadeOut
         m_Mode: 1
@@ -6050,7 +6056,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1934918823}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIFadeEffect, Assembly-CSharp
         m_MethodName: FadeOut
         m_Mode: 1
@@ -6851,7 +6857,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1934918823}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: UIFadeEffect, Assembly-CSharp
         m_MethodName: FadeOut
         m_Mode: 1
@@ -7294,19 +7300,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Fade Effect Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 3636967133689883103, guid: 87c9d222a7b61eb4b98882ef122a6d02, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87c9d222a7b61eb4b98882ef122a6d02, type: 3}
---- !u!114 &1934918823 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3636967133689883092, guid: 87c9d222a7b61eb4b98882ef122a6d02, type: 3}
-  m_PrefabInstance: {fileID: 1934918822}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 066b6864f07d022459de976d9f915287, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1942036275
 GameObject:
   m_ObjectHideFlags: 0

@@ -227,7 +227,7 @@ public class CarControllerC : MonoBehaviour
                 Destroy(other.gameObject);
                 particlePickup.Play();
                 onPickup?.Invoke();
-                scoreKeeper.UpdateScore(other.GetComponent<PointValue>().value);
+                other.GetComponent<PointValue>().UpdateScore();
                 
 
             }
