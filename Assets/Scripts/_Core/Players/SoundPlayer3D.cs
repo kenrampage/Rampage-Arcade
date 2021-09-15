@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
-public class SoundPlayer2D : MonoBehaviour
+public class SoundPlayer3D : MonoBehaviour
 {
+
     [EventRef] public string[] soundEvents;
     [SerializeField] private bool soundEffectsOn = true;
 
@@ -12,11 +13,9 @@ public class SoundPlayer2D : MonoBehaviour
     {
         if (soundEvents[i] != null && soundEffectsOn)
         {
-            print(soundEvents[i].ToString() + " Played!");
-            RuntimeManager.PlayOneShot(soundEvents[i]);
+            RuntimeManager.PlayOneShotAttached(soundEvents[i], gameObject);
         }
     }
-
 
     public void DisableSoundEffects()
     {

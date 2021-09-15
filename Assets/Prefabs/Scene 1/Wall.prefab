@@ -103,7 +103,7 @@ GameObject:
   - component: {fileID: 451096}
   - component: {fileID: 1341046647}
   m_Layer: 0
-  m_Name: Prop_Barrier02
+  m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -659,8 +659,8 @@ GameObject:
   - component: {fileID: 8936794862758176432}
   - component: {fileID: 8936794862758176447}
   - component: {fileID: 8936794862758176446}
-  - component: {fileID: 3172450820391056975}
-  - component: {fileID: 284724028}
+  - component: {fileID: 3159354731083920635}
+  - component: {fileID: 8439551182870499188}
   m_Layer: 0
   m_Name: Car
   m_TagString: Player
@@ -752,8 +752,7 @@ MonoBehaviour:
   maxSpeed: 40
   brakeOn: 0
   engineRPM: 0
-  particlePickup: {fileID: 901165899672314672}
---- !u!114 &3172450820391056975
+--- !u!114 &3159354731083920635
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -762,17 +761,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8936794862758176445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d68e19083448c64aa6a0b2838e8f991, type: 3}
+  m_Script: {fileID: 11500000, guid: 3695e1a62d654384f97e234b8388b673, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEvents:
-  - event:/Pickups/Pickup 1
-  soundEffectsOn: 1
-  triggerOn: 1
-  eventIndex: 0
-  spawnBufferDefault: 0.1
-  otherTag: Pickup
---- !u!114 &284724028
+  particleSystems:
+  - {fileID: 901165899672314672}
+--- !u!114 &8439551182870499188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -781,16 +775,29 @@ MonoBehaviour:
   m_GameObject: {fileID: 8936794862758176445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06d87c70dba2f394693b0fe5a4170076, type: 3}
+  m_Script: {fileID: 11500000, guid: 73cdfc8947b525940b4b45bdcf201042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEvents:
-  - event:/Collisions/Wall Collision 1
-  soundEffectsOn: 1
-  collisionOn: 1
-  collisionEventIndex: 0
-  spawnBufferDefault: 0.1
-  otherTag: Barrier
+  triggerTags:
+  - Pickup
+  onTriggerEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3159354731083920635}
+        m_TargetAssemblyTypeName: ParticlePlayer, Assembly-CSharp
+        m_MethodName: PlayParticle
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8936794862828848926
 GameObject:
   m_ObjectHideFlags: 0

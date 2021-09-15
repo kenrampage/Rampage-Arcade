@@ -603,6 +603,8 @@ GameObject:
   m_Component:
   - component: {fileID: 94713602}
   - component: {fileID: 94713603}
+  - component: {fileID: 94713605}
+  - component: {fileID: 94713604}
   m_Layer: 0
   m_Name: Outer Wall (1)
   m_TagString: Barrier
@@ -668,6 +670,53 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 310, y: 20, z: 5}
   m_Center: {x: 0, y: 10, z: 0}
+--- !u!114 &94713604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94713601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7befb7ded1ec7a4787333ce916ceda0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvents:
+  - event:/Collisions/Wall Collision 1
+  soundEffectsOn: 1
+--- !u!114 &94713605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 94713601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a217fc6ded24c4a98f226207581367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionTags:
+  - Player
+  onCollisionEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 94713604}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCollisionExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &105354393
 GameObject:
   m_ObjectHideFlags: 0
@@ -1479,6 +1528,8 @@ GameObject:
   m_Component:
   - component: {fileID: 162411699}
   - component: {fileID: 162411700}
+  - component: {fileID: 162411702}
+  - component: {fileID: 162411701}
   m_Layer: 0
   m_Name: Outer Wall (2)
   m_TagString: Barrier
@@ -1544,6 +1595,53 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 310, y: 20, z: 5}
   m_Center: {x: 0, y: 10, z: 0}
+--- !u!114 &162411701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162411698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7befb7ded1ec7a4787333ce916ceda0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvents:
+  - event:/Collisions/Wall Collision 1
+  soundEffectsOn: 1
+--- !u!114 &162411702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 162411698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a217fc6ded24c4a98f226207581367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionTags:
+  - Player
+  onCollisionEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 162411701}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCollisionExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &162881053
 GameObject:
   m_ObjectHideFlags: 0
@@ -14273,6 +14371,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1414242834}
   - component: {fileID: 1414242835}
+  - component: {fileID: 1414242837}
+  - component: {fileID: 1414242836}
   m_Layer: 0
   m_Name: Outer Wall (3)
   m_TagString: Barrier
@@ -14338,6 +14438,53 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 310, y: 20, z: 5}
   m_Center: {x: 0, y: 10, z: 0}
+--- !u!114 &1414242836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414242833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7befb7ded1ec7a4787333ce916ceda0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvents:
+  - event:/Collisions/Wall Collision 1
+  soundEffectsOn: 1
+--- !u!114 &1414242837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1414242833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a217fc6ded24c4a98f226207581367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionTags:
+  - Player
+  onCollisionEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1414242836}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCollisionExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1419176885
 GameObject:
   m_ObjectHideFlags: 0
@@ -19085,6 +19232,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2064032179}
   - component: {fileID: 2064032180}
+  - component: {fileID: 2064032182}
+  - component: {fileID: 2064032181}
   m_Layer: 0
   m_Name: Outer Wall
   m_TagString: Barrier
@@ -19150,6 +19299,53 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 310, y: 20, z: 5}
   m_Center: {x: 0, y: 10, z: 0}
+--- !u!114 &2064032181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064032178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7befb7ded1ec7a4787333ce916ceda0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundEvents:
+  - event:/Collisions/Wall Collision 1
+  soundEffectsOn: 1
+--- !u!114 &2064032182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2064032178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8a217fc6ded24c4a98f226207581367, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionTags:
+  - Player
+  onCollisionEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2064032181}
+        m_TargetAssemblyTypeName: SoundPlayer2D, Assembly-CSharp
+        m_MethodName: PlaySoundEvent
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onCollisionExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2065177625
 GameObject:
   m_ObjectHideFlags: 0

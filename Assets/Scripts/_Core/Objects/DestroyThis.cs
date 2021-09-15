@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DestroyObject : MonoBehaviour
+public class DestroyThis : MonoBehaviour
 {
     [SerializeField] private bool destroyOnSpawn;
     [SerializeField] private float delay;

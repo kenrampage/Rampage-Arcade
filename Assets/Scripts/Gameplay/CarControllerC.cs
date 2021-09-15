@@ -39,7 +39,7 @@ public class CarControllerC : MonoBehaviour
 
     public float engineRPM;
 
-    public ParticleSystem particlePickup;
+    // public ParticleSystem particlePickup;
 
     public static event Action onPickup;
 
@@ -224,12 +224,8 @@ public class CarControllerC : MonoBehaviour
         {
             if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
             {
-                Destroy(other.gameObject);
-                particlePickup.Play();
-                onPickup?.Invoke();
-                other.GetComponent<PointValue>().UpdateScore();
-                
-
+                // particlePickup.Play();
+                onPickup?.Invoke();              
             }
         }
 
