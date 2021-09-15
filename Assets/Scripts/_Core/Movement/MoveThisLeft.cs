@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MoveLeft : MonoBehaviour
+public class MoveThisLeft : MonoBehaviour
 {
     public float speed = 15f;
     public float leftBound = -15;
