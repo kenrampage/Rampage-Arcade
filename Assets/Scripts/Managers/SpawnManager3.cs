@@ -66,7 +66,7 @@ public class SpawnManager3 : MonoBehaviour
                 SpawnObstacle();
                 if (obstacleIntervalMultiplier > obstacleIntervalMultiplierMin)
                 {
-                    obstacleIntervalMultiplier = obstacleIntervalMultiplierStart - (scoreKeeper.score * obstacleIntervalMultiplierDecrease);
+                    obstacleIntervalMultiplier = obstacleIntervalMultiplierStart - (scoreKeeper.Score * obstacleIntervalMultiplierDecrease);
                 }
                 obstacleTimer = Random.Range(obstacleIntervalMin, obstacleIntervalMax) * obstacleIntervalMultiplier;
             }
@@ -76,7 +76,7 @@ public class SpawnManager3 : MonoBehaviour
                 SpawnPickup();
                 if (pickupIntervalMultiplier > pickupIntervalMultiplierMin)
                 {
-                    pickupIntervalMultiplier = pickupIntervalMultiplierStart - (scoreKeeper.score * pickupIntervalMultiplierDecrease);
+                    pickupIntervalMultiplier = pickupIntervalMultiplierStart - (scoreKeeper.Score * pickupIntervalMultiplierDecrease);
                 }
                 pickupTimer = Random.Range(pickupIntervalMin, pickupIntervalMax) * pickupIntervalMultiplier;
             }

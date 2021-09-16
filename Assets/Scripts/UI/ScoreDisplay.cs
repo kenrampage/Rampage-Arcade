@@ -20,6 +20,6 @@ public class ScoreDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = scoreKeeper.score.ToString();
+        text.text = scoreKeeper.Score.ToString();
     }
 }

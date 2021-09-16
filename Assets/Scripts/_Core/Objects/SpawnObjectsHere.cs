@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class SpawnObjects : MonoBehaviour
+public class SpawnObjectsHere : MonoBehaviour
 {
     [SerializeField] private GameObject[] objectsToSpawn;
     [SerializeField] private Vector3 spawnOffset;

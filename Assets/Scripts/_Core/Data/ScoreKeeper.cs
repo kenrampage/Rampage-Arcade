@@ -1,9 +1,22 @@
 using UnityEngine;
+using System;
 
 public class ScoreKeeper : MonoBehaviour
 {
-
-    public int score;
+    public static event Action<int> onScoreChanged;
+    private int score;
+    public int Score
+    {
+        get
+        {
+            return score;
+        }
+        set
+        {
+            score = value;
+            
+        }
+    }
 
     private void Start()
     {
@@ -12,7 +25,19 @@ public class ScoreKeeper : MonoBehaviour
 
     public void ResetScore()
     {
-        score = 0;
+        Score = 0;
+    }
+
+    public void UpdateScore(int i)
+    {
+        Score = i;
+        onScoreChanged?.Invoke(score);
+    }
+
+    public void AddToScore(int i)
+    {
+        Score += i;
+        onScoreChanged?.Invoke(score);
     }
 
 }

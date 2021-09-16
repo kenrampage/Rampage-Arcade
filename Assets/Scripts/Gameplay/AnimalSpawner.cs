@@ -47,7 +47,7 @@ public class AnimalSpawner : MonoBehaviour
                 SpawnRandomAnimal();
                 if (spawnIntervalCurrent > spawnIntervalMin)
                 {
-                    spawnIntervalCurrent = spawnIntervalStart - (scoreKeeper.score * spawnIntervalDecrease);
+                    spawnIntervalCurrent = spawnIntervalStart - (scoreKeeper.Score * spawnIntervalDecrease);
                 }
                 spawnTimer = spawnIntervalCurrent;
             }

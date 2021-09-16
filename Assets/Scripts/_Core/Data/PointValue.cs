@@ -12,12 +12,12 @@ public class PointValue : MonoBehaviour
 
     public void IncrementScore()
     {
-        scoreKeeper.score++;
+        scoreKeeper.AddToScore(1);
     }
 
     public void UpdateScore()
     {
-        scoreKeeper.score += value;
+        scoreKeeper.AddToScore(value);
     }
 
 }
