@@ -4,7 +4,7 @@ using System;
 public class ScoreKeeper : MonoBehaviour
 {
     public static event Action<int> onScoreChanged;
-    private int score;
+    [SerializeField] private int score;
     public int Score
     {
         get

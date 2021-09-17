@@ -12,7 +12,7 @@ public class TimerDisplay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float fillPerc = timer.time / timer.baseTime;
+        float fillPerc = timer.timePercent;
         
         image.fillAmount = fillPerc;
         image.color = Color.Lerp(endColor, startColor, fillPerc);

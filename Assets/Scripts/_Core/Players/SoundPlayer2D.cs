@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
@@ -12,7 +10,6 @@ public class SoundPlayer2D : MonoBehaviour
     {
         if (soundEvents[i] != null && soundEffectsOn)
         {
-            print(soundEvents[i].ToString() + " Played!");
             RuntimeManager.PlayOneShot(soundEvents[i]);
         }
     }

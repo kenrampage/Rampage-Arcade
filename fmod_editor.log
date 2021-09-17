@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000023C596C0FC8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001D5C1ADCD38 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -16,41 +16,3 @@
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
-[LOG] SystemI::mixerSuspend                    : Suspending output.
-[LOG] SystemI::mixerResume                     : Resuming output.
-[LOG] SoundI::release                          :  (0000023C55F593C8)
-[LOG] SoundI::release                          :     ArcadeJam(loop-intro) (0000023E3A88E708)
-[LOG] SoundI::release                          :  (0000023EA7ED3EF8)
-[LOG] SoundI::release                          :     mixkit-cartoon-punch-2149 (0000023E3260B8D8)
-[LOG] SoundI::release                          :  (0000023C55F58F78)
-[LOG] SoundI::release                          :     FARTDsgn_Farts (ID 0866)_BSB - Trimmed (0000023E3A889F88)
-[LOG] SoundI::release                          :  (0000023C55F59258)
-[LOG] SoundI::release                          :     Impact1 (0000023E3A88E3C8)
-[LOG] SoundI::release                          :  (0000023EA7ED4348)
-[LOG] SoundI::release                          :     Impact13 (0000023E3A895F48)
-[LOG] SoundI::release                          :  (0000023EA7ED3D88)
-[LOG] SoundI::release                          :     veh_lawnmower_1406_off_exh (0000023E3A88E568)
-[LOG] SoundI::release                          :  (0000023EA7ED37C8)
-[LOG] SoundI::release                          :     veh_lawnmower_1604_on_exh (0000023E3260AD78)
-[LOG] SoundI::release                          :  (0000023EA7ED3C18)
-[LOG] SoundI::release                          :     veh_lawnmower_idle_exh (0000023E3260AF18)
-[LOG] SoundI::release                          :  (0000023EA7ED3658)
-[LOG] SoundI::release                          :     veh_lawnmower_0945_off_exh (0000023E3A8953E8)
-[LOG] SoundI::release                          :  (0000023EA7ED41D8)
-[LOG] SoundI::release                          :     veh_lawnmower_0879_on_exh (0000023E3260B0B8)
-[LOG] SoundI::release                          :  (0000023EA7ED3938)
-[LOG] SoundI::release                          :     veh_lawnmower_1648_off_exh (0000023E3260A218)
-[LOG] SoundI::release                          :  (0000023EA7ED3AA8)
-[LOG] SoundI::release                          :     veh_lawnmower_1121_on_exh (0000023E3260BDB8)
-[LOG] SoundI::release                          :  (0000023C55F590E8)
-[LOG] SoundI::release                          :     tires_squal_loop (0000023E3A88DEE8)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.

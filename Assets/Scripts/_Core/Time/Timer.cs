@@ -1,95 +1,89 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
-    public float time;
-    public float baseTime;
-    [SerializeField] private bool timerOn;
+    [SerializeField] private UnityEvent onTimerDone;
 
-    private GameManager gameManager;
+    public float currentTime;
+    public float timePercent;
+    [SerializeField] private float startTime;
+    [SerializeField] private float targetTime;
 
-    private void OnEnable()
-    {
-        GameManager.onGameStateChanged += HandleGameStateChanged;
-        CarControllerC.onPickup += ResetTimer;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.onGameStateChanged -= HandleGameStateChanged;
-        CarControllerC.onPickup -= ResetTimer;
-    }
+    [SerializeField] private bool timerOn = false;
+    [SerializeField] private bool timerCountDown = true;
 
     private void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
         ResetTimer();
     }
 
     private void Update()
     {
-        TimerCountdown();
-
-        if (time <= 0)
-        {
-            ResetTimer();
-            TimerOff();
-            gameManager.CurrentGameState = GameState.LEVELEND;
-        }
-    }
-
-
-    private void HandleGameStateChanged(GameState currentGameState)
-    {
-
-        switch (currentGameState)
-        {
-            case GameState.LEVELSTART:
-                TimerOff();
-                break;
-
-            case GameState.GAMEACTIVE:
-                TimerOn();
-                break;
-
-            case GameState.GAMEPAUSED:
-                TimerOff();
-                break;
-
-            case GameState.LEVELEND:
-                TimerOff();
-                break;
-
-            default:
-                break;
-        }
-
-    }
-
-    public void TimerCountdown()
-    {
         if (timerOn)
         {
-            time = time - Time.deltaTime;
+            TimerProgress();
         }
-
     }
 
-    private void TimerOn()
+    public void TimerOn()
     {
         timerOn = true;
     }
 
-    private void TimerOff()
+    public void TimerOff()
     {
         timerOn = false;
     }
 
+    public void TimerProgress()
+    {
+        if (timerCountDown)
+        {
+            TimerCountdown();
+        }
+        else
+        {
+            TimerCountUp();
+        }
+    }
+
+    public void TimerCountdown()
+    {
+        currentTime -= Time.deltaTime;
+        timePercent = (currentTime - targetTime)  / startTime;
+
+        if (currentTime <= targetTime)
+        {
+            TimerDone();
+        }
+
+    }
+
+    public void TimerCountUp()
+    {
+        currentTime += Time.deltaTime;
+        timePercent = (currentTime - startTime) / targetTime;
+
+        if (currentTime >= targetTime)
+        {
+            TimerDone();
+        }
+
+    }
+
     public void ResetTimer()
     {
-        time = baseTime;
+        currentTime = startTime;
     }
+
+    public void TimerDone()
+    {
+        ResetTimer();
+        onTimerDone?.Invoke();
+    }
+
+
+
 
 }
