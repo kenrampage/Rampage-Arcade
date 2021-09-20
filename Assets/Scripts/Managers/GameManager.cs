@@ -26,13 +26,13 @@ public class GameManager : MonoBehaviour
         InitializeLevel();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            TogglePause();
-        }
-    }
+    // private void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.Escape))
+    //     {
+    //         TogglePause();
+    //     }
+    // }
 
 
     public void InitializeLevel()
@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         CurrentGameState = GameState.TRANSITION;
     }
 
-    private void TogglePause()
+    public void TogglePause()
     {
         switch (CurrentGameState)
         {

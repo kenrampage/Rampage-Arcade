@@ -27,15 +27,15 @@ public class SpawnManager1b : MonoBehaviour
 
     public List<GameObject> spawnedObstacles = new List<GameObject>();
 
-    private void OnEnable()
-    {
-        CarControllerC.onPickup += RespawnLevelObjects;
-    }
+    // private void OnEnable()
+    // {
+    //     CarControllerC.onPickup += RespawnLevelObjects;
+    // }
 
-    private void OnDisable()
-    {
-        CarControllerC.onPickup -= RespawnLevelObjects;
-    }
+    // private void OnDisable()
+    // {
+    //     CarControllerC.onPickup -= RespawnLevelObjects;
+    // }
 
     private void Start()
     {

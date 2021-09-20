@@ -41,12 +41,12 @@ public class CarControllerC : MonoBehaviour
 
     // public ParticleSystem particlePickup;
 
-    public static event Action onPickup;
+    // public static event Action onPickup;
 
     private void Awake()
     {
         gameManager = FindObjectOfType<GameManager>();
-        scoreKeeper = FindObjectOfType<ScoreKeeper>();
+        // scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
 
     private void Start()
@@ -217,18 +217,18 @@ public class CarControllerC : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
-    {
+    // private void OnTriggerEnter(Collider other)
+    // {
 
-        if (other.CompareTag("Pickup"))
-        {
-            if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
-            {
-                // particlePickup.Play();
-                onPickup?.Invoke();              
-            }
-        }
+    //     if (other.CompareTag("Pickup"))
+    //     {
+    //         if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+    //         {
+    //             // particlePickup.Play();
+    //             onPickup?.Invoke();              
+    //         }
+    //     }
 
-    }
+    // }
 
 }
