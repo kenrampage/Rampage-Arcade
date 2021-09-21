@@ -45,9 +45,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7befb7ded1ec7a4787333ce916ceda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEvents:
+  fmodEvents:
   - event:/Menu/Pause
-  - event:/Events/Game Over 2
   soundEffectsOn: 1
 --- !u!114 &3861107326018601213
 MonoBehaviour:

@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3af52b31624c9f409b62901ac24b13d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  randomize: 1
+  shuffle: 1
   eventIndex: 0
   fmodEvents:
   - event:/Music/Game 01

@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001BAC8B3AAD8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000015D177E1858 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -19,108 +19,111 @@
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1032512
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 75968
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 81504
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000007AC0B3F3A8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000003DB715F1D8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCD3DE7D70
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCD3DE7D40
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCD3DE7E40
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCD3DE7F00
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001BAEF3BB568
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCD47C7D70
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCD47C7D40
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCD47C7E40
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCD47C7F00
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000015D19F180F8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Menu_Hover2', format=5, channels=2, frequency=48000, lengthbytes=3136, lengthpcm=10098, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.711182.
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1032512
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 75968
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 81504
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000007AC0B3F3A8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000003DB715F1D8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCD3DE7D70
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCD3DE7D40
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCD3DE7E40
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCD3DE7F00
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001BAEF3BB568
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCD47C7D70
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCD47C7D40
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCD47C7E40
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCD47C7F00
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000015D19F180F8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Menu_Hover1', format=5, channels=2, frequency=48000, lengthbytes=1856, lengthpcm=5999, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.777985.
 [LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
 [LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 1032512
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 75968
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 81504
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000007AC0B3F3A8
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000003DB715F1D8
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCD3DE7D70
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCD3DE7D40
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCD3DE7E40
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCD3DE7F00
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001BAEF3BB568
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCD47C7D70
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCD47C7D40
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCD47C7E40
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCD47C7F00
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0000015D19F176A8
 [LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Sample 0/1: name='Item Purchase (5)', format=5, channels=2, frequency=48000, lengthbytes=15232, lengthpcm=59591, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.654724.
 [LOG] SystemI::createSound                     : filename = ../../../fmod/5-Games-In-1/Build\Desktop/Music.bank : mode 02010082
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 000001BA81A2E998 : node = 000001BA7F7D9BD0
-[LOG] SystemI::createSound                     : add node to async list : head = 000001BABF3E6308.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001BA81A2E998
+[LOG] SystemI::createSound                     : setdata soundi = 0000015CB12545B8 : node = 0000015D290DDA80
+[LOG] SystemI::createSound                     : add node to async list : head = 0000015D59DE9EC8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000015CB12545B8
 [LOG] SystemI::createSoundInternal             :     Create name='../../../fmod/5-Games-In-1/Build\Desktop/Music.bank', mode=0x02010082
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 9117952
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 15616
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001BA7F7D9CE0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000015D290DDB90
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekposition = 74666
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='OfGodsAndPhilosophers_Medium(loop)(120)', format=5, channels=2, frequency=48000, lengthbytes=645856, lengthpcm=2304000, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.941925.
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001BA81A2E998
-[LOG] SystemI::createSoundInternal             : Create name='', mode=0x02000202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->length             = 1032512
-[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 75968
-[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0000007AC0B3F3A8
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 00007FFCD3DE7D70
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 00007FFCD3DE7D40
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 00007FFCD3DE7E40
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 00007FFCD3DE7F00
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 000001BAEF3BB568
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
-[LOG] SystemI::createSoundInternal             : Sample 0/1: name='Special Pop (8)', format=5, channels=2, frequency=48000, lengthbytes=4608, lengthpcm=16762, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.875061.
-[LOG] SoundI::release                          : OfGodsAndPhilosophers(loop)(120) (000001BA82BE0478)
-[LOG] SoundI::release                          :     OfGodsAndPhilosophers(loop)(120) (000001BA193A41F8)
-[LOG] SoundI::release                          :     OfGodsAndPhilosophers(loop)(120) (000001BA965E6088)
-[LOG] SoundI::release                          : OfGodsAndPhilosophers_Medium(loop)(120) (000001BA81A2E998)
-[LOG] SoundI::release                          :     OfGodsAndPhilosophers_Medium(loop)(120) (000001BA1125D8C8)
-[LOG] SoundI::release                          :     OfGodsAndPhilosophers_Medium(loop)(120) (000001BA804697E8)
-[LOG] SoundI::release                          :  (000001BA8D852838)
-[LOG] SoundI::release                          :     Item Purchase (5) (000001BA1125DC08)
-[LOG] SoundI::release                          :  (000001BA8D852B18)
-[LOG] SoundI::release                          :     Menu_Hover1 (000001BA1125E428)
-[LOG] SoundI::release                          :  (000001BA8D852C88)
-[LOG] SoundI::release                          :     Menu_Hover2 (000001BA1125D248)
-[LOG] SoundI::release                          :  (000001BABF2DC0B8)
-[LOG] SoundI::release                          :     mixkit-cartoon-punch-2149 (000001BA193AC598)
-[LOG] SoundI::release                          :  (000001BABF2DEBD8)
-[LOG] SoundI::release                          :     FARTDsgn_Farts (ID 0866)_BSB - Trimmed (000001BA1939E078)
-[LOG] SoundI::release                          :  (000001BABF2DC678)
-[LOG] SoundI::release                          :     Impact1 (000001BA1939E218)
-[LOG] SoundI::release                          :  (000001BABF2DED48)
-[LOG] SoundI::release                          :     Impact13 (000001BA193A5578)
-[LOG] SoundI::release                          :  (000001BA8D852DF8)
-[LOG] SoundI::release                          :     Special Pop (8) (000001BA1125E5C8)
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='HackersCracker_NoLead(loop)(135)', format=5, channels=2, frequency=48000, lengthbytes=1699424, lengthpcm=5482666, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.943207.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000015CB12545B8
+[LOG] SoundI::release                          : HackersCracker_NoLead(loop)(135) (0000015CB1256C88)
+[LOG] SoundI::release                          :     HackersCracker_NoLead(loop)(135) (0000015D17810C78)
+[LOG] SoundI::release                          :     HackersCracker_NoLead(loop)(135) (0000015CB125A0D8)
+[LOG] SoundI::release                          : HackersCracker_NoLead(loop)(135) (0000015CB12545B8)
+[LOG] SoundI::release                          :     HackersCracker_NoLead(loop)(135) (0000015CB437E688)
+[LOG] SoundI::release                          :     HackersCracker_NoLead(loop)(135) (0000015CB1254768)
+[LOG] SoundI::release                          :  (0000015AD61A2D58)
+[LOG] SoundI::release                          :     Menu_Hover1 (0000015CB437F528)
+[LOG] SoundI::release                          :  (0000015AD61A2BE8)
+[LOG] SoundI::release                          :     Menu_Hover2 (0000015CB437DE68)
+[LOG] SoundI::release                          :  (0000015AD61A2908)
+[LOG] SoundI::release                          :     Item Purchase (5) (0000015CB437E008)
+[LOG] SoundI::release                          :  (0000015CB050FD98)
+[LOG] SoundI::release                          :     mixkit-cartoon-punch-2149 (0000015D1781CC38)
+[LOG] SoundI::release                          :  (0000015CB14701B8)
+[LOG] SoundI::release                          :     FARTDsgn_Farts (ID 0866)_BSB - Trimmed (0000015D1780EA58)
+[LOG] SoundI::release                          :  (0000015CB1470778)
+[LOG] SoundI::release                          :     Impact1 (0000015D178117D8)
+[LOG] SoundI::release                          :  (0000015CB1470498)
+[LOG] SoundI::release                          :     Impact13 (0000015D17810FB8)
+[LOG] SoundI::release                          :  (0000015CB1470608)
+[LOG] SoundI::release                          :     tires_squal_loop (0000015D17810E18)
+[LOG] SoundI::release                          :  (0000015CB050F668)
+[LOG] SoundI::release                          :     veh_lawnmower_1648_off_exh (0000015D1781B098)
+[LOG] SoundI::release                          :  (0000015CB050FAB8)
+[LOG] SoundI::release                          :     veh_lawnmower_1604_on_exh (0000015D17811E58)
+[LOG] SoundI::release                          :  (0000015CB050FF08)
+[LOG] SoundI::release                          :     veh_lawnmower_idle_exh (0000015D1781D118)
+[LOG] SoundI::release                          :  (0000015CB050F4F8)
+[LOG] SoundI::release                          :     veh_lawnmower_0879_on_exh (0000015D17812198)
+[LOG] SoundI::release                          :  (0000015CB1470A58)
+[LOG] SoundI::release                          :     veh_lawnmower_1406_off_exh (0000015D178143B8)
+[LOG] SoundI::release                          :  (0000015CB1470D38)
+[LOG] SoundI::release                          :     veh_lawnmower_0945_off_exh (0000015D17811158)
+[LOG] SoundI::release                          :  (0000015CB050F7D8)
+[LOG] SoundI::release                          :     veh_lawnmower_1121_on_exh (0000015D17811978)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] ProfileClient::markForDead               : Closing client connection
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] FMOD_OS_Net_Read                         : Interrupted.[LOG] ProfileClient::recvThreadLoopFunction    : Socket disconnected
+[LOG] Thread::callback                         : FMOD profiler thread (send) finished.
+[LOG] Thread::callback                         : FMOD profiler thread (recv) finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)

@@ -1,36 +1,46 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
+    [SerializeField] private SO_FMODParameterData fmodDataEngineRPM;
+    private float engineRPM;
+
+    [SerializeField] private SO_FMODParameterData fmodDataSkid;
+    private float skidValue;
+
     [SerializeField] private WheelCollider wheelColFL, wheelColFR, wheelColRL, wheelColRR;
     [SerializeField] private Transform wheelTransFL, wheelTransFR, wheelTransRL, wheelTransRR;
     [SerializeField] private Rigidbody carRb;
     [SerializeField] private Transform centerOfMassTarget;
 
-    [SerializeField] private float maxSteerAngle = 30;
-    [SerializeField] private float currentSteerAngle;
-    [SerializeField] private float motorForce = 50;
-    [SerializeField] private float brakeForce = 500;
+    [SerializeField] private float baseMaxSteerAngle = 30;
+    [SerializeField] private float motorForce = 5000;
+    [SerializeField] private float brakeForce = 10000;
     [SerializeField] private float brakeSidewaysStiffnessModifier = .3f;
     [SerializeField] private float maxSpeed;
-    [SerializeField] private bool reverseOn = false;
+    [SerializeField] private float skidThreshhold;
+
+    private float currentMaxSteerAngle;
+    private float currentSpeed;
+    private float speedPercentage;
+    private bool brakeOn = false;
 
     private WheelFrictionCurve sidewaysFrictionBaseRL, sidewaysFrictionBaseRR;
     private WheelFrictionCurve sidewaysFrictionBrakeRL, sidewaysFrictionBrakeRR;
-    [SerializeField] private float currentSpeed;
 
     private void Start()
     {
         SetWheelFrictionBaseValues();
-        carRb.centerOfMass = new Vector3(centerOfMassTarget.localPosition.x, centerOfMassTarget.localPosition.y, centerOfMassTarget.localPosition.z);
+        SetCenterOfMass();
     }
 
     private void Update()
     {
-        currentSteerAngle = CalculateSteerAngle();
-        currentSpeed = carRb.velocity.magnitude;
+        CalculateSpeedPercentage();
+        CalculateSteerAngle();
+        GetCurrentSpeed();
+        CalculateEngineRPM();
+        CalculateSkidAmount();
     }
 
     private void FixedUpdate()
@@ -41,8 +51,7 @@ public class CarMovement : MonoBehaviour
 
     public void Steer(Vector2 horizontalInput)
     {
-        print("Horizontal Input: " + horizontalInput);
-        var steerAngle = currentSteerAngle * horizontalInput.x;
+        var steerAngle = currentMaxSteerAngle * horizontalInput.x;
         wheelColFL.steerAngle = steerAngle;
         wheelColFR.steerAngle = steerAngle;
     }
@@ -77,47 +86,6 @@ public class CarMovement : MonoBehaviour
         }
     }
 
-    // public void AccelerateOff()
-    // {
-    //     wheelColFL.motorTorque = 0;
-    //     wheelColFR.motorTorque = 0;
-    // }
-
-    // public void ReverseOn()
-    // {
-    //     if (currentSpeed < maxSpeed * .85f)
-    //     {
-    //         wheelColFL.motorTorque = -motorForce;
-    //         wheelColFR.motorTorque = -motorForce;
-    //     }
-    //     else if (currentSpeed >= maxSpeed * .85f)
-    //     {
-    //         wheelColFL.motorTorque = -motorForce * .3f;
-    //         wheelColFR.motorTorque = -motorForce * .3f;
-    //     }
-    //     else if (currentSpeed >= maxSpeed * .95f && currentSpeed < maxSpeed)
-    //     {
-    //         wheelColFL.motorTorque = -motorForce * .1f;
-    //         wheelColFR.motorTorque = -motorForce * .1f;
-    //     }
-    //     else if (currentSpeed >= maxSpeed)
-    //     {
-    //         wheelColFL.motorTorque = 0;
-    //         wheelColFR.motorTorque = 0;
-    //     }
-    // }
-
-    // public void ReverseOff()
-    // {
-    //     wheelColFL.motorTorque = 0;
-    //     wheelColFR.motorTorque = 0;
-    // }
-
-    public void ToggleReverse()
-    {
-        reverseOn = !reverseOn;
-    }
-
     public void BrakeOn()
     {
         wheelColFL.brakeTorque = brakeForce;
@@ -127,6 +95,8 @@ public class CarMovement : MonoBehaviour
 
         wheelColRL.sidewaysFriction = sidewaysFrictionBrakeRL;
         wheelColRR.sidewaysFriction = sidewaysFrictionBrakeRR;
+
+        brakeOn = true;
 
     }
 
@@ -139,6 +109,8 @@ public class CarMovement : MonoBehaviour
 
         wheelColRL.sidewaysFriction = sidewaysFrictionBaseRL;
         wheelColRR.sidewaysFriction = sidewaysFrictionBaseRR;
+
+        brakeOn = false;
     }
 
     private void SetWheelFrictionBaseValues()
@@ -155,27 +127,27 @@ public class CarMovement : MonoBehaviour
 
     }
 
-    private float CalculateSteerAngle()
+    private void CalculateSteerAngle()
     {
         if (currentSpeed <= 10)
         {
-            return maxSteerAngle;
+            currentMaxSteerAngle = baseMaxSteerAngle;
         }
         else if (currentSpeed > 10 && currentSpeed <= 16)
         {
-            return maxSteerAngle * .6f;
+            currentMaxSteerAngle = baseMaxSteerAngle * .6f;
         }
         else if (currentSpeed > 16 && currentSpeed <= 22)
         {
-            return maxSteerAngle * .4f;
+            currentMaxSteerAngle = baseMaxSteerAngle * .4f;
         }
         else if (currentSpeed > 22)
         {
-            return maxSteerAngle * .3f;
+            currentMaxSteerAngle = baseMaxSteerAngle * .3f;
         }
         else
         {
-            return maxSteerAngle;
+            currentMaxSteerAngle = baseMaxSteerAngle;
         }
     }
 
@@ -197,6 +169,45 @@ public class CarMovement : MonoBehaviour
 
         _transform.position = _pos;
         _transform.rotation = _quat;
+    }
+
+    private void GetCurrentSpeed()
+    {
+        currentSpeed = carRb.velocity.magnitude;
+    }
+
+    private void SetCenterOfMass()
+    {
+        carRb.centerOfMass = new Vector3(centerOfMassTarget.localPosition.x, centerOfMassTarget.localPosition.y, centerOfMassTarget.localPosition.z);
+    }
+
+    private void CalculateSpeedPercentage()
+    {
+        speedPercentage = currentSpeed / maxSpeed;
+    }
+
+    private void CalculateEngineRPM()
+    {
+
+        engineRPM = Mathf.Lerp(.2f, 1f, speedPercentage);
+        fmodDataEngineRPM.FloatValue = engineRPM;
+    }
+
+    private void CalculateSkidAmount()
+    {
+        wheelColRL.GetGroundHit(out WheelHit hitRL);
+        wheelColRR.GetGroundHit(out WheelHit hitRR);
+
+        if (hitRL.sidewaysSlip > skidThreshhold || hitRL.sidewaysSlip < -skidThreshhold
+        || hitRR.sidewaysSlip > skidThreshhold || hitRR.sidewaysSlip < -skidThreshhold
+        || brakeOn)
+        {
+            fmodDataSkid.FloatValue = speedPercentage;
+        }
+        else
+        {
+            fmodDataSkid.FloatValue = 0;
+        }
     }
 
 }

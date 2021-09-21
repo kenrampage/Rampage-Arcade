@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &974006959236335109
+--- !u!1 &741405659
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,75 +8,238 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6672454937022749100}
-  - component: {fileID: 1886761539512656844}
-  - component: {fileID: 3775921187682944948}
+  - component: {fileID: 741405660}
+  - component: {fileID: 741405661}
+  - component: {fileID: 5193260905528585906}
   m_Layer: 0
-  m_Name: Audio_Skid
+  m_Name: Skid Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &6672454937022749100
+  m_IsActive: 1
+--- !u!4 &741405660
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974006959236335109}
+  m_GameObject: {fileID: 741405659}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2688345979548863185}
-  m_RootOrder: 4
+  m_Father: {fileID: 6434293635769929948}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1886761539512656844
+--- !u!114 &741405661
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974006959236335109}
+  m_GameObject: {fileID: 741405659}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Script: {fileID: 11500000, guid: 9cdadfa93afb1f141b95cda5ec1b65f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Vehicle/Tire Skid
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: SkidPerc
-    Value: 0
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &3775921187682944948
+  fmodParameterData: {fileID: 11400000, guid: 4190a3f7ca5180e488e104d66b16f34f, type: 2}
+  fmodEvent: event:/Vehicle/Tire Skid
+  parameterName: SkidPerc
+  ignoreSeekSpeed: 0
+  playOnStart: 1
+  playAttached: 1
+  attachTarget: {fileID: 2688345979548863197}
+--- !u!114 &5193260905528585906
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 974006959236335109}
+  m_GameObject: {fileID: 741405659}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 041c0558bec5eec47ae2f7d7d166e276, type: 3}
+  m_Script: {fileID: 11500000, guid: 78adf8dbccfa1ce4a81abe64da92ea52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 0}
-  emitter: {fileID: 1886761539512656844}
-  speedPerc: 0
-  skidThreshhold: 0.25
-  isSkidding: 0
-  skidRRSide: 0
-  skidRLSide: 0
-  skidPerc: 0
+  onLevelStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 741405661}
+        m_TargetAssemblyTypeName: FMODPlayWithParameters, Assembly-CSharp
+        m_MethodName: PauseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onGameActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 741405661}
+        m_TargetAssemblyTypeName: FMODPlayWithParameters, Assembly-CSharp
+        m_MethodName: UnpauseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onGamePaused:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 741405661}
+        m_TargetAssemblyTypeName: FMODPlayWithParameters, Assembly-CSharp
+        m_MethodName: PauseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onLevelEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 741405661}
+        m_TargetAssemblyTypeName: FMODPlayWithParameters, Assembly-CSharp
+        m_MethodName: StopEventNoFadeout
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTransition:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &747262923
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 747262924}
+  - component: {fileID: 5112752312175873231}
+  - component: {fileID: 2058270906298270016}
+  m_Layer: 0
+  m_Name: Engine Sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &747262924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747262923}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6434293635769929948}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5112752312175873231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747262923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cdadfa93afb1f141b95cda5ec1b65f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fmodParameterData: {fileID: 11400000, guid: af7b80ba9ff1521418f8466e218188a0, type: 2}
+  fmodEvent: event:/Vehicle/Ride-on Mower 3D
+  parameterName: RPM
+  ignoreSeekSpeed: 0
+  playOnStart: 1
+  playAttached: 1
+  attachTarget: {fileID: 2688345979548863197}
+--- !u!114 &2058270906298270016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 747262923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78adf8dbccfa1ce4a81abe64da92ea52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onLevelStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onGameActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5112752312175873231}
+        m_TargetAssemblyTypeName: FMODPlayWithParameters, Assembly-CSharp
+        m_MethodName: UnpauseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onGamePaused:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5112752312175873231}
+        m_TargetAssemblyTypeName: FMODPlayWithParameters, Assembly-CSharp
+        m_MethodName: PauseEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onLevelEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 5112752312175873231}
+        m_TargetAssemblyTypeName: FMODPlayWithParameters, Assembly-CSharp
+        m_MethodName: StopEventNoFadeout
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTransition:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1147128145952565525
 GameObject:
   m_ObjectHideFlags: 0
@@ -86,10 +249,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 486015814185541469}
+  - component: {fileID: 2819239848670595505}
   - component: {fileID: 6181936389711023952}
   - component: {fileID: 108273618902488907}
   m_Layer: 0
-  m_Name: FX_Pickup_1
+  m_Name: Particle_Pickup_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -102,13 +266,27 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1147128145952565525}
-  m_LocalRotation: {x: 0, y: 0.7071068, z: -0, w: -0.7071068}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: -0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2688345979548863185}
-  m_RootOrder: 6
+  m_Father: {fileID: 8490917998177497457}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0, y: 270, z: 0}
+--- !u!114 &2819239848670595505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1147128145952565525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3695e1a62d654384f97e234b8388b673, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particleSystems:
+  - {fileID: 6181936389711023952}
 --- !u!198 &6181936389711023952
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5119,7 +5297,6 @@ GameObject:
   - component: {fileID: 2688345979548863185}
   - component: {fileID: 2688345979548863184}
   - component: {fileID: 2688345979548863199}
-  - component: {fileID: 8256078448638056603}
   - component: {fileID: 3194315401112183572}
   - component: {fileID: 7412218596227064925}
   - component: {fileID: 6870728886609358942}
@@ -5144,11 +5321,8 @@ Transform:
   - {fileID: 2688345980033299705}
   - {fileID: 2688345978520503975}
   - {fileID: 3371158948744775567}
-  - {fileID: 6434293636913194198}
-  - {fileID: 6672454937022749100}
-  - {fileID: 6434293635806208710}
-  - {fileID: 486015814185541469}
   - {fileID: 6434293635769929948}
+  - {fileID: 8490917998177497457}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5181,20 +5355,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3.1693096, y: 2.2533603, z: 5.4907618}
   m_Center: {x: -0.006736994, y: 1.4752595, z: -0.0226655}
---- !u!114 &8256078448638056603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2688345979548863197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3695e1a62d654384f97e234b8388b673, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particleSystems:
-  - {fileID: 6181936389711023952}
 --- !u!114 &3194315401112183572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5212,7 +5372,7 @@ MonoBehaviour:
   onTriggerEnterEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8256078448638056603}
+      - m_Target: {fileID: 2819239848670595505}
         m_TargetAssemblyTypeName: ParticlePlayer, Assembly-CSharp
         m_MethodName: PlayParticle
         m_Mode: 3
@@ -5312,6 +5472,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad02ba346aa7ded48b15a991d987521f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fmodDataEngineRPM: {fileID: 11400000, guid: af7b80ba9ff1521418f8466e218188a0, type: 2}
+  fmodDataSkid: {fileID: 11400000, guid: 4190a3f7ca5180e488e104d66b16f34f, type: 2}
   wheelColFL: {fileID: 2688345979104649020}
   wheelColFR: {fileID: 2688345979021069432}
   wheelColRL: {fileID: 2688345980141102090}
@@ -5322,14 +5484,12 @@ MonoBehaviour:
   wheelTransRR: {fileID: 3371158948744684241}
   carRb: {fileID: 2688345979548863184}
   centerOfMassTarget: {fileID: 2688345978520503975}
-  maxSteerAngle: 30
-  currentSteerAngle: 0
+  baseMaxSteerAngle: 30
   motorForce: 5000
   brakeForce: 10000
   brakeSidewaysStiffnessModifier: 0.3
   maxSpeed: 40
-  reverseOn: 0
-  currentSpeed: 0
+  skidThreshhold: 0.25
 --- !u!1 &2688345979611229054
 GameObject:
   m_ObjectHideFlags: 0
@@ -5862,6 +6022,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &6185109046272534599
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8490917998177497457}
+  m_Layer: 0
+  m_Name: Particle Systems
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8490917998177497457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6185109046272534599}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 486015814185541469}
+  m_Father: {fileID: 2688345979548863185}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6434293635769929947
 GameObject:
   m_ObjectHideFlags: 0
@@ -5871,9 +6062,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6434293635769929948}
-  - component: {fileID: 6434293635769929949}
   m_Layer: 0
-  m_Name: Player Sound
+  m_Name: Audio
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5889,24 +6079,13 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 747262924}
+  - {fileID: 741405660}
+  - {fileID: 6434293635806208710}
   m_Father: {fileID: 2688345979548863185}
-  m_RootOrder: 7
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6434293635769929949
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6434293635769929947}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7befb7ded1ec7a4787333ce916ceda0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEvents: []
-  soundEffectsOn: 1
 --- !u!1 &6434293635806208709
 GameObject:
   m_ObjectHideFlags: 0
@@ -5931,12 +6110,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6434293635806208709}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.8, z: 0.45}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.8, z: 0.44999695}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 2688345979548863185}
-  m_RootOrder: 5
+  m_Father: {fileID: 6434293635769929948}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6434293635806208711
 MonoBehaviour:
@@ -5952,78 +6131,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
   ListenerNumber: -1
---- !u!1 &6434293636913194197
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6434293636913194198}
-  - component: {fileID: 6434293636913194199}
-  - component: {fileID: 6434293636913194200}
-  m_Layer: 0
-  m_Name: Audio_Engine
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &6434293636913194198
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6434293636913194197}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2688345979548863185}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6434293636913194199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6434293636913194197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CollisionTag: 
-  Event: event:/Vehicle/Ride-on Mower
-  PlayEvent: 1
-  StopEvent: 0
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params:
-  - Name: RPM
-    Value: 500
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20
---- !u!114 &6434293636913194200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6434293636913194197}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a93c0c8cc85421d44a0b02f640a84978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  car: {fileID: 0}
-  emitter: {fileID: 6434293636913194199}
-  speedPerc: 0
-  minRPM: 500
-  maxRPM: 2500
-  currentRPM: 0

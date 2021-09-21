@@ -18,11 +18,11 @@ public class UICanvasGroupFadeEffect : MonoBehaviour
     {
         if (fadeAtStart)
         {
-            if (canvasGroup.alpha == 1)
+            if (canvasGroup.alpha == 0)
             {
                 FadeOut();
             }
-            else if (canvasGroup.alpha == 0)
+            else if (canvasGroup.alpha == 1)
             {
                 FadeIn();
             }
@@ -32,11 +32,11 @@ public class UICanvasGroupFadeEffect : MonoBehaviour
 
     public void FadeIn()
     {
-        LeanTween.alphaCanvas(canvasGroup, 1, fadeInTime).setIgnoreTimeScale(true);
+        LeanTween.alphaCanvas(canvasGroup, 0, fadeInTime).setIgnoreTimeScale(true);
     }
 
     public void FadeOut()
     {
-        LeanTween.alphaCanvas(canvasGroup, 0, fadeOutTime).setIgnoreTimeScale(true);
+        LeanTween.alphaCanvas(canvasGroup, 1, fadeOutTime).setIgnoreTimeScale(true);
     }
 }

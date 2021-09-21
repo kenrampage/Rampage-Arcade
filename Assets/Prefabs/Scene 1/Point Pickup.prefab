@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4966231442641875980}
-  - component: {fileID: 3715826959360111441}
+  - component: {fileID: 4393274096451730051}
   m_Layer: 0
   m_Name: Sound Player
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 7349099596452773970}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3715826959360111441
+--- !u!114 &4393274096451730051
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,10 +40,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 197130079728928467}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f07deceae62ab3846a7254ddb3b122d8, type: 3}
+  m_Script: {fileID: 11500000, guid: e7befb7ded1ec7a4787333ce916ceda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEvents:
+  fmodEvents:
   - event:/Pickups/Pickup 1
   soundEffectsOn: 1
 --- !u!1 &213444336433934171
@@ -150,9 +150,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 3715826959360111441}
-        m_TargetAssemblyTypeName: SoundPlayer3D, Assembly-CSharp
-        m_MethodName: PlaySoundEvent
+      - m_Target: {fileID: 4393274096451730051}
+        m_TargetAssemblyTypeName: FMODPlayOneShot, Assembly-CSharp
+        m_MethodName: PlaySoundEventAttached
         m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

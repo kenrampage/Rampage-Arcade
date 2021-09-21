@@ -12,7 +12,7 @@ public class TopDownController : MonoBehaviour
     [SerializeField] private GameManager gameManager;
     [SerializeField] private Ammo ammo;
     [SerializeField] private GameObject playerModel;
-    [SerializeField] private SoundPlayer2D sfxPlayer;
+    [SerializeField] private FMODPlayOneShot sfxPlayer;
 
 
     public ObjectPooler objectPooler;

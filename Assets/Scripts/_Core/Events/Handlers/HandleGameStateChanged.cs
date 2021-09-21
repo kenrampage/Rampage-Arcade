@@ -36,6 +36,7 @@ public class HandleGameStateChanged : MonoBehaviour
                 break;
 
             case GameState.LEVELEND:
+                print("Level End!");
                 onLevelEnd?.Invoke();
                 break;
 

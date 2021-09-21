@@ -1,13 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
-public class MusicPlayer2D : MonoBehaviour
+public class FMODMusicPlaylist : MonoBehaviour
 {
-    public bool randomize;
+    public bool shuffle;
     public int eventIndex;
-    [FMODUnity.EventRef] public string[] fmodEvents;
+    [EventRef] public string[] fmodEvents;
 
     FMOD.Studio.EventInstance eventInstance;
 
@@ -34,7 +32,7 @@ public class MusicPlayer2D : MonoBehaviour
 
     private void Start()
     {
-        if (randomize)
+        if (shuffle)
         {
             eventIndex = Random.Range(0, fmodEvents.Length - 1);
         }

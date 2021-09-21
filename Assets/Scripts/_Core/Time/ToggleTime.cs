@@ -4,7 +4,7 @@ public class ToggleTime : MonoBehaviour
 {
     private float initialTimeScale;
 
-    private void Start()
+    private void Awake()
     {
         initialTimeScale = Time.timeScale;
     }

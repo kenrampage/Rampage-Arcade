@@ -15,24 +15,16 @@ public class CameraFollowCar : MonoBehaviour
 
     private void Start()
     {
-
-        
         target = GameObject.FindGameObjectWithTag("Player").transform;
-
     }
 
-    private void Update()
-    {
-        // target = gameManager.player.transform;
-        // HandleTranslation();
-        // HandleRotation();
-    }
 
     private void FixedUpdate()
     {
         HandleTranslation();
         HandleRotation();
     }
+
 
 
     void HandleTranslation()

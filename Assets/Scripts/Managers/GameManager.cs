@@ -26,15 +26,6 @@ public class GameManager : MonoBehaviour
         InitializeLevel();
     }
 
-    // private void Update()
-    // {
-    //     if (Input.GetKeyDown(KeyCode.Escape))
-    //     {
-    //         TogglePause();
-    //     }
-    // }
-
-
     public void InitializeLevel()
     {
         CurrentGameState = GameState.LEVELSTART;
