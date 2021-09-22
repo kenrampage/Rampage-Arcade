@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(CanvasGroup))]
 public class UICanvasGroupFadeEffect : MonoBehaviour
 {
-    [SerializeField] private bool fadeAtStart;
+    [SerializeField] private bool fadeInAtStart;
     [SerializeField] private float fadeOutTime = 1f;
     [SerializeField] private float fadeInTime = 1f;
 
@@ -16,16 +16,10 @@ public class UICanvasGroupFadeEffect : MonoBehaviour
 
     private void Start()
     {
-        if (fadeAtStart)
+        if (fadeInAtStart)
         {
-            if (canvasGroup.alpha == 0)
-            {
-                FadeOut();
-            }
-            else if (canvasGroup.alpha == 1)
-            {
-                FadeIn();
-            }
+            canvasGroup.alpha = 1;
+            FadeIn();
             
         }
     }

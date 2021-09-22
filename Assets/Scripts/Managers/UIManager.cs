@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
     public GameObject pauseUI;
     public GameObject gameUI;
     public GameObject endUI;
+    public GameObject bgCanvas;
 
     // private void OnEnable()
     // {
@@ -51,6 +52,7 @@ public class UIManager : MonoBehaviour
         pauseUI.SetActive(false);
         gameUI.SetActive(false);
         endUI.SetActive(false);
+        bgCanvas.SetActive(true);
     }
 
     public void GameUIOn()
@@ -59,6 +61,7 @@ public class UIManager : MonoBehaviour
         pauseUI.SetActive(false);
         gameUI.SetActive(true);
         endUI.SetActive(false);
+        bgCanvas.SetActive(false);
     }
 
 
@@ -68,6 +71,7 @@ public class UIManager : MonoBehaviour
         pauseUI.SetActive(true);
         gameUI.SetActive(false);
         endUI.SetActive(false);
+        bgCanvas.SetActive(true);
     }
 
     public void EndUIOn()
@@ -76,6 +80,7 @@ public class UIManager : MonoBehaviour
         pauseUI.SetActive(false);
         gameUI.SetActive(false);
         endUI.SetActive(true);
+        bgCanvas.SetActive(true);
     }
 
 }

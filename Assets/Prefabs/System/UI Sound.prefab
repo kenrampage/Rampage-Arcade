@@ -43,7 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7befb7ded1ec7a4787333ce916ceda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEvents:
+  fmodEvents:
   - event:/Menu/Menu Hover
   - event:/Menu/Menu Select
   soundEffectsOn: 1

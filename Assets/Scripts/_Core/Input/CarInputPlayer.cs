@@ -33,30 +33,24 @@ public class CarInputPlayer : MonoBehaviour
     {
         carTurn.started += DoCarTurnStart;
         carTurn.canceled += DoCarTurnStop;
-        carTurn.Enable();
 
         carAccelerate.started += DoCarAccelerateStart;
         carAccelerate.canceled += DoCarAccelerateStop;
-        carAccelerate.Enable();
 
         carBrake.started += DoCarBrakeStart;
         carBrake.canceled += DoCarBrakeStop;
-        carBrake.Enable();
     }
 
     private void OnDisable()
     {
         carTurn.started -= DoCarTurnStart;
         carTurn.canceled -= DoCarTurnStop;
-        carTurn.Disable();
 
         carAccelerate.started -= DoCarAccelerateStart;
         carAccelerate.canceled -= DoCarAccelerateStop;
-        carAccelerate.Disable();
 
         carBrake.started -= DoCarBrakeStart;
         carBrake.canceled -= DoCarBrakeStop;
-        carBrake.Disable();
     }
 
     private void DoCarTurnStart(InputAction.CallbackContext context)
@@ -97,18 +91,6 @@ public class CarInputPlayer : MonoBehaviour
     public void EnableInput()
     {
         inputActionMap.Enable();
-    }
-
-    public void ToggleInput()
-    {
-        if (inputActionMap.enabled)
-        {
-            DisableInput();
-        }
-        else
-        {
-            EnableInput();
-        }
     }
 
 

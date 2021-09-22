@@ -48,6 +48,7 @@ MonoBehaviour:
   pauseUI: {fileID: 0}
   gameUI: {fileID: 0}
   endUI: {fileID: 0}
+  bgCanvas: {fileID: 0}
 --- !u!114 &1751576897045653113
 MonoBehaviour:
   m_ObjectHideFlags: 0
