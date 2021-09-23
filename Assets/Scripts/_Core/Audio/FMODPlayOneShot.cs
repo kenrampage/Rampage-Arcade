@@ -3,22 +3,22 @@ using FMODUnity;
 
 public class FMODPlayOneShot : MonoBehaviour
 {
-    [EventRef] public string[] fmodEvents;
+    [EventRef] public string fmodEvent;
     [SerializeField] private bool soundEffectsOn = true;
 
-    public void PlaySoundEvent(int i)
+    public void PlaySoundEvent()
     {
-        if (fmodEvents[i] != null && soundEffectsOn)
+        if (fmodEvent != null && soundEffectsOn)
         {
-            RuntimeManager.PlayOneShot(fmodEvents[i]);
+            RuntimeManager.PlayOneShot(fmodEvent);
         }
     }
 
-    public void PlaySoundEventAttached(int i)
+    public void PlaySoundEventAttached()
     {
-        if (fmodEvents[i] != null && soundEffectsOn)
+        if (fmodEvent != null && soundEffectsOn)
         {
-            RuntimeManager.PlayOneShotAttached(fmodEvents[i], gameObject);
+            RuntimeManager.PlayOneShotAttached(fmodEvent, gameObject);
         }
     }
 

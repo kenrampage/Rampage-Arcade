@@ -35,12 +35,7 @@ public class SpawnManager3 : MonoBehaviour
     private Vector3 pickupPos;
 
     [SerializeField] private SOGameStateKeeper gameStateKeeper;
-    private ScoreKeeper scoreKeeper;
-
-    private void Awake()
-    {
-        scoreKeeper = FindObjectOfType<ScoreKeeper>();
-    }
+    [SerializeField] private SOScoreKeeper scoreKeeper;
 
     // Start is called before the first frame update
     void Start()

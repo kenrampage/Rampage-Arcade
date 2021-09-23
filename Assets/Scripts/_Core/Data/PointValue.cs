@@ -2,13 +2,8 @@ using UnityEngine;
 
 public class PointValue : MonoBehaviour
 {
-    private ScoreKeeper scoreKeeper;
+    [SerializeField] private SOScoreKeeper scoreKeeper;
     public int value;
-
-    private void Start()
-    {
-        scoreKeeper = FindObjectOfType<ScoreKeeper>();
-    }
 
     public void IncrementScore()
     {

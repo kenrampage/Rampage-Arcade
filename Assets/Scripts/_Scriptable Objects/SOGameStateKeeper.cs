@@ -1,7 +1,7 @@
 using UnityEngine;
 using System;
 
-[CreateAssetMenu(fileName = "GameStateKeeper", menuName = "Rampage Arcade/SOGameStateKeeper", order = 0)]
+[CreateAssetMenu(fileName = "GameStateKeeper", menuName = "Rampage Arcade/SOGameStateKeeper")]
 public class SOGameStateKeeper : ScriptableObject
 {
     public event Action<GameState> onGameStateChanged;

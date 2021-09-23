@@ -1,9 +1,10 @@
 using UnityEngine;
 using System;
 
-public class ScoreKeeper : MonoBehaviour
+[CreateAssetMenu(fileName = "ScoreKeeper", menuName = "Rampage Arcade/SOScoreKeeper")]
+public class SOScoreKeeper : ScriptableObject
 {
-    public static event Action<int> onScoreChanged;
+    public event Action<int> onScoreChanged;
     [SerializeField] private int score;
     public int Score
     {
@@ -14,13 +15,8 @@ public class ScoreKeeper : MonoBehaviour
         set
         {
             score = value;
-            
-        }
-    }
 
-    private void Start()
-    {
-        ResetScore();
+        }
     }
 
     public void ResetScore()
@@ -39,5 +35,4 @@ public class ScoreKeeper : MonoBehaviour
         Score += i;
         onScoreChanged?.Invoke(score);
     }
-
 }

@@ -2,19 +2,19 @@ using UnityEngine;
 
 public class SpawnManager1 : SpawnManager
 {
-
+    [SerializeField] private SOScoreKeeper scoreKeeper;
     [SerializeField] private MassSpawnObjects obstacleSpawner;
     [SerializeField] private MassSpawnObjects pickupSpawner;
     [SerializeField] private SpawnObjectsAtLocation playerSpawner;
 
     private void OnEnable()
     {
-        ScoreKeeper.onScoreChanged += HandleScoreChanged;
+        scoreKeeper.onScoreChanged += HandleScoreChanged;
     }
 
     private void OnDisable()
     {
-        ScoreKeeper.onScoreChanged -= HandleScoreChanged;
+        scoreKeeper.onScoreChanged -= HandleScoreChanged;
     }
 
     private void HandleScoreChanged(int i)

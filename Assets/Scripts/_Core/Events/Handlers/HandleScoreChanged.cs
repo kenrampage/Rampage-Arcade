@@ -3,16 +3,17 @@ using UnityEngine.Events;
 
 public class HandleScoreChanged : MonoBehaviour
 {
+    [SerializeField] private SOScoreKeeper scoreKeeper;
     [SerializeField] private UnityEvent onScoreChanged;
 
     private void OnEnable()
     {
-        ScoreKeeper.onScoreChanged += HandleEvent;
+        scoreKeeper.onScoreChanged += HandleEvent;
     }
 
     private void OnDisable()
     {
-        ScoreKeeper.onScoreChanged -= HandleEvent;
+        scoreKeeper.onScoreChanged -= HandleEvent;
     }
 
     public void HandleEvent(int i)

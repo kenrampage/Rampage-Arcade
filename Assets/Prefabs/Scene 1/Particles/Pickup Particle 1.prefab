@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 739558306739572359}
   - component: {fileID: 6776083936278025884}
   m_Layer: 0
-  m_Name: FX_Particle_OnPickup
+  m_Name: Pickup Particle 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

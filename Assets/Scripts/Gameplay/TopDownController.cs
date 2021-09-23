@@ -12,7 +12,7 @@ public class TopDownController : MonoBehaviour
     [SerializeField] private SOGameStateKeeper gameStateKeeper;
     [SerializeField] private Ammo ammo;
     [SerializeField] private GameObject playerModel;
-    [SerializeField] private FMODPlayOneShot sfxPlayer;
+    // [SerializeField] private FMODPlayOneShot sfxPlayer;
 
 
     public ObjectPooler objectPooler;
@@ -36,11 +36,11 @@ public class TopDownController : MonoBehaviour
                 {
                     FireProjectile();
                     ammo.DecreaseAmmo();
-                    sfxPlayer.PlaySoundEvent(4);
+                    // sfxPlayer.PlaySoundEvent(4);
                 }
                 else
                 {
-                    sfxPlayer.PlaySoundEvent(5);
+                    // sfxPlayer.PlaySoundEvent(5);
                     // Debug.Log("Out of Ammo!");
                 }
 
@@ -49,7 +49,7 @@ public class TopDownController : MonoBehaviour
             if (Input.GetMouseButtonDown(1))
             {
                 ammo.ResetAmmo();
-                sfxPlayer.PlaySoundEvent(6);
+                // sfxPlayer.PlaySoundEvent(6);
             }
 
             // Check for left and right bounds

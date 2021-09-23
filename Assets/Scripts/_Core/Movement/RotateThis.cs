@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class RotateThis : MonoBehaviour
 {
-    [SerializeField] private SOGameStateKeeper gameStateKeeper;
     public Vector3 rotationSpeed;
     public bool rotateAlways;
 
