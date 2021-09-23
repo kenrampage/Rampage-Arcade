@@ -1,11 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    [SerializeField] private float loadDelay;
+    [SerializeField] private float loadDelay = 1;
 
     public void LoadMainMenu()
     {

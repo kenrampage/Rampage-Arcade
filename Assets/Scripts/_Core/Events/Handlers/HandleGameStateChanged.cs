@@ -5,11 +5,12 @@ public class HandleGameStateChanged : MonoBehaviour
 {
     [SerializeField] private SOGameStateKeeper gameStateKeeper;
 
+    [SerializeField] private UnityEvent onTransitionIn;
     [SerializeField] private UnityEvent onLevelStart;
     [SerializeField] private UnityEvent onGameActivated;
     [SerializeField] private UnityEvent onGamePaused;
     [SerializeField] private UnityEvent onLevelEnd;
-    [SerializeField] private UnityEvent onTransition;
+    [SerializeField] private UnityEvent onTransitionOut;
 
     private void OnEnable()
     {
@@ -38,12 +39,15 @@ public class HandleGameStateChanged : MonoBehaviour
                 break;
 
             case GameState.LEVELEND:
-                print("Level End!");
                 onLevelEnd?.Invoke();
                 break;
 
-            case GameState.TRANSITION:
-                onTransition?.Invoke();
+            case GameState.TRANSITIONIN:
+                onTransitionIn?.Invoke();
+                break;
+
+            case GameState.TRANSITIONOUT:
+                onTransitionOut?.Invoke();
                 break;
 
             default:

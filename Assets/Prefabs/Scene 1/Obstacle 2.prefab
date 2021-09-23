@@ -120,7 +120,7 @@ MonoBehaviour:
       - m_Target: {fileID: 7048022745735709090}
         m_TargetAssemblyTypeName: FMODPlayOneShot, Assembly-CSharp
         m_MethodName: PlaySoundEventAttached
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -157,7 +157,7 @@ GameObject:
   - component: {fileID: 7858771540548686188}
   - component: {fileID: 7048022745735709090}
   m_Layer: 0
-  m_Name: Sound Player
+  m_Name: Collision Sound
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -189,6 +189,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7befb7ded1ec7a4787333ce916ceda0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fmodEvents:
-  - event:/Collisions/Object Collision 2
+  fmodEvent: event:/Collisions/Object Collision 2
   soundEffectsOn: 1

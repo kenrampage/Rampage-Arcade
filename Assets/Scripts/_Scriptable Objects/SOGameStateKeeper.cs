@@ -46,9 +46,14 @@ public class SOGameStateKeeper : ScriptableObject
         SetGameState(GameState.LEVELEND);
     }
 
-    public void TransitionLevel()
+    public void TransitionIn()
     {
-        SetGameState(GameState.TRANSITION);
+        SetGameState(GameState.TRANSITIONIN);
+    }
+
+    public void TransitionOut()
+    {
+        SetGameState(GameState.TRANSITIONOUT);
     }
 
     public void TogglePause()

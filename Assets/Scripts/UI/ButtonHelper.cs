@@ -18,14 +18,9 @@ public class ButtonHelper : MonoBehaviour
     private void Awake()
     {
         button = GetComponent<Button>();
-    }
-
-    private void Start()
-    {
         if (firstButton)
         {
             firstSelect = true;
-            button.Select();
         }
     }
 
@@ -41,8 +36,6 @@ public class ButtonHelper : MonoBehaviour
         {
             onSelect?.Invoke();
         }
-
-
     }
 
     public void DoDeselect()
