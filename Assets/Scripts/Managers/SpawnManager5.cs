@@ -18,18 +18,17 @@ public class SpawnManager5 : MonoBehaviour
     public float ySpawnPos = -2;
 
 
-    private GameManager gameManager;
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
     [SerializeField] private DifficultyKeeper difficultyKeeper;
 
     private void Awake()
     {
         difficultyKeeper = FindObjectOfType<DifficultyKeeper>();
-        gameManager = FindObjectOfType<GameManager>();
     }
 
     IEnumerator SpawnTarget()
     {
-        while (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+        while (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
         {
             yield return new WaitForSeconds(spawnRateCurrent);
             int index = Random.Range(0, targets.Count);

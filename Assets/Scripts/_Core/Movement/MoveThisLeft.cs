@@ -1,18 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MoveThisLeft : MonoBehaviour
 {
     public float speed = 15f;
     public float leftBound = -15;
 
-    private GameManager gameManager;
-
-    private void Awake()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-    }
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
 
     // Update is called once per frame
     void Update()
@@ -23,7 +16,7 @@ public class MoveThisLeft : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+        if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
         {
             transform.Translate(Vector3.left * Time.deltaTime * speed);
 

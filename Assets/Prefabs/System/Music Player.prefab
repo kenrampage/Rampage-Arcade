@@ -56,3 +56,4 @@ MonoBehaviour:
   debugControls: 1
   section: 0
   fadeInTime: 0
+  gameStateKeeper: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}

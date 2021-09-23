@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class RaycastMouse : MonoBehaviour
 {
     private Camera mainCamera;
-    private GameManager gameManager;
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
 
     [SerializeField] private GameObject mouseCursor;
     [SerializeField] private string targetLayer;
@@ -15,13 +13,12 @@ public class RaycastMouse : MonoBehaviour
     private void Awake()
     {
         mainCamera = Camera.main;
-        gameManager = FindObjectOfType<GameManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+        if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
         {
             mouseCursor.SetActive(true);
             Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);

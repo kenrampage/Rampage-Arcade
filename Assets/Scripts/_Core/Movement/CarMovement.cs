@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class CarMovement : MonoBehaviour
 {
-    [SerializeField] private SO_FMODParameterData fmodDataEngineRPM;
+    [SerializeField] private SOFMODParameterData fmodDataEngineRPM;
     private float engineRPM;
 
-    [SerializeField] private SO_FMODParameterData fmodDataSkid;
+    [SerializeField] private SOFMODParameterData fmodDataSkid;
     private float skidValue;
 
     [SerializeField] private WheelCollider wheelColFL, wheelColFR, wheelColRL, wheelColRR;

@@ -9,7 +9,7 @@ public class TopDownController : MonoBehaviour
     private float xRange = 20;
     public float projectileHeight;
 
-    [SerializeField] private GameManager gameManager;
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
     [SerializeField] private Ammo ammo;
     [SerializeField] private GameObject playerModel;
     [SerializeField] private FMODPlayOneShot sfxPlayer;
@@ -19,19 +19,14 @@ public class TopDownController : MonoBehaviour
     public GameObject lookTarget;
 
     
-    // public GameObject mouseTarget;
 
-    private void Awake()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-    }
 
     // Update is called once per frame
     void Update()
     {
         SetLookDirection();
 
-        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+        if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
         {
 
             if (Input.GetMouseButtonDown(0))

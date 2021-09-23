@@ -34,12 +34,11 @@ public class SpawnManager3 : MonoBehaviour
     private float pickupTimer;
     private Vector3 pickupPos;
 
-    private GameManager gameManager;
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
     private ScoreKeeper scoreKeeper;
 
     private void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
 
@@ -55,7 +54,7 @@ public class SpawnManager3 : MonoBehaviour
     void Update()
     {
 
-        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+        if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
         {
             obstacleTimer -= Time.deltaTime;
             pickupTimer -= Time.deltaTime;

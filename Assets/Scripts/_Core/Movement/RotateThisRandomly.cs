@@ -4,18 +4,13 @@ using UnityEngine;
 
 public class RotateThisRandomly : MonoBehaviour
 {
-    private GameManager gameManager;
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
     private Vector3 rotationDirection;
     private float rotationSpeed;
 
     [SerializeField] private float rotationSpeedMin;
     [SerializeField] private float rotationSpeedMax;
     
-    private void Awake()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-    }
-
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +23,7 @@ public class RotateThisRandomly : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+        if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
         {
             transform.Rotate(rotationDirection * rotationSpeed, Space.Self);
         }

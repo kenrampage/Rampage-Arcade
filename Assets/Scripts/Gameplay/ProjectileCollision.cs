@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class ProjectileCollision : MonoBehaviour
 {
-
-    private GameManager gameManager;
     private ScoreKeeper scoreKeeper;
     private FMODPlayOneShot sfxPlayer;
 
@@ -15,7 +13,6 @@ public class ProjectileCollision : MonoBehaviour
     private void Awake()
     {
         sfxPlayer = FindObjectOfType<FMODPlayOneShot>();
-        gameManager = FindObjectOfType<GameManager>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
 

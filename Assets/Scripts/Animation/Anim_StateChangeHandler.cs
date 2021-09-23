@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Anim_StateChangeHandler : MonoBehaviour
 {
-
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
     private Animator animator;
 
     private void Awake()
@@ -14,12 +14,12 @@ public class Anim_StateChangeHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.onGameStateChanged += HandleGameStateChanged;
+        gameStateKeeper.onGameStateChanged += HandleGameStateChanged;
     }
 
     private void OnDisable()
     {
-        GameManager.onGameStateChanged -= HandleGameStateChanged;
+        gameStateKeeper.onGameStateChanged -= HandleGameStateChanged;
     }
 
     private void HandleGameStateChanged(GameState currentGameState)

@@ -3,16 +3,17 @@ using UnityEngine.Events;
 
 public class HandleGamePauseToggled : MonoBehaviour
 {
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
     [SerializeField] private UnityEvent onPauseToggled;
-
+    
     private void OnEnable()
     {
-        GameManager.onGamePauseToggled += HandleEvent;
+        gameStateKeeper.onGamePauseToggled += HandleEvent;
     }
 
     private void OnDisable()
     {
-        GameManager.onGamePauseToggled -= HandleEvent;
+        gameStateKeeper.onGamePauseToggled -= HandleEvent;
     }
 
     private void HandleEvent()

@@ -1,8 +1,8 @@
 using UnityEngine;
 using System;
 
-[CreateAssetMenu(fileName = "FMODParameterData_", menuName = "Rampage Arcade/SO_FMODParameterData", order = 0)]
-public class SO_FMODParameterData : ScriptableObject
+[CreateAssetMenu(fileName = "FMODParameterData_", menuName = "Rampage Arcade/SOFMODParameterData", order = 0)]
+public class SOFMODParameterData : ScriptableObject
 {
     public event Action<float> onValueUpdated;
     private float floatValue;

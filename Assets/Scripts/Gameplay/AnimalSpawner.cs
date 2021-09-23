@@ -15,12 +15,11 @@ public class AnimalSpawner : MonoBehaviour
 
     private Vector3 spawnPos;
 
-    private GameManager gameManager;
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
     private ScoreKeeper scoreKeeper;
 
     private void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
         scoreKeeper = FindObjectOfType<ScoreKeeper>();
     }
 
@@ -37,7 +36,7 @@ public class AnimalSpawner : MonoBehaviour
     void Update()
     {
 
-        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+        if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
         {
             spawnTimer -= Time.deltaTime;
             // print(spawnTimer);

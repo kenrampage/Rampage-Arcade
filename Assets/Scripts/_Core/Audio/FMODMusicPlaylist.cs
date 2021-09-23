@@ -3,6 +3,8 @@ using FMODUnity;
 
 public class FMODMusicPlaylist : MonoBehaviour
 {
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
+    
     public bool shuffle;
     public int eventIndex;
     [EventRef] public string[] fmodEvents;
@@ -18,15 +20,17 @@ public class FMODMusicPlaylist : MonoBehaviour
 
     public float fadeInTime;
 
+    
+
 
     private void OnEnable()
     {
-        GameManager.onGameStateChanged += HandleGameStateChanged;
+        gameStateKeeper.onGameStateChanged += HandleGameStateChanged;
     }
 
     private void OnDisable()
     {
-        GameManager.onGameStateChanged -= HandleGameStateChanged;
+        gameStateKeeper.onGameStateChanged -= HandleGameStateChanged;
     }
 
 

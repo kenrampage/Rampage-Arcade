@@ -22,7 +22,7 @@ public class RunnerController : MonoBehaviour
     private bool isOnGround;
     private bool isJumping;
 
-    private GameManager gameManager;
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
     public StudioEventEmitter sfxEmitterHover;
 
 
@@ -37,8 +37,6 @@ public class RunnerController : MonoBehaviour
 
     private void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
-
         playerRb = GetComponent<Rigidbody>();
         playerAnim = GetComponent<Animator>();
     }
@@ -64,7 +62,7 @@ public class RunnerController : MonoBehaviour
             jumpInput = false;
         }
 
-        if (gameManager.CurrentGameState != GameState.GAMEACTIVE)
+        if (gameStateKeeper.CurrentGameState != GameState.GAMEACTIVE)
         {
             sfxEmitterHover.Stop();
         }
@@ -88,7 +86,7 @@ public class RunnerController : MonoBehaviour
             jumpTimeCurrent = jumpTimeMax;
             playerAnim.SetBool("Grounded", true);
 
-            if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+            if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
             {
                 playerAnim.SetBool("IsRunning", true);
 
@@ -100,7 +98,7 @@ public class RunnerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+        if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
         {
             if (other.gameObject.CompareTag("Obstacle"))
             {
@@ -125,7 +123,7 @@ public class RunnerController : MonoBehaviour
 
     private void Jump()
     {
-        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+        if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
         {
 
             if (isOnGround && jumpInput)

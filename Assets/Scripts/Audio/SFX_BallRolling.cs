@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using FMODUnity;
 
@@ -16,12 +14,7 @@ public class SFX_BallRolling : MonoBehaviour
     private Rigidbody rb;
     public float currentSpeed;
 
-    private GameManager gameManager;
-
-    private void Awake()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-    }
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +31,7 @@ public class SFX_BallRolling : MonoBehaviour
     void Update()
     {
         currentSpeed = rb.velocity.magnitude;
-        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+        if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
         {
             emitter.SetParameter("Ball Speed", currentSpeed);
         }

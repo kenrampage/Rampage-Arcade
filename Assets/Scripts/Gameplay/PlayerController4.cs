@@ -24,18 +24,12 @@ public class PlayerController4 : MonoBehaviour
     public float deathHeight;
     public float fadeTime;
 
-    private GameManager gameManager;
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
     [SerializeField] SpawnManager4 spawnManager4;
 
     public float forwardInput;
 
     private float currentSpeed;
-
-    private void Awake()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-    }
-
 
     // Start is called before the first frame update
     void Start()
@@ -64,9 +58,9 @@ public class PlayerController4 : MonoBehaviour
 
         if (transform.position.y <= -10)
         {
-            if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+            if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
             {
-                gameManager.EndLevel();
+                gameStateKeeper.EndLevel();
 
             }
         }
@@ -87,7 +81,7 @@ public class PlayerController4 : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+        if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
         {
             playerRb.AddForce(focalPoint.transform.forward * forwardInput * speed);
         }

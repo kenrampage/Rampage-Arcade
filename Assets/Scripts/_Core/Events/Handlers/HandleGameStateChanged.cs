@@ -3,6 +3,8 @@ using UnityEngine.Events;
 
 public class HandleGameStateChanged : MonoBehaviour
 {
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
+
     [SerializeField] private UnityEvent onLevelStart;
     [SerializeField] private UnityEvent onGameActivated;
     [SerializeField] private UnityEvent onGamePaused;
@@ -11,12 +13,12 @@ public class HandleGameStateChanged : MonoBehaviour
 
     private void OnEnable()
     {
-        GameManager.onGameStateChanged += HandleEvent;
+        gameStateKeeper.onGameStateChanged += HandleEvent;
     }
 
     private void OnDisable()
     {
-        GameManager.onGameStateChanged -= HandleEvent;
+        gameStateKeeper.onGameStateChanged -= HandleEvent;
     }
 
     private void HandleEvent(GameState currentGameState)

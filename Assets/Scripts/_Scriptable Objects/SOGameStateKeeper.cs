@@ -1,11 +1,11 @@
-using System;
 using UnityEngine;
+using System;
 
-public class GameManager : MonoBehaviour
+[CreateAssetMenu(fileName = "GameStateKeeper", menuName = "Rampage Arcade/SOGameStateKeeper", order = 0)]
+public class SOGameStateKeeper : ScriptableObject
 {
-
-    public static event Action<GameState> onGameStateChanged;
-    public static event Action onGamePauseToggled;
+    public event Action<GameState> onGameStateChanged;
+    public event Action onGamePauseToggled;
 
     public GameState currentGameState;
     public GameState CurrentGameState
@@ -21,34 +21,34 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private void Start()
+    public void SetGameState(GameState gameState)
     {
-        InitializeLevel();
+        CurrentGameState = gameState;
     }
 
     public void InitializeLevel()
     {
-        CurrentGameState = GameState.LEVELSTART;
+        SetGameState(GameState.LEVELSTART);
     }
 
     public void StartLevel()
     {
-        CurrentGameState = GameState.GAMEACTIVE;
+        SetGameState(GameState.GAMEACTIVE);
     }
 
     public void PauseLevel()
     {
-        CurrentGameState = GameState.GAMEPAUSED;
+        SetGameState(GameState.GAMEPAUSED);
     }
 
     public void EndLevel()
     {
-        CurrentGameState = GameState.LEVELEND;
+        SetGameState(GameState.LEVELEND);
     }
 
     public void TransitionLevel()
     {
-        CurrentGameState = GameState.TRANSITION;
+        SetGameState(GameState.TRANSITION);
     }
 
     public void TogglePause()

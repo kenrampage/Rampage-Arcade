@@ -3,7 +3,7 @@ using FMODUnity;
 
 public class FMODPlayWithParameters : MonoBehaviour
 {
-    [SerializeField] private SO_FMODParameterData fmodParameterData;
+    [SerializeField] private SOFMODParameterData fmodParameterData;
 
     [SerializeField] [EventRef] private string fmodEvent;
     [SerializeField] private string parameterName;

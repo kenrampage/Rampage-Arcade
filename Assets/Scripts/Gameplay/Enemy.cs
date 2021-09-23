@@ -15,12 +15,11 @@ public class Enemy : MonoBehaviour
     private bool isDefeated;
 
 
-    private GameManager gameManager;
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
     private PointValue pointValue;
 
     private void Awake()
     {
-        gameManager = FindObjectOfType<GameManager>();
         pointValue = FindObjectOfType<PointValue>();
     }
 
@@ -63,7 +62,7 @@ public class Enemy : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (gameManager.CurrentGameState == GameState.GAMEACTIVE && !isDefeated)
+        if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE && !isDefeated)
         {
             enemyRb.AddForce(lookDirection * speed);
 

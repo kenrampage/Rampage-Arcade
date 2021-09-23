@@ -2,24 +2,19 @@ using UnityEngine;
 
 public class SensorBar : MonoBehaviour
 {
-    private GameManager gameManager;
-
-    private void Awake()
-    {
-        gameManager = FindObjectOfType<GameManager>();
-    }
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
 
     // Destroys this game object on collision with any trigger
     private void OnTriggerEnter(Collider other)
     {
-        if (gameManager.CurrentGameState == GameState.GAMEACTIVE)
+        if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
         {
 
             Destroy(other.gameObject);
 
             if (other.transform.tag != "Bad")
             {
-                gameManager.EndLevel();
+                gameStateKeeper.EndLevel();
             }
         }
 
