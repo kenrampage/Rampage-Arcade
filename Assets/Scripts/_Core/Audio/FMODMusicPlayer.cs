@@ -76,6 +76,7 @@ public class FMODMusicPlayer : MonoBehaviour
         }
     }
 
+    [ContextMenu("Pause Music")]
     public void PausePlayback()
     {
         eventInstance.setPaused(true);

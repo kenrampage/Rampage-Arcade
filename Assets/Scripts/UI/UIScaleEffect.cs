@@ -26,5 +26,4 @@ public class UIScaleEffect : MonoBehaviour
         LeanTween.scale(gameObject, newScale, scaleSpeed).setIgnoreTimeScale(true);
     }
 
-
 }

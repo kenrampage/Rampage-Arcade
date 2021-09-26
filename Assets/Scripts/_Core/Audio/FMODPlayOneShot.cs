@@ -12,6 +12,8 @@ public class FMODPlayOneShot : MonoBehaviour
         {
             RuntimeManager.PlayOneShot(fmodEvent);
         }
+
+
     }
 
     public void PlaySoundEventAttached()
@@ -20,6 +22,7 @@ public class FMODPlayOneShot : MonoBehaviour
         {
             RuntimeManager.PlayOneShotAttached(fmodEvent, gameObject);
         }
+
     }
 
     public void DisableSoundEffects()

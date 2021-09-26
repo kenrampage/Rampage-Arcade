@@ -148,9 +148,9 @@ GameObject:
   - component: {fileID: 1601737881046079612}
   - component: {fileID: 1601737881046079614}
   - component: {fileID: 1601737881046079610}
-  - component: {fileID: 8462767302497270422}
-  - component: {fileID: 1601737881046079615}
-  - component: {fileID: 1601737881046079608}
+  - component: {fileID: 8635255145949616505}
+  - component: {fileID: 1433448150}
+  - component: {fileID: 6546449247422747188}
   m_Layer: 5
   m_Name: Main Menu Button
   m_TagString: Untagged
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newColor: {r: 0.9137255, g: 0.9137255, b: 0.9137255, a: 1}
---- !u!114 &8462767302497270422
+--- !u!114 &8635255145949616505
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -301,7 +301,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   loadDelay: 1
---- !u!114 &1601737881046079615
+--- !u!114 &1433448150
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,9 +318,21 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1601737881046079608}
-          m_TargetAssemblyTypeName: ButtonHelper, Assembly-CSharp
-          m_MethodName: DoSelect
+        - m_Target: {fileID: 7971415479696411698}
+          m_TargetAssemblyTypeName: FMODPlayOneShot, Assembly-CSharp
+          m_MethodName: PlaySoundEvent
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1601737881046079614}
+          m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
+          m_MethodName: Scale
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -334,9 +346,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1601737881046079608}
-          m_TargetAssemblyTypeName: ButtonHelper, Assembly-CSharp
-          m_MethodName: DoDeselect
+        - m_Target: {fileID: 1601737881046079614}
+          m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
+          m_MethodName: ScaleReset
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -350,9 +362,9 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1601737881046079608}
-          m_TargetAssemblyTypeName: ButtonHelper, Assembly-CSharp
-          m_MethodName: SelectButton
+        - m_Target: {fileID: 1601737881046079612}
+          m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
+          m_MethodName: Select
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -365,38 +377,6 @@ MonoBehaviour:
         - m_Target: {fileID: 1601737881046079610}
           m_TargetAssemblyTypeName: UIColorSwapEffect, Assembly-CSharp
           m_MethodName: SetColor
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 15
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1601737881046079608}
-          m_TargetAssemblyTypeName: ButtonHelper, Assembly-CSharp
-          m_MethodName: DoSubmit
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-  - eventID: 4
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 1601737881046079608}
-          m_TargetAssemblyTypeName: ButtonHelper, Assembly-CSharp
-          m_MethodName: DoSubmit
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -422,7 +402,111 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
---- !u!114 &1601737881046079608
+  - eventID: 4
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
+          m_TargetAssemblyTypeName: SOGameStateKeeper, Assembly-CSharp
+          m_MethodName: TransitionOut
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 43ad78a46d74bca45b6442fa9e05891d, type: 2}
+          m_TargetAssemblyTypeName: SOFMODMusicData, Assembly-CSharp
+          m_MethodName: StopPlayback
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 8635255145949616505}
+          m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+          m_MethodName: LoadMainMenu
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7971415479105103556}
+          m_TargetAssemblyTypeName: FMODPlayOneShot, Assembly-CSharp
+          m_MethodName: PlaySoundEvent
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 15
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
+          m_TargetAssemblyTypeName: SOGameStateKeeper, Assembly-CSharp
+          m_MethodName: TransitionOut
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 11400000, guid: 43ad78a46d74bca45b6442fa9e05891d, type: 2}
+          m_TargetAssemblyTypeName: SOFMODMusicData, Assembly-CSharp
+          m_MethodName: StopPlayback
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 1
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 8635255145949616505}
+          m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+          m_MethodName: LoadMainMenu
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 7971415479105103556}
+          m_TargetAssemblyTypeName: FMODPlayOneShot, Assembly-CSharp
+          m_MethodName: PlaySoundEvent
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &6546449247422747188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -431,85 +515,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1601737881046079600}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e7829224a71ba6c4ebc87a4e4e52ccf3, type: 3}
+  m_Script: {fileID: 11500000, guid: e3a1669e72ef4424d94af4cbe76c7a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstButton: 0
-  onFirstSelect:
+  onEnabled:
     m_PersistentCalls:
       m_Calls: []
-  onSelect:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1601737881046079614}
-        m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
-        m_MethodName: Scale
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7971415479696411698}
-        m_TargetAssemblyTypeName: FMODPlayOneShot, Assembly-CSharp
-        m_MethodName: PlaySoundEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onDeselect:
+  onDisabled:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1601737881046079614}
         m_TargetAssemblyTypeName: UIScaleEffect, Assembly-CSharp
         m_MethodName: ScaleReset
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onSubmit:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7971415479105103556}
-        m_TargetAssemblyTypeName: FMODPlayOneShot, Assembly-CSharp
-        m_MethodName: PlaySoundEvent
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 1
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 8462767302497270422}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadMainMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
-        m_TargetAssemblyTypeName: SOGameStateKeeper, Assembly-CSharp
-        m_MethodName: TransitionOut
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

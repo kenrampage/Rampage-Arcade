@@ -18,9 +18,10 @@ public class ButtonHelper : MonoBehaviour
     private void Awake()
     {
         button = GetComponent<Button>();
-        if (firstButton)
+        if(firstButton)
         {
-            firstSelect = true;
+            SelectButton();
+            DoSelect();
         }
     }
 
@@ -51,6 +52,12 @@ public class ButtonHelper : MonoBehaviour
     public void SelectButton()
     {
         button.Select();
+    }
+
+    public void SetAsFirstButton()
+    {
+        firstButton = true;
+        firstSelect = true;
     }
 
 }

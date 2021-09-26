@@ -6,6 +6,7 @@ public class GameStateKeeper : MonoBehaviour
 
     private void Start()
     {
+        gameStateKeeper.TransitionIn();
         gameStateKeeper.InitializeLevel();
     }
 

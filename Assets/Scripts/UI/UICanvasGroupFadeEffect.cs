@@ -26,11 +26,13 @@ public class UICanvasGroupFadeEffect : MonoBehaviour
 
     public void FadeIn()
     {
+        canvasGroup.alpha = 1;
         LeanTween.alphaCanvas(canvasGroup, 0, fadeInTime).setIgnoreTimeScale(true);
     }
 
     public void FadeOut()
     {
+        canvasGroup.alpha = 0;
         LeanTween.alphaCanvas(canvasGroup, 1, fadeOutTime).setIgnoreTimeScale(true);
     }
 }

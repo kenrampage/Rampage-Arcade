@@ -8,39 +8,40 @@ public class FMODPlayWithParameters : MonoBehaviour
     [SerializeField] [EventRef] private string fmodEvent;
     [SerializeField] private string parameterName;
     [SerializeField] private bool ignoreSeekSpeed;
-    [SerializeField] private bool playOnStart;
+    [SerializeField] private bool startOnEnable;
 
     [SerializeField] private bool playAttached;
     [SerializeField] private GameObject attachTarget;
 
     private FMOD.Studio.EventInstance eventInstance;
 
-    private void Awake()
+    private void Update()
     {
-        eventInstance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
         if (playAttached)
         {
-            FMODUnity.RuntimeManager.AttachInstanceToGameObject(eventInstance, attachTarget.transform, attachTarget.GetComponent<Rigidbody>());
-
+            eventInstance.set3DAttributes(RuntimeUtils.To3DAttributes(attachTarget.transform.position));
         }
+    }
+
+    public void InitializeEvent()
+    {
+        eventInstance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
     }
 
     private void OnEnable()
     {
+        InitializeEvent();
         fmodParameterData.onValueUpdated += SetParameterByName;
+        if (startOnEnable)
+        {
+            StartEvent();
+        }
     }
 
     private void OnDisable()
     {
+        ReleaseEvent();
         fmodParameterData.onValueUpdated -= SetParameterByName;
-    }
-
-    private void Start()
-    {
-        if (playOnStart)
-        {
-            StartEvent();
-        }
     }
 
     public void StartEvent()
@@ -73,7 +74,7 @@ public class FMODPlayWithParameters : MonoBehaviour
         eventInstance.setParameterByName(parameterName, value);
     }
 
-    private void OnDestroy()
+    public void ReleaseEvent()
     {
         eventInstance.release();
     }
