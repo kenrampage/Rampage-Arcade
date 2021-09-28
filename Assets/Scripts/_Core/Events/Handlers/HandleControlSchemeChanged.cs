@@ -3,12 +3,15 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Users;
 using UnityEngine.Events;
 
-public class HandleInputControlSchemeChanged : MonoBehaviour
+
+// A Player Input Component MUST exist in the scene somewhere to invoke the event this class subscribes to. 
+// Generally it'll live on the Input Manager
+
+public class HandleControlSchemeChanged : MonoBehaviour
 {
+    // [SerializeField] private InputActionAsset inputActionAsset;
     public UnityEvent onGamepadActivated;
     public UnityEvent onKBMActivated;
-
-    [SerializeField] private InputActionAsset inputActionAsset;
 
     private void OnEnable()
     {
@@ -20,9 +23,8 @@ public class HandleInputControlSchemeChanged : MonoBehaviour
         InputUser.onChange -= HandleInputUserChange;
     }
 
-    private void Awake()
+    private void Start()
     {
-        print("Starting Control Scheme: " + inputActionAsset.controlSchemes[0].name);
         InvokeEvent("KBM");
     }
 

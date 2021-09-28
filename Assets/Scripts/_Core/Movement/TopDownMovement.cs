@@ -6,6 +6,7 @@ public class TopDownMovement : MonoBehaviour
 {
     [SerializeField] private SOAmmoKeeper ammo;
     [SerializeField] private GameObject playerModel;
+    [SerializeField] private GameObject aimTarget;
     [SerializeField] private GameObject projectile;
     [SerializeField] private float projectileHeight;
 
@@ -22,6 +23,7 @@ public class TopDownMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        SetLookDirection();
         Move();
     }
 
@@ -70,5 +72,8 @@ public class TopDownMovement : MonoBehaviour
         ammo.ResetAmmo();
     }
 
-
+    public void SetLookDirection()
+    {
+        playerModel.transform.LookAt(aimTarget.transform);
+    }
 }

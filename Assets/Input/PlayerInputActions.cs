@@ -736,6 +736,22 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MouseAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""d34f0336-9836-40f9-90ea-561a135d97dc"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""GamepadAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""d63de93a-0319-400e-8065-4b9a6014b8fa"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -892,6 +908,28 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Reload"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4542c9f8-b625-40f7-b89f-e126bcd2a157"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""MouseAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""08f298f4-418c-422d-8908-bfe459a0ac0c"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""GamepadAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -949,6 +987,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_TopDownShooter_Move = m_TopDownShooter.FindAction("Move", throwIfNotFound: true);
         m_TopDownShooter_Fire = m_TopDownShooter.FindAction("Fire", throwIfNotFound: true);
         m_TopDownShooter_Reload = m_TopDownShooter.FindAction("Reload", throwIfNotFound: true);
+        m_TopDownShooter_MouseAim = m_TopDownShooter.FindAction("MouseAim", throwIfNotFound: true);
+        m_TopDownShooter_GamepadAim = m_TopDownShooter.FindAction("GamepadAim", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1181,6 +1221,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private readonly InputAction m_TopDownShooter_Move;
     private readonly InputAction m_TopDownShooter_Fire;
     private readonly InputAction m_TopDownShooter_Reload;
+    private readonly InputAction m_TopDownShooter_MouseAim;
+    private readonly InputAction m_TopDownShooter_GamepadAim;
     public struct TopDownShooterActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -1188,6 +1230,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public InputAction @Move => m_Wrapper.m_TopDownShooter_Move;
         public InputAction @Fire => m_Wrapper.m_TopDownShooter_Fire;
         public InputAction @Reload => m_Wrapper.m_TopDownShooter_Reload;
+        public InputAction @MouseAim => m_Wrapper.m_TopDownShooter_MouseAim;
+        public InputAction @GamepadAim => m_Wrapper.m_TopDownShooter_GamepadAim;
         public InputActionMap Get() { return m_Wrapper.m_TopDownShooter; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1206,6 +1250,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Reload.started -= m_Wrapper.m_TopDownShooterActionsCallbackInterface.OnReload;
                 @Reload.performed -= m_Wrapper.m_TopDownShooterActionsCallbackInterface.OnReload;
                 @Reload.canceled -= m_Wrapper.m_TopDownShooterActionsCallbackInterface.OnReload;
+                @MouseAim.started -= m_Wrapper.m_TopDownShooterActionsCallbackInterface.OnMouseAim;
+                @MouseAim.performed -= m_Wrapper.m_TopDownShooterActionsCallbackInterface.OnMouseAim;
+                @MouseAim.canceled -= m_Wrapper.m_TopDownShooterActionsCallbackInterface.OnMouseAim;
+                @GamepadAim.started -= m_Wrapper.m_TopDownShooterActionsCallbackInterface.OnGamepadAim;
+                @GamepadAim.performed -= m_Wrapper.m_TopDownShooterActionsCallbackInterface.OnGamepadAim;
+                @GamepadAim.canceled -= m_Wrapper.m_TopDownShooterActionsCallbackInterface.OnGamepadAim;
             }
             m_Wrapper.m_TopDownShooterActionsCallbackInterface = instance;
             if (instance != null)
@@ -1219,6 +1269,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Reload.started += instance.OnReload;
                 @Reload.performed += instance.OnReload;
                 @Reload.canceled += instance.OnReload;
+                @MouseAim.started += instance.OnMouseAim;
+                @MouseAim.performed += instance.OnMouseAim;
+                @MouseAim.canceled += instance.OnMouseAim;
+                @GamepadAim.started += instance.OnGamepadAim;
+                @GamepadAim.performed += instance.OnGamepadAim;
+                @GamepadAim.canceled += instance.OnGamepadAim;
             }
         }
     }
@@ -1268,5 +1324,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnReload(InputAction.CallbackContext context);
+        void OnMouseAim(InputAction.CallbackContext context);
+        void OnGamepadAim(InputAction.CallbackContext context);
     }
 }
