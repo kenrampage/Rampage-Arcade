@@ -9,17 +9,18 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 893123505252345437}
-  - component: {fileID: 8300997535956403025}
   - component: {fileID: 7457551573977466973}
   - component: {fileID: 7406056963405125523}
   - component: {fileID: 3000101965042561630}
+  - component: {fileID: 1567762139347983358}
+  - component: {fileID: 3263766970799043727}
   m_Layer: 0
   m_Name: Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &893123505252345437
 Transform:
   m_ObjectHideFlags: 0
@@ -35,20 +36,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8300997535956403025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 893123505252345438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd26412013bf70a4c8c3f1ed88d7ff28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  barrierTag: Barrier
-  enemyTag: Enemy
 --- !u!114 &7457551573977466973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 40
+  gameStateKeeper: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
 --- !u!135 &7406056963405125523
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -91,6 +79,51 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 1
+--- !u!114 &1567762139347983358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893123505252345438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73cdfc8947b525940b4b45bdcf201042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTags: []
+  onTriggerEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3263766970799043727}
+        m_TargetAssemblyTypeName: DestroyThis, Assembly-CSharp
+        m_MethodName: DestroyThisObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &3263766970799043727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893123505252345438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165a1500dd703b14f9c7f303cd02b1ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyOnSpawn: 0
+  delay: 0
 --- !u!1 &2896896709643301749
 GameObject:
   m_ObjectHideFlags: 0
@@ -185,5 +218,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7079aa8b51bfc5b4d8f636e67252f5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateKeeper: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
   rotationSpeedMin: 2
   rotationSpeedMax: 5

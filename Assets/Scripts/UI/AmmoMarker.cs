@@ -1,96 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AmmoMarker : MonoBehaviour
 {
-    // private GameManager2 gameManager2;
-
-    private Ammo ammo;
+    [SerializeField] private SOAmmoKeeper ammo;
 
     public GameObject[] ammoMarkers;
 
-    public int ammoValue;
-
-    private void Awake()
+    private void OnEnable()
     {
-        ammo = FindObjectOfType<Ammo>();
+        ammo.onAmmoChanged += UpdateAmmoMarkers;
     }
 
-    private void Update()
+    private void OnDisable()
     {
-        ammoValue = ammo.currentAmmo;
+        ammo.onAmmoChanged -= UpdateAmmoMarkers;
+    }
 
-        switch (ammoValue)
+    private void UpdateAmmoMarkers(int ammoValue)
+    {
+        foreach (var ammoMarker in ammoMarkers)
         {
-            case 8:
-                for (int i = 0; i < ammoMarkers.Length; i++)
-                {
-                    ammoMarkers[i].gameObject.SetActive(true);
-                }
-                break;
+            ammoMarker.gameObject.SetActive(false);
+        }
 
-            case 7:
-                if (ammoMarkers[ammoValue].gameObject.activeSelf)
-                {
-                    ammoMarkers[ammoValue].gameObject.SetActive(false);
-                }
-
-                break;
-
-            case 6:
-                if (ammoMarkers[ammoValue].gameObject.activeSelf)
-                {
-                    ammoMarkers[ammoValue].gameObject.SetActive(false);
-                }
-                break;
-
-            case 5:
-                if (ammoMarkers[ammoValue].gameObject.activeSelf)
-                {
-                    ammoMarkers[ammoValue].gameObject.SetActive(false);
-                }
-                break;
-
-            case 4:
-                if (ammoMarkers[ammoValue].gameObject.activeSelf)
-                {
-                    ammoMarkers[ammoValue].gameObject.SetActive(false);
-                }
-                break;
-
-            case 3:
-                if (ammoMarkers[ammoValue].gameObject.activeSelf)
-                {
-                    ammoMarkers[ammoValue].gameObject.SetActive(false);
-                }
-                break;
-
-            case 2:
-                if (ammoMarkers[ammoValue].gameObject.activeSelf)
-                {
-                    ammoMarkers[ammoValue].gameObject.SetActive(false);
-                }
-                break;
-
-            case 1:
-                if (ammoMarkers[ammoValue].gameObject.activeSelf)
-                {
-                    ammoMarkers[ammoValue].gameObject.SetActive(false);
-                }
-                break;
-
-            case 0:
-                if (ammoMarkers[ammoValue].gameObject.activeSelf)
-                {
-                    ammoMarkers[ammoValue].gameObject.SetActive(false);
-                }
-                break;
-
-            default:
-                break;
+        for (int i = 0; i < ammoValue; i++)
+        {
+            ammoMarkers[i].gameObject.SetActive(true);
         }
     }
-
-
 }

@@ -259,7 +259,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7259598960742923605}
   - component: {fileID: 7259598960736034873}
-  - component: {fileID: 4573576051077508571}
   - component: {fileID: 4309227186878814693}
   - component: {fileID: 7259598960844192424}
   - component: {fileID: 7259598960844192422}
@@ -316,26 +315,6 @@ Animator:
   m_HasTransformHierarchy: 0
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4573576051077508571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7259598960743197479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65c114eea545e074995c178fbcef3db0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEvents:
-  - event:/Animals/Moose Call
-  soundEffectsOn: 1
-  collisionOn: 1
-  triggerOn: 1
-  collisionEventIndex: 0
-  spawnBufferDefault: 0.1
-  otherTag: Barrier
 --- !u!114 &4309227186878814693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -348,6 +327,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4238c7789be6aa49b220eba1ffe24ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateKeeper: {fileID: 0}
 --- !u!114 &7259598960844192424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -361,7 +341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 22
-  gameManager: {fileID: 0}
+  gameStateKeeper: {fileID: 0}
 --- !u!65 &7259598960844192422
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -403,6 +383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c4413dc8ff9ed49a60ef5850226f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreKeeper: {fileID: 0}
   value: 1
 --- !u!114 &1351797973278100815
 MonoBehaviour:
@@ -416,6 +397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021af687381af5d4ea70cbd76c8458bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateKeeper: {fileID: 0}
 --- !u!1 &7259598960743198753
 GameObject:
   m_ObjectHideFlags: 0

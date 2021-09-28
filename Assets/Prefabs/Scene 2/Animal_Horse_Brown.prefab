@@ -661,7 +661,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3058574747650206943}
   - component: {fileID: 3058574747650206928}
-  - component: {fileID: 7212774196715776979}
   - component: {fileID: -7317499603309089601}
   - component: {fileID: 3058574747650206929}
   - component: {fileID: 3058574747650206931}
@@ -714,26 +713,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7212774196715776979
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3058574747650206933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65c114eea545e074995c178fbcef3db0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  soundEvents:
-  - event:/Animals/Horse Neigh
-  soundEffectsOn: 1
-  collisionOn: 1
-  triggerOn: 1
-  collisionEventIndex: 0
-  spawnBufferDefault: 0.1
-  otherTag: Barrier
 --- !u!114 &-7317499603309089601
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -746,6 +725,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4238c7789be6aa49b220eba1ffe24ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateKeeper: {fileID: 0}
 --- !u!114 &3058574747650206929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,7 +739,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 18
-  gameManager: {fileID: 0}
+  gameStateKeeper: {fileID: 0}
 --- !u!65 &3058574747650206931
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -802,6 +782,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c4413dc8ff9ed49a60ef5850226f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreKeeper: {fileID: 0}
   value: 1
 --- !u!114 &2298656944384653585
 MonoBehaviour:
@@ -815,6 +796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 021af687381af5d4ea70cbd76c8458bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateKeeper: {fileID: 0}
 --- !u!1 &3058574747660422677
 GameObject:
   m_ObjectHideFlags: 0
