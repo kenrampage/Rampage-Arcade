@@ -20,9 +20,9 @@ public class TopDownInputPlayer : MonoBehaviour
     private InputAction topDownMouseAim;
     private InputAction topDownGamepadAim;
 
-    [SerializeField] private OnTopDownMove onTopDownMove;
-    [SerializeField] private UnityEvent onTopDownFire;
-    [SerializeField] private UnityEvent onTopDownReload;
+    [SerializeField] private OnTopDownMove onMove;
+    [SerializeField] private UnityEvent onFire;
+    [SerializeField] private UnityEvent onReload;
 
     private bool gamepadOn;
 
@@ -58,22 +58,22 @@ public class TopDownInputPlayer : MonoBehaviour
 
     private void DoTopDownMoveStart(InputAction.CallbackContext context)
     {
-        onTopDownMove?.Invoke(context.ReadValue<Vector2>());
+        onMove?.Invoke(context.ReadValue<Vector2>());
     }
 
     private void DoTopDownMoveStop(InputAction.CallbackContext context)
     {
-        onTopDownMove?.Invoke(new Vector2(0, 0));
+        onMove?.Invoke(new Vector2(0, 0));
     }
 
     private void DoTopDownFire(InputAction.CallbackContext context)
     {
-        onTopDownFire?.Invoke();
+        onFire?.Invoke();
     }
 
     private void DoTopDownReload(InputAction.CallbackContext context)
     {
-        onTopDownReload?.Invoke();
+        onReload?.Invoke();
     }
 
     public void SetGamepadState(bool value)

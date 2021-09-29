@@ -1,6 +1,7 @@
 using UnityEngine;
 using FMODUnity;
 
+
 public class FMODPlayOneShot : MonoBehaviour
 {
     [EventRef] public string fmodEvent;
@@ -10,8 +11,20 @@ public class FMODPlayOneShot : MonoBehaviour
     {
         if (fmodEvent != null && soundEffectsOn)
         {
-            RuntimeManager.PlayOneShot(fmodEvent);
+            bool is3D;
+            RuntimeManager.GetEventDescription(fmodEvent).is3D(out is3D);
+
+            if (is3D)
+            {
+                PlaySoundEventAttached();
+            }
+            else
+            {
+                RuntimeManager.PlayOneShot(fmodEvent);
+
+            }
         }
+
 
 
     }

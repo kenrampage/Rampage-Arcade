@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TopDownMovement : MonoBehaviour
 {
+    [SerializeField] private UnityEvent onFire;
+    [SerializeField] private UnityEvent onReload;
+
     [SerializeField] private SOAmmoKeeper ammo;
     [SerializeField] private GameObject playerModel;
     [SerializeField] private GameObject aimTarget;
@@ -63,6 +67,7 @@ public class TopDownMovement : MonoBehaviour
 
             Instantiate(projectile, new Vector3(transform.position.x, projectileHeight, transform.position.z), playerModel.transform.rotation);
             ammo.DecrementAmmo();
+            onFire?.Invoke();
         }
 
     }
@@ -70,6 +75,7 @@ public class TopDownMovement : MonoBehaviour
     public void Reload()
     {
         ammo.ResetAmmo();
+        onReload?.Invoke();
     }
 
     public void SetLookDirection()
