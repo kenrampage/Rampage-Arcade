@@ -5,22 +5,31 @@ public class CameraFollowCar : MonoBehaviour
 
     [SerializeField] private Vector3 offset;
     [SerializeField] private Vector3 rotationOffset;
-    [SerializeField] private Transform target;
     [SerializeField] private float translateSpeed;
     [SerializeField] private float rotationSpeed;
+    private Transform target;
+    private bool followOn = false;
 
+    private void Awake()
+    {
+        followOn = false;
+    }
 
-
-    private void Start()
+    public void SetFollowTarget()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
+        followOn = true;
     }
 
 
     private void FixedUpdate()
     {
-        HandleTranslation();
-        HandleRotation();
+        if (followOn)
+        {
+            HandleTranslation();
+            HandleRotation();
+        }
+
     }
 
 

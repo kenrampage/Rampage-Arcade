@@ -305,7 +305,7 @@
             ],
             "bindings": [
                 {
-                    "name": "Gamepad",
+                    "name": "Gamepad Sticks",
                     "id": "08bd1f05-cfdb-4187-8b2d-e7ffec940c65",
                     "path": "2DVector",
                     "interactions": "",
@@ -404,15 +404,59 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "0220f1f1-499c-4737-ba61-6c27a0492af5",
-                    "path": "<Gamepad>/dpad",
+                    "name": "Gamepad Dpad",
+                    "id": "134a8942-adb0-4bb5-99f2-02972575eeaf",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "4999dfe5-b506-423a-82fa-d133231361a8",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Navigate",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "2c0d40fc-65bc-4955-ae94-5c99e9dfd8c6",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "18e7af6f-a250-4844-b806-9661b3cee0be",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "8eb94289-ac2a-493d-a748-4fa1a097b492",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "Joystick",
@@ -888,8 +932,19 @@
                 {
                     "name": "",
                     "id": "d697fb77-2677-489e-8970-dc4c9c0e1025",
-                    "path": "<Gamepad>/buttonWest",
+                    "path": "<Gamepad>/leftShoulder",
                     "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Reload",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "892c5025-b242-48e5-83a5-b29cf708567a",
+                    "path": "<Gamepad>/leftTrigger",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Reload",

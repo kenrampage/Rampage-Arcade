@@ -18,7 +18,6 @@ public class SOGameStateKeeper : ScriptableObject
         {
             currentGameState = value;
             onGameStateChanged?.Invoke(currentGameState);
-            Debug.Log("Game State is: " + currentGameState);
         }
     }
 

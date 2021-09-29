@@ -6,6 +6,7 @@ using UnityEngine.Events;
 public class TopDownMovement : MonoBehaviour
 {
     [SerializeField] private UnityEvent onFire;
+    [SerializeField] private UnityEvent onFireEmpty;
     [SerializeField] private UnityEvent onReload;
 
     [SerializeField] private SOAmmoKeeper ammo;
@@ -68,6 +69,10 @@ public class TopDownMovement : MonoBehaviour
             Instantiate(projectile, new Vector3(transform.position.x, projectileHeight, transform.position.z), playerModel.transform.rotation);
             ammo.DecrementAmmo();
             onFire?.Invoke();
+        }
+        else if(ammo.currentAmmo <= 0)
+        {
+            onFireEmpty?.Invoke();
         }
 
     }

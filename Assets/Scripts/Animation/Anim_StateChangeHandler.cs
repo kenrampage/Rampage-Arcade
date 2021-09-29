@@ -50,13 +50,11 @@ public class Anim_StateChangeHandler : MonoBehaviour
     private void PauseAnimation()
     {
         animator.enabled = false;
-        print("Animation Stopped");
     }
 
     private void StartAnimation()
     {
         animator.enabled = true;
-        print("Animation Started");
     }
 
 

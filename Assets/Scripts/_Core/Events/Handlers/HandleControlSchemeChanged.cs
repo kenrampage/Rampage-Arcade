@@ -32,8 +32,6 @@ public class HandleControlSchemeChanged : MonoBehaviour
     {
         if (change == InputUserChange.ControlSchemeChanged)
         {
-            print("Control Scheme changed to: " + user.controlScheme.Value.name);
-
             InvokeEvent(user.controlScheme.Value.name);
         }
     }

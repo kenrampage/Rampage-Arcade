@@ -4725,6 +4725,7 @@ GameObject:
   - component: {fileID: 534669905}
   - component: {fileID: 534669904}
   - component: {fileID: 534669906}
+  - component: {fileID: 534669903}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4732,6 +4733,49 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &534669903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 534669902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78adf8dbccfa1ce4a81abe64da92ea52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStateKeeper: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
+  onTransitionIn:
+    m_PersistentCalls:
+      m_Calls: []
+  onLevelStart:
+    m_PersistentCalls:
+      m_Calls: []
+  onGameActivated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 534669906}
+        m_TargetAssemblyTypeName: CameraFollowCar, Assembly-CSharp
+        m_MethodName: SetFollowTarget
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onGamePaused:
+    m_PersistentCalls:
+      m_Calls: []
+  onLevelEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  onTransitionOut:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!20 &534669904
 Camera:
   m_ObjectHideFlags: 0
@@ -4803,7 +4847,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offset: {x: 0, y: 5, z: -10}
   rotationOffset: {x: 0, y: -3, z: 0}
-  target: {fileID: 0}
   translateSpeed: 10
   rotationSpeed: 10
 --- !u!1 &545994179

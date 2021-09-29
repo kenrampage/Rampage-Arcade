@@ -5,7 +5,7 @@ public class UIColorSwapEffect : MonoBehaviour
 {
     private Color baseColor;
     private Image image;
-    [SerializeField] Color newColor;
+    [SerializeField] Color newColor = new Color(233,233,233);
 
     private void Awake()
     {
