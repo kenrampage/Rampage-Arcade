@@ -7,38 +7,30 @@ using FMODUnity;
 public class RunnerController : MonoBehaviour
 {
 
+    [SerializeField] private SOGameStateKeeper gameStateKeeper;
     private Rigidbody playerRb;
-    private Animator playerAnim;
 
-    private float vertVelocity;
-    public float jumpTimeCurrent;
-    public float jumpForce = 10f;
-    public float jumpTimeMax;
-    public float jumpTimeThreshold;
-    public float gravityForce;
-    public float fallRate;
+    [SerializeField] private float jumpTimeCurrent;
+    [SerializeField] private float jumpForce = 10f;
+    [SerializeField] private float jumpTimeMax;
+    [SerializeField] private float jumpTimeThreshold;
+    [SerializeField] private float gravityForce;
+    [SerializeField] private float fallRate;
 
     private bool jumpInput;
     private bool isOnGround;
     private bool isJumping;
-
-    [SerializeField] private SOGameStateKeeper gameStateKeeper;
-    public StudioEventEmitter sfxEmitterHover;
-
+    private float vertVelocity;
 
     [SerializeField] private UnityEvent onJump;
     [SerializeField] private UnityEvent onLand;
     [SerializeField] private UnityEvent onHoverStart;
     [SerializeField] private UnityEvent onHoverEnd;
-    [SerializeField] private UnityEvent onPickup;
     [SerializeField] private UnityEvent onStep;
-    [SerializeField] private UnityEvent onCrash;
-
 
     private void Awake()
     {
         playerRb = GetComponent<Rigidbody>();
-        playerAnim = GetComponent<Animator>();
     }
 
 
@@ -49,26 +41,6 @@ public class RunnerController : MonoBehaviour
         playerRb.useGravity = false;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            jumpInput = true;
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            jumpInput = false;
-        }
-
-        if (gameStateKeeper.CurrentGameState != GameState.GAMEACTIVE)
-        {
-            sfxEmitterHover.Stop();
-        }
-
-
-    }
 
     private void FixedUpdate()
     {
@@ -84,42 +56,19 @@ public class RunnerController : MonoBehaviour
         {
             isOnGround = true;
             jumpTimeCurrent = jumpTimeMax;
-            playerAnim.SetBool("Grounded", true);
-
-            if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
-            {
-                playerAnim.SetBool("IsRunning", true);
-
-            }
-
             onLand?.Invoke();
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    public void JumpInputOn()
     {
-        if (gameStateKeeper.CurrentGameState == GameState.GAMEACTIVE)
-        {
-            if (other.gameObject.CompareTag("Obstacle"))
-            {
-
-                playerAnim.SetBool("Death_b", true);
-                playerAnim.SetInteger("DeathType_int", 1);
-                sfxEmitterHover.Stop();
-                onCrash?.Invoke();
-
-            }
-
-            if (other.gameObject.CompareTag("Pickup"))
-            {
-                other.GetComponent<PointValue>().UpdateScore();
-
-                Destroy(other.gameObject);
-                onPickup?.Invoke();
-            }
-        }
+        jumpInput = true;
     }
 
+    public void JumpInputOff()
+    {
+        jumpInput = false;
+    }
 
     private void Jump()
     {
@@ -132,9 +81,6 @@ public class RunnerController : MonoBehaviour
                 playerRb.velocity = Vector3.up * jumpForce;
                 isOnGround = false;
                 isJumping = true;
-                playerAnim.SetTrigger("Jump_trig");
-                playerAnim.SetBool("IsRunning", false);
-                playerAnim.SetBool("Grounded", false);
                 onJump?.Invoke();
 
             }
@@ -143,7 +89,6 @@ public class RunnerController : MonoBehaviour
             {
                 if (jumpTimeCurrent > (jumpTimeMax * jumpTimeThreshold))
                 {
-                    playerAnim.SetTrigger("Jump_trig");
                     playerRb.velocity = Vector3.up * jumpForce;
                     jumpTimeCurrent -= Time.deltaTime;
 
@@ -151,7 +96,6 @@ public class RunnerController : MonoBehaviour
 
                 if (jumpTimeCurrent <= (jumpTimeMax * jumpTimeThreshold))
                 {
-                    playerAnim.SetTrigger("Jump_trig");
                     playerRb.velocity = Vector3.up * (jumpForce / 2);
                     jumpTimeCurrent -= Time.deltaTime;
 
@@ -172,20 +116,19 @@ public class RunnerController : MonoBehaviour
 
             if (!isJumping && !isOnGround && jumpInput)
             {
-                playerAnim.SetTrigger("Jump_trig");
                 vertVelocity = vertVelocity - (Time.deltaTime * fallRate);
                 playerRb.velocity = new Vector3(0, vertVelocity, 0);
                 onHoverStart?.Invoke();
 
-                if (!sfxEmitterHover.IsPlaying())
-                {
-                    sfxEmitterHover.Play();
+                // if (!sfxEmitterHover.IsPlaying())
+                // {
+                //     sfxEmitterHover.Play();
 
-                }
-                else if (sfxEmitterHover.IsPlaying())
-                {
-                    sfxEmitterHover.SetParameter("Fall Velocity", vertVelocity);
-                }
+                // }
+                // else if (sfxEmitterHover.IsPlaying())
+                // {
+                //     sfxEmitterHover.SetParameter("Fall Velocity", vertVelocity);
+                // }
 
 
 
@@ -194,12 +137,6 @@ public class RunnerController : MonoBehaviour
             if (!isJumping && !isOnGround && !jumpInput)
             {
                 playerRb.AddForce(new Vector3(0, 0, 0), ForceMode.VelocityChange);
-
-                if (sfxEmitterHover.IsPlaying())
-                {
-                    sfxEmitterHover.Stop();
-                }
-
                 onHoverEnd?.Invoke();
 
             }

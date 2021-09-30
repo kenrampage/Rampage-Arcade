@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable] public class OnCarTurn : UnityEvent<Vector2> { }
 [System.Serializable] public class OnCarAccelerate : UnityEvent<float> { }
 
-public class CarInputPlayer : MonoBehaviour
+public class CarInput_Player : MonoBehaviour
 {
     [SerializeField] private InputActionAsset inputActionAsset;
     private InputActionMap inputActionMap;

@@ -8,13 +8,13 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadMainMenu()
     {
-        Time.timeScale = 1f;
+        // Time.timeScale = 1f;
         StartCoroutine("LoadSceneWithDelay", "MainMenu");
     }
 
     public void ReloadScene()
     {
-        Time.timeScale = 1f;
+        // Time.timeScale = 1f;
         StartCoroutine("LoadSceneWithDelay", SceneManager.GetActiveScene().name);
     }
 
@@ -25,7 +25,7 @@ public class SceneLoader : MonoBehaviour
 
     public IEnumerator LoadSceneWithDelay(string sceneName)
     {
-        yield return new WaitForSeconds(loadDelay);
+        yield return new WaitForSecondsRealtime(loadDelay);
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }

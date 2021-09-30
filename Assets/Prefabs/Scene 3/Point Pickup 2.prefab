@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3513285892580234249}
+  - component: {fileID: 1513896709131087213}
   - component: {fileID: 6915970701775856607}
   - component: {fileID: -2821907668775723575}
-  - component: {fileID: 1513896709131087213}
+  - component: {fileID: 2808694527400903125}
+  - component: {fileID: 5123412482321833917}
   m_Layer: 0
   m_Name: Point Pickup 2
   m_TagString: Pickup
@@ -34,6 +36,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &1513896709131087213
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858439566543574174}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.2524614, y: 2.5135841, z: 1.4590206}
+  m_Center: {x: -0.080328465, y: 1.9114456, z: -0.045902252}
 --- !u!114 &6915970701775856607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48,6 +63,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   leftBound: -15
+  gameStateKeeper: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
 --- !u!114 &-2821907668775723575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -60,20 +76,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c4413dc8ff9ed49a60ef5850226f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreKeeper: {fileID: 11400000, guid: 364d27d9696e70443a48462daa3b697a, type: 2}
   value: 1
---- !u!65 &1513896709131087213
-BoxCollider:
+--- !u!114 &2808694527400903125
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 858439566543574174}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.2524614, y: 2.5135841, z: 1.4590206}
-  m_Center: {x: -0.080328465, y: 1.9114456, z: -0.045902252}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165a1500dd703b14f9c7f303cd02b1ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyOnSpawn: 0
+  delay: 0
+--- !u!114 &5123412482321833917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 858439566543574174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 73cdfc8947b525940b4b45bdcf201042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerTags:
+  - Player
+  onTriggerEnterEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2808694527400903125}
+        m_TargetAssemblyTypeName: DestroyThis, Assembly-CSharp
+        m_MethodName: DestroyThisObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -2821907668775723575}
+        m_TargetAssemblyTypeName: PointValue, Assembly-CSharp
+        m_MethodName: UpdateScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onTriggerExitEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &2769187599363685847
 GameObject:
   m_ObjectHideFlags: 0

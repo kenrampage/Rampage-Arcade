@@ -10,8 +10,7 @@ public class FMODPlayWithParameters : MonoBehaviour
     [SerializeField] private bool ignoreSeekSpeed;
     [SerializeField] private bool startOnEnable;
 
-    [SerializeField] private bool playAttached;
-    [SerializeField] private GameObject attachTarget;
+    private bool playAttached;
 
     private FMOD.Studio.EventInstance eventInstance;
 
@@ -19,13 +18,18 @@ public class FMODPlayWithParameters : MonoBehaviour
     {
         if (playAttached)
         {
-            eventInstance.set3DAttributes(RuntimeUtils.To3DAttributes(attachTarget.transform.position));
+            eventInstance.set3DAttributes(RuntimeUtils.To3DAttributes(transform.position));
         }
     }
 
     public void InitializeEvent()
     {
         eventInstance = FMODUnity.RuntimeManager.CreateInstance(fmodEvent);
+
+        bool is3D;
+        RuntimeManager.GetEventDescription(fmodEvent).is3D(out is3D);
+
+        playAttached = is3D = true ? true : false;
     }
 
     private void OnEnable()
@@ -77,5 +81,6 @@ public class FMODPlayWithParameters : MonoBehaviour
     public void ReleaseEvent()
     {
         eventInstance.release();
+        playAttached = false;
     }
 }

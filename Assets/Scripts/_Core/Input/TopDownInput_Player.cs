@@ -6,7 +6,7 @@ using UnityEngine.Events;
 
 [System.Serializable] public class OnTopDownMove : UnityEvent<Vector2> { }
 
-public class TopDownInputPlayer : MonoBehaviour
+public class TopDownInput_Player : MonoBehaviour
 {
     [SerializeField] private InputActionAsset inputActionAsset;
     [SerializeField] private GameObject aimTarget;
