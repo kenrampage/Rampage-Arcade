@@ -987,6 +987,261 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Ball"",
+            ""id"": ""6a8c91b2-ef7b-4e0d-b09a-a28265b938e9"",
+            ""actions"": [
+                {
+                    ""name"": ""Move"",
+                    ""type"": ""Value"",
+                    ""id"": ""f285ae71-7dda-4bd2-bc0f-9ccf0fc49060"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Value"",
+                    ""id"": ""da27ed58-f843-4f4d-8d6d-e85be4216bf3"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Gamepad Dpad"",
+                    ""id"": ""db9545d1-3c63-4b2e-baa8-4eda518d693a"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""79e34904-68f1-45da-8efc-050414adbd80"",
+                    ""path"": ""<Gamepad>/dpad/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""c928d8f8-1416-4aa7-9286-b219af45d381"",
+                    ""path"": ""<Gamepad>/dpad/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Gamepad Left Stick"",
+                    ""id"": ""142597d5-961f-4bc3-846e-dce001d2672d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""e3d2aca2-cb93-49e6-bc08-5d47eec15a9f"",
+                    ""path"": ""<Gamepad>/leftStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""3f81e51b-9e46-47ca-ad7f-dd442f1dad8b"",
+                    ""path"": ""<Gamepad>/leftStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Keyboard WASD"",
+                    ""id"": ""0d811d12-e6ed-4b40-8be9-3b7b66437147"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""b9125e94-05a2-4e2d-b79e-4ca2001775fa"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""816895f4-0f7d-4a01-8538-296b86542491"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Keyboard Arrow Keys"",
+                    ""id"": ""aad66b0d-134f-49bb-bac9-7e2ae412870d"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""011ed781-b663-49d7-9b52-65179dde29fc"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""8935764f-b3e6-48b6-9248-9d66049801db"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Move"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Gamepad Right Stick"",
+                    ""id"": ""b16aaa62-da88-4554-99e3-18ea843c9f56"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""faec91a8-a48a-4bc7-9df5-a7233efcea40"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""338de1d1-beaf-414b-823d-fee14d079476"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Keyboard WASD"",
+                    ""id"": ""c7cc17b5-7d25-4d83-8883-cde98fe86133"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""6ae383d1-5a4b-49de-80c4-d504b6406094"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""835fdaf1-c54f-4f5c-8268-98aa4b62cbfd"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Keyboard Arrow Keys"",
+                    ""id"": ""bc127572-b1e1-4358-87cb-d9a11a780fa4"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""13cf9a22-6c31-4f81-81be-6125b7d0be01"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""ae380ae8-7c68-43b1-80d1-a5bd8d6b1495"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1044,6 +1299,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_TopDownShooter_Reload = m_TopDownShooter.FindAction("Reload", throwIfNotFound: true);
         m_TopDownShooter_MouseAim = m_TopDownShooter.FindAction("MouseAim", throwIfNotFound: true);
         m_TopDownShooter_GamepadAim = m_TopDownShooter.FindAction("GamepadAim", throwIfNotFound: true);
+        // Ball
+        m_Ball = asset.FindActionMap("Ball", throwIfNotFound: true);
+        m_Ball_Move = m_Ball.FindAction("Move", throwIfNotFound: true);
+        m_Ball_Rotate = m_Ball.FindAction("Rotate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1334,6 +1593,47 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     }
     public TopDownShooterActions @TopDownShooter => new TopDownShooterActions(this);
+
+    // Ball
+    private readonly InputActionMap m_Ball;
+    private IBallActions m_BallActionsCallbackInterface;
+    private readonly InputAction m_Ball_Move;
+    private readonly InputAction m_Ball_Rotate;
+    public struct BallActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public BallActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Ball_Move;
+        public InputAction @Rotate => m_Wrapper.m_Ball_Rotate;
+        public InputActionMap Get() { return m_Wrapper.m_Ball; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(BallActions set) { return set.Get(); }
+        public void SetCallbacks(IBallActions instance)
+        {
+            if (m_Wrapper.m_BallActionsCallbackInterface != null)
+            {
+                @Move.started -= m_Wrapper.m_BallActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_BallActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_BallActionsCallbackInterface.OnMove;
+                @Rotate.started -= m_Wrapper.m_BallActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_BallActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_BallActionsCallbackInterface.OnRotate;
+            }
+            m_Wrapper.m_BallActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Move.started += instance.OnMove;
+                @Move.performed += instance.OnMove;
+                @Move.canceled += instance.OnMove;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
+            }
+        }
+    }
+    public BallActions @Ball => new BallActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -1381,5 +1681,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         void OnReload(InputAction.CallbackContext context);
         void OnMouseAim(InputAction.CallbackContext context);
         void OnGamepadAim(InputAction.CallbackContext context);
+    }
+    public interface IBallActions
+    {
+        void OnMove(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
     }
 }

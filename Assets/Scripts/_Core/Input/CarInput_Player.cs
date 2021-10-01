@@ -21,7 +21,6 @@ public class CarInput_Player : MonoBehaviour
 
     private void Awake()
     {
-        // playerInputActions = new PlayerInputActions();
         inputActionMap = inputActionAsset.FindActionMap("Car");
         
         carTurn = inputActionMap.FindAction("Turn");
