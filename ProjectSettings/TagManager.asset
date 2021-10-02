@@ -10,6 +10,8 @@ TagManager:
   - Obstacle
   - Pickup
   - Projectile
+  - Powerup
+  - Bad
   layers:
   - Default
   - TransparentFX
@@ -18,7 +20,7 @@ TagManager:
   - Water
   - UI
   - UI Mesh
-  - 
+  - Background
   - 
   - 
   - 

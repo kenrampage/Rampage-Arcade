@@ -1242,6 +1242,104 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Clicker"",
+            ""id"": ""a3060121-49d3-471d-b255-8b03ba15a977"",
+            ""actions"": [
+                {
+                    ""name"": ""MouseAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""f2b44904-a5da-46fa-b2a2-9fbd18de592b"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""GamepadAim"",
+                    ""type"": ""Value"",
+                    ""id"": ""aa052b61-3bb5-4549-af56-f34d0b147341"",
+                    ""expectedControlType"": ""Stick"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Click"",
+                    ""type"": ""Button"",
+                    ""id"": ""cefd92a1-95b6-4fdb-bdf7-8de9d6c6cbd5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""0fca51a4-5c45-46dd-b3b3-189e37d69a5e"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""MouseAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""075ee7d6-93a9-4812-b776-1a15500a10b0"",
+                    ""path"": ""<Gamepad>/rightStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""GamepadAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""300fc34a-23db-4cbe-a5fd-ef52afdac669"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""GamepadAim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2b7baa73-5fdb-4b31-9598-9d3eb6a88049"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KBM"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""614e778b-bb2c-4110-bc31-6ee57ad264fe"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""4dfeff6f-842b-4c1a-870d-ca3894abb426"",
+                    ""path"": ""<Gamepad>/rightTrigger"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Click"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1303,6 +1401,11 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Ball = asset.FindActionMap("Ball", throwIfNotFound: true);
         m_Ball_Move = m_Ball.FindAction("Move", throwIfNotFound: true);
         m_Ball_Rotate = m_Ball.FindAction("Rotate", throwIfNotFound: true);
+        // Clicker
+        m_Clicker = asset.FindActionMap("Clicker", throwIfNotFound: true);
+        m_Clicker_MouseAim = m_Clicker.FindAction("MouseAim", throwIfNotFound: true);
+        m_Clicker_GamepadAim = m_Clicker.FindAction("GamepadAim", throwIfNotFound: true);
+        m_Clicker_Click = m_Clicker.FindAction("Click", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1634,6 +1737,55 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     }
     public BallActions @Ball => new BallActions(this);
+
+    // Clicker
+    private readonly InputActionMap m_Clicker;
+    private IClickerActions m_ClickerActionsCallbackInterface;
+    private readonly InputAction m_Clicker_MouseAim;
+    private readonly InputAction m_Clicker_GamepadAim;
+    private readonly InputAction m_Clicker_Click;
+    public struct ClickerActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public ClickerActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MouseAim => m_Wrapper.m_Clicker_MouseAim;
+        public InputAction @GamepadAim => m_Wrapper.m_Clicker_GamepadAim;
+        public InputAction @Click => m_Wrapper.m_Clicker_Click;
+        public InputActionMap Get() { return m_Wrapper.m_Clicker; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ClickerActions set) { return set.Get(); }
+        public void SetCallbacks(IClickerActions instance)
+        {
+            if (m_Wrapper.m_ClickerActionsCallbackInterface != null)
+            {
+                @MouseAim.started -= m_Wrapper.m_ClickerActionsCallbackInterface.OnMouseAim;
+                @MouseAim.performed -= m_Wrapper.m_ClickerActionsCallbackInterface.OnMouseAim;
+                @MouseAim.canceled -= m_Wrapper.m_ClickerActionsCallbackInterface.OnMouseAim;
+                @GamepadAim.started -= m_Wrapper.m_ClickerActionsCallbackInterface.OnGamepadAim;
+                @GamepadAim.performed -= m_Wrapper.m_ClickerActionsCallbackInterface.OnGamepadAim;
+                @GamepadAim.canceled -= m_Wrapper.m_ClickerActionsCallbackInterface.OnGamepadAim;
+                @Click.started -= m_Wrapper.m_ClickerActionsCallbackInterface.OnClick;
+                @Click.performed -= m_Wrapper.m_ClickerActionsCallbackInterface.OnClick;
+                @Click.canceled -= m_Wrapper.m_ClickerActionsCallbackInterface.OnClick;
+            }
+            m_Wrapper.m_ClickerActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @MouseAim.started += instance.OnMouseAim;
+                @MouseAim.performed += instance.OnMouseAim;
+                @MouseAim.canceled += instance.OnMouseAim;
+                @GamepadAim.started += instance.OnGamepadAim;
+                @GamepadAim.performed += instance.OnGamepadAim;
+                @GamepadAim.canceled += instance.OnGamepadAim;
+                @Click.started += instance.OnClick;
+                @Click.performed += instance.OnClick;
+                @Click.canceled += instance.OnClick;
+            }
+        }
+    }
+    public ClickerActions @Clicker => new ClickerActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -1686,5 +1838,11 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnRotate(InputAction.CallbackContext context);
+    }
+    public interface IClickerActions
+    {
+        void OnMouseAim(InputAction.CallbackContext context);
+        void OnGamepadAim(InputAction.CallbackContext context);
+        void OnClick(InputAction.CallbackContext context);
     }
 }

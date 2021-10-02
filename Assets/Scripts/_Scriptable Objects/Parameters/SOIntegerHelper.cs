@@ -1,15 +1,13 @@
 using UnityEngine;
 using UnityEngine.Events;
 
-[System.Serializable] class OnValueChanged : UnityEvent<int> { }
-
-public class IntegerKeeperHelper : MonoBehaviour
+public class SOIntegerHelper : MonoBehaviour
 {
-    [SerializeField] private SOIntegerKeeper integerKeeper;
+    [SerializeField] private SOInteger soInteger;
     
     [SerializeField] private bool resetValueOnAwake;
 
-    [SerializeField] private OnValueChanged onValueChanged;
+    [SerializeField] private UnityAction<int> onValueChanged;
     [SerializeField] private UnityEvent onMinValueMet;
     [SerializeField] private UnityEvent onMaxValueMet;
     [SerializeField] private UnityEvent onValueReset;
@@ -20,24 +18,24 @@ public class IntegerKeeperHelper : MonoBehaviour
     {
         if(resetValueOnAwake)
         {
-            integerKeeper.ResetValue();
+            soInteger.ResetValue();
         }
     }
 
     private void OnEnable()
     {
-        integerKeeper.onValueChanged += HandleValueChanged;
-        integerKeeper.onMinValueMet += HandleMinValueMet;
-        integerKeeper.onMaxValueMet += HandleMaxValueMet;
-        integerKeeper.onValueReset += HandleValueReset;
+        soInteger.onValueChanged += HandleValueChanged;
+        soInteger.onMinValueMet += HandleMinValueMet;
+        soInteger.onMaxValueMet += HandleMaxValueMet;
+        soInteger.onValueReset += HandleValueReset;
     }
 
     private void OnDisable()
     {
-        integerKeeper.onValueChanged -= HandleValueChanged;
-        integerKeeper.onMinValueMet -= HandleMinValueMet;
-        integerKeeper.onMaxValueMet -= HandleMaxValueMet;
-        integerKeeper.onValueReset -= HandleValueReset;
+        soInteger.onValueChanged -= HandleValueChanged;
+        soInteger.onMinValueMet -= HandleMinValueMet;
+        soInteger.onMaxValueMet -= HandleMaxValueMet;
+        soInteger.onValueReset -= HandleValueReset;
     }
 
     private void HandleValueChanged(int value)

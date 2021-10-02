@@ -2,17 +2,17 @@ using UnityEngine;
 
 public class PointValue : MonoBehaviour
 {
-    [SerializeField] private SOScoreKeeper scoreKeeper;
+    [SerializeField] private SOInteger score;
     public int value;
 
     public void IncrementScore()
     {
-        scoreKeeper.AddToScore(1);
+        score.IncrementValue();
     }
 
-    public void UpdateScore()
+    public void AddToScore()
     {
-        scoreKeeper.AddToScore(value);
+        score.AddToValue(value);
     }
 
 }

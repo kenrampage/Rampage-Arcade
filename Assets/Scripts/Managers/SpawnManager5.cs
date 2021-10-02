@@ -19,12 +19,7 @@ public class SpawnManager5 : MonoBehaviour
 
 
     [SerializeField] private SOGameStateKeeper gameStateKeeper;
-    [SerializeField] private DifficultyKeeper difficultyKeeper;
-
-    private void Awake()
-    {
-        difficultyKeeper = FindObjectOfType<DifficultyKeeper>();
-    }
+    [SerializeField] private SOFloat difficulty;
 
     IEnumerator SpawnTarget()
     {
@@ -48,8 +43,8 @@ public class SpawnManager5 : MonoBehaviour
 
     public void StartSpawning()
     {
-        spawnRateCurrent = spawnRateBase / difficultyKeeper.difficulty;
-        spawnRateMin = (spawnRateBase / difficultyKeeper.difficulty) / 3f;
+        spawnRateCurrent = spawnRateBase / difficulty.GetValue();
+        spawnRateMin = (spawnRateBase / difficulty.GetValue()) / 3f;
 
         StartCoroutine(SpawnTarget());
     }

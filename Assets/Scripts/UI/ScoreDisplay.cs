@@ -4,11 +4,11 @@ using TMPro;
 public class ScoreDisplay : MonoBehaviour
 {
     public TextMeshProUGUI text;
-    [SerializeField] private SOScoreKeeper scoreKeeper;
+    [SerializeField] private SOInteger score;
 
     // Update is called once per frame
     void Update()
     {
-        text.text = scoreKeeper.Score.ToString();
+        text.text = score.GetValue().ToString();
     }
 }

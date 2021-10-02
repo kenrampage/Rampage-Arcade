@@ -1,18 +1,21 @@
 using UnityEngine;
 using System;
 
-[CreateAssetMenu(fileName = "IntegerKeeper_", menuName = "Rampage Arcade/SOIntegerKeeper")]
-public class SOIntegerKeeper : ScriptableObject
-{
-    [SerializeField] private int defaultValue;
-    [SerializeField] private int value;
-    [SerializeField] private int maxValue = 99999;
-    [SerializeField] private int minValue;
 
-    public Action<int> onValueChanged;
+[CreateAssetMenu(fileName = "Float_", menuName = "Rampage Arcade/SOFloat")]
+public class SOFloat : ScriptableObject
+{
+    [SerializeField] private float defaultValue;
+    [SerializeField] private float value;
+    [SerializeField] private float maxValue = 99999;
+    [SerializeField] private float minValue;
+
+    public Action<float> onValueChanged;
     public Action onMaxValueMet;
     public Action onMinValueMet;
     public Action onValueReset;
+
+
 
     public void IncrementValue()
     {
@@ -38,15 +41,26 @@ public class SOIntegerKeeper : ScriptableObject
         CheckMinMaxValue();
     }
 
-    public void SetValue(int i)
+    public float GetValue()
     {
-        if (i != value)
+        return value;
+    }
+
+
+    public void SetValue(float f)
+    {
+        if (f != value)
         {
-            value = i;
+            value = f;
             onValueChanged?.Invoke(value);
         }
 
         CheckMinMaxValue();
+    }
+
+    public void AddToValue(float f)
+    {
+        SetValue(value + f);
     }
 
     public void ResetValue()

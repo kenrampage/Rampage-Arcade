@@ -13,11 +13,10 @@ GameObject:
   - component: {fileID: 4196839212035920027}
   - component: {fileID: 4196839212038176044}
   - component: {fileID: 4196839212038176083}
-  - component: {fileID: 1711264590545325544}
   - component: {fileID: -5032778659998083177}
-  - component: {fileID: -6236024671603909737}
   - component: {fileID: 3526863081360062863}
   - component: {fileID: 3800930229356450432}
+  - component: {fileID: 763628957}
   m_Layer: 0
   m_Name: Clicker Points +10
   m_TagString: Untagged
@@ -117,57 +116,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.46739918, y: 0.0855937, z: 0.66151136}
   m_Center: {x: 0, y: 0.04279685, z: 0}
---- !u!114 &1711264590545325544
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4196839212038159063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a227b2dd22ba5904586eecb02cc302e1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  onObjectClicked:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: -6236024671603909737}
-        m_TargetAssemblyTypeName: SpawnObjects, Assembly-CSharp
-        m_MethodName: SpawnAllObjects
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 3526863081360062863}
-        m_TargetAssemblyTypeName: DestroyObject, Assembly-CSharp
-        m_MethodName: DestroyThisObject
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: -5032778659998083177}
-        m_TargetAssemblyTypeName: PointValue, Assembly-CSharp
-        m_MethodName: UpdateScore
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &-5032778659998083177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -180,23 +128,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c4413dc8ff9ed49a60ef5850226f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 11400000, guid: d89de8e89b8ad3f4c8df728203c45d3c, type: 2}
   value: 10
---- !u!114 &-6236024671603909737
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4196839212038159063}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44eaed2d59105f240bba000a4d962897, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectsToSpawn:
-  - {fileID: 2920601571711475044, guid: fa472a05c0474e944afa28c5cb1a650d, type: 3}
-  - {fileID: 3371569193385938658, guid: 745208c9d6e104225bd99e1ab894e3bb, type: 3}
-  spawnOffset: {x: 0, y: 0, z: 0}
 --- !u!114 &3526863081360062863
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -223,5 +156,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7079aa8b51bfc5b4d8f636e67252f5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameStateKeeper: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
   rotationSpeedMin: 3
   rotationSpeedMax: 4
+--- !u!114 &763628957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4196839212038159063}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a88f7f20639e18a429de8c5f67118ef7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onInteract:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3526863081360062863}
+        m_TargetAssemblyTypeName: DestroyThis, Assembly-CSharp
+        m_MethodName: DestroyThisObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: -5032778659998083177}
+        m_TargetAssemblyTypeName: PointValue, Assembly-CSharp
+        m_MethodName: AddToScore
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

@@ -5,7 +5,7 @@ public class MassSpawnObjects : MonoBehaviour
 {
     [SerializeField] private GameObject[] objectsToSpawn;
     [SerializeField] private List<GameObject> spawnedObjects = new List<GameObject>();
-    [SerializeField] private SOIntegerKeeper objectCountKeeper;
+    [SerializeField] private SOInteger objectCountSO;
     [SerializeField] private Collider spawnArea;
     [SerializeField] private float maxScale;
     [SerializeField] private float minScale;
@@ -15,7 +15,7 @@ public class MassSpawnObjects : MonoBehaviour
     private void Awake()
     {
         currentNumberToSpawn = baseNumberToSpawn;
-        objectCountKeeper.ResetValue();
+        objectCountSO.ResetValue();
     }
 
     private Vector3 GetRandomSpawnLocation()
@@ -36,7 +36,7 @@ public class MassSpawnObjects : MonoBehaviour
         for (int i = 0; i < currentNumberToSpawn; i++)
         {
             SpawnRandomObject();
-            objectCountKeeper.IncrementValue();
+            objectCountSO.IncrementValue();
         }
     }
 
@@ -70,7 +70,7 @@ public class MassSpawnObjects : MonoBehaviour
             Destroy(item.gameObject);
         }
         spawnedObjects.Clear();
-        objectCountKeeper.ResetValue();
+        objectCountSO.ResetValue();
     }
 
     public void IncreaseNumberToSpawn(int i)
