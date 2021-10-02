@@ -4896,7 +4896,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objectsToSpawn:
   - {fileID: 213444336433934171, guid: 85384889478e48947929e74d1f11191e, type: 3}
-  spawnedObjects: []
+  objectKeeper: {fileID: 11400000, guid: 619caa72fe2633b4e841a2bf6577d645, type: 2}
   spawnArea: {fileID: 1212087157}
   maxScale: 1
   minScale: 1
@@ -10739,7 +10739,7 @@ MonoBehaviour:
   - {fileID: 6660016541291690819, guid: c7a96d042b14e4e498df1d32f9ca1b3d, type: 3}
   - {fileID: 6660016541291690819, guid: 29f1929075fcfec49ae11f447386acc5, type: 3}
   - {fileID: 6660016541291690819, guid: 5fc359981981fc54c9d001b977bf4300, type: 3}
-  spawnedObjects: []
+  objectKeeper: {fileID: 11400000, guid: cfc5098357bb5fe44b499984e5685bdc, type: 2}
   spawnArea: {fileID: 1212087157}
   maxScale: 0.5
   minScale: 1.5

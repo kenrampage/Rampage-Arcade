@@ -65,7 +65,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 5db56540e57bfd24bad266f98851682f, type: 2}
+  - {fileID: 2100000, guid: 2fcb1d77259f8264084981acaef63ad1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -190,6 +190,18 @@ MonoBehaviour:
       - m_Target: {fileID: 755335484}
         m_TargetAssemblyTypeName: DestroyThis, Assembly-CSharp
         m_MethodName: DestroyThisObject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 11400000, guid: f7f8e65b04b958148955514dc36d0a7c, type: 2}
+        m_TargetAssemblyTypeName: SOIntegerKeeper, Assembly-CSharp
+        m_MethodName: DecrementValue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

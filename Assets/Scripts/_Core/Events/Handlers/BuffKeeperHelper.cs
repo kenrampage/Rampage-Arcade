@@ -5,7 +5,6 @@ public class BuffKeeperHelper : MonoBehaviour
 {
     [SerializeField] private SOBuffKeeper buffKeeper;
     [SerializeField] private bool countdownTimer;
-    [SerializeField] private bool buffOnAtStart;
 
     [SerializeField] private UnityEvent onBuffActivated;
     [SerializeField] private UnityEvent onBuffDeactivated;

@@ -69,6 +69,11 @@ public class SpawnManager4 : MonoBehaviour
 
     }
 
+    public void TestMethod()
+    {
+        
+    }
+
 
 }
 
