@@ -1192,6 +1192,37 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &456433781 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1175097514801266057, guid: 8ebd0b7063baaf44e853d76835288507, type: 3}
+  m_PrefabInstance: {fileID: 1290602464}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &456433782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456433781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2009c758081b8c41ac5fbc2cb8f262b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soInteger: {fileID: 11400000, guid: d89de8e89b8ad3f4c8df728203c45d3c, type: 2}
+  resetValueOnAwake: 1
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onMinValueMet:
+    m_PersistentCalls:
+      m_Calls: []
+  onMaxValueMet:
+    m_PersistentCalls:
+      m_Calls: []
+  onValueReset:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &475985833
 GameObject:
   m_ObjectHideFlags: 0
@@ -2399,7 +2430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 889145657}
-  scoreKeeper: {fileID: 11400000, guid: 364d27d9696e70443a48462daa3b697a, type: 2}
+  score: {fileID: 11400000, guid: d89de8e89b8ad3f4c8df728203c45d3c, type: 2}
 --- !u!114 &889145657
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3288,6 +3319,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3636967133689883098, guid: 87c9d222a7b61eb4b98882ef122a6d02, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 726761555}
     - target: {fileID: 3636967133689883099, guid: 87c9d222a7b61eb4b98882ef122a6d02, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -3575,7 +3610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1397691418}
-  scoreKeeper: {fileID: 11400000, guid: 364d27d9696e70443a48462daa3b697a, type: 2}
+  score: {fileID: 11400000, guid: d89de8e89b8ad3f4c8df728203c45d3c, type: 2}
 --- !u!114 &1397691418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6380,7 +6415,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1790428694}
-  scoreKeeper: {fileID: 11400000, guid: 364d27d9696e70443a48462daa3b697a, type: 2}
+  score: {fileID: 11400000, guid: d89de8e89b8ad3f4c8df728203c45d3c, type: 2}
 --- !u!222 &1790428696
 CanvasRenderer:
   m_ObjectHideFlags: 0

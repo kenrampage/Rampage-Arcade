@@ -835,7 +835,7 @@ MonoBehaviour:
   objectsToSpawn:
   - {fileID: 597996612166632915, guid: 2ec9639f4ec7c8845a2cbeaada2e39a3, type: 3}
   spawnedObjects: []
-  objectCountKeeper: {fileID: 11400000, guid: f7f8e65b04b958148955514dc36d0a7c, type: 2}
+  objectCountSO: {fileID: 11400000, guid: f7f8e65b04b958148955514dc36d0a7c, type: 2}
   spawnArea: {fileID: 994786388}
   maxScale: 1
   minScale: 1
@@ -896,7 +896,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2009c758081b8c41ac5fbc2cb8f262b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  integerKeeper: {fileID: 11400000, guid: f7f8e65b04b958148955514dc36d0a7c, type: 2}
+  soInteger: {fileID: 11400000, guid: f7f8e65b04b958148955514dc36d0a7c, type: 2}
   resetValueOnAwake: 1
   onValueChanged:
     m_PersistentCalls:
@@ -904,8 +904,20 @@ MonoBehaviour:
   onMinValueMet:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 168251757}
+        m_TargetAssemblyTypeName: MassSpawnObjects, Assembly-CSharp
+        m_MethodName: IncrementNumberToSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 11400000, guid: f6b7cf62c8babac4bb9c53a14b1b4477, type: 2}
-        m_TargetAssemblyTypeName: SOIntegerKeeper, Assembly-CSharp
+        m_TargetAssemblyTypeName: SOInteger, Assembly-CSharp
         m_MethodName: IncrementValue
         m_Mode: 1
         m_Arguments:
@@ -934,23 +946,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2009c758081b8c41ac5fbc2cb8f262b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  integerKeeper: {fileID: 11400000, guid: f6b7cf62c8babac4bb9c53a14b1b4477, type: 2}
+  soInteger: {fileID: 11400000, guid: f6b7cf62c8babac4bb9c53a14b1b4477, type: 2}
   resetValueOnAwake: 1
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 168251757}
-        m_TargetAssemblyTypeName: MassSpawnObjects, Assembly-CSharp
-        m_MethodName: IncrementNumberToSpawn
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 168251757}
         m_TargetAssemblyTypeName: MassSpawnObjects, Assembly-CSharp
         m_MethodName: SpawnObjects
@@ -1171,7 +1171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 206873038}
-  scoreKeeper: {fileID: 11400000, guid: 364d27d9696e70443a48462daa3b697a, type: 2}
+  score: {fileID: 11400000, guid: d89de8e89b8ad3f4c8df728203c45d3c, type: 2}
 --- !u!114 &206873038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3468,7 +3468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 972354568}
-  scoreKeeper: {fileID: 11400000, guid: 364d27d9696e70443a48462daa3b697a, type: 2}
+  score: {fileID: 11400000, guid: d89de8e89b8ad3f4c8df728203c45d3c, type: 2}
 --- !u!114 &972354568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4421,6 +4421,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1583597981, guid: 87c9d222a7b61eb4b98882ef122a6d02, type: 3}
+      propertyPath: onTransitionIn.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FadeCanvasOut
+      objectReference: {fileID: 0}
+    - target: {fileID: 1583597981, guid: 87c9d222a7b61eb4b98882ef122a6d02, type: 3}
+      propertyPath: onTransitionOut.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: FadeCanvasIn
+      objectReference: {fileID: 0}
     - target: {fileID: 3636967133689883098, guid: 87c9d222a7b61eb4b98882ef122a6d02, type: 3}
       propertyPath: m_Camera
       value: 
@@ -4516,6 +4524,10 @@ PrefabInstance:
     - target: {fileID: 3636967133689883103, guid: 87c9d222a7b61eb4b98882ef122a6d02, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4613535805955036771, guid: 87c9d222a7b61eb4b98882ef122a6d02, type: 3}
+      propertyPath: fadeCanvasOutAtStart
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 87c9d222a7b61eb4b98882ef122a6d02, type: 3}
@@ -5363,7 +5375,7 @@ MonoBehaviour:
   objectsToSpawn:
   - {fileID: 7321979415237366844, guid: 4f54685da31b2c4409c8e1a8f933ed12, type: 3}
   spawnedObjects: []
-  objectCountKeeper: {fileID: 11400000, guid: d010cae01eaa7294bb0b4d7e8d840613, type: 2}
+  objectCountSO: {fileID: 11400000, guid: d010cae01eaa7294bb0b4d7e8d840613, type: 2}
   spawnArea: {fileID: 994786388}
   maxScale: 1
   minScale: 1
@@ -5424,7 +5436,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2009c758081b8c41ac5fbc2cb8f262b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  integerKeeper: {fileID: 11400000, guid: 9787847a31fa98c47b2d5a83810abf2d, type: 2}
+  soInteger: {fileID: 11400000, guid: 9787847a31fa98c47b2d5a83810abf2d, type: 2}
   resetValueOnAwake: 1
   onValueChanged:
     m_PersistentCalls:
@@ -5474,14 +5486,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2009c758081b8c41ac5fbc2cb8f262b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  integerKeeper: {fileID: 11400000, guid: f6b7cf62c8babac4bb9c53a14b1b4477, type: 2}
+  soInteger: {fileID: 11400000, guid: f6b7cf62c8babac4bb9c53a14b1b4477, type: 2}
   resetValueOnAwake: 1
   onValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11400000, guid: 9787847a31fa98c47b2d5a83810abf2d, type: 2}
-        m_TargetAssemblyTypeName: SOIntegerKeeper, Assembly-CSharp
-        m_MethodName: IncrementValue
+      - m_Target: {fileID: 1482171651}
+        m_TargetAssemblyTypeName: MassSpawnObjects, Assembly-CSharp
+        m_MethodName: SpawnObjects
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5491,9 +5503,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1482171651}
-        m_TargetAssemblyTypeName: MassSpawnObjects, Assembly-CSharp
-        m_MethodName: SpawnObjects
+      - m_Target: {fileID: 11400000, guid: 9787847a31fa98c47b2d5a83810abf2d, type: 2}
+        m_TargetAssemblyTypeName: SOInteger, Assembly-CSharp
+        m_MethodName: IncrementValue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10953,6 +10965,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6724157234394835892, guid: de43b829df85bea4797f1041cb46c0a8, type: 3}
   m_PrefabInstance: {fileID: 1875202311}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1903667486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1175097514801266057, guid: 8ebd0b7063baaf44e853d76835288507, type: 3}
+  m_PrefabInstance: {fileID: 570941579}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1903667493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1903667486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2009c758081b8c41ac5fbc2cb8f262b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soInteger: {fileID: 11400000, guid: d89de8e89b8ad3f4c8df728203c45d3c, type: 2}
+  resetValueOnAwake: 1
+  onValueChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  onMinValueMet:
+    m_PersistentCalls:
+      m_Calls: []
+  onMaxValueMet:
+    m_PersistentCalls:
+      m_Calls: []
+  onValueReset:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1994910107
 GameObject:
   m_ObjectHideFlags: 0
@@ -11004,7 +11047,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 1994910110}
-  scoreKeeper: {fileID: 11400000, guid: 364d27d9696e70443a48462daa3b697a, type: 2}
+  score: {fileID: 11400000, guid: d89de8e89b8ad3f4c8df728203c45d3c, type: 2}
 --- !u!114 &1994910110
 MonoBehaviour:
   m_ObjectHideFlags: 0

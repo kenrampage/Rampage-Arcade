@@ -11,7 +11,7 @@ TagManager:
   - Pickup
   - Projectile
   - Powerup
-  - Bad
+  - Clicker Good
   layers:
   - Default
   - TransparentFX

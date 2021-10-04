@@ -34,7 +34,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 33, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3676550572080279846
@@ -99,7 +99,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -264,7 +264,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aee010cc05a8914abcf4552a112c288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeAtStart: 1
+  fadeCanvasInAtStart: 0
+  fadeCanvasOutAtStart: 1
   fadeOutTime: 1
   fadeInTime: 1
 --- !u!225 &4777570329438377039

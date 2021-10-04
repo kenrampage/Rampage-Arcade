@@ -115,7 +115,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aee010cc05a8914abcf4552a112c288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeInAtStart: 0
+  fadeCanvasInAtStart: 0
+  fadeCanvasOutAtStart: 0
   fadeOutTime: 1
   fadeInTime: 1
 --- !u!225 &6598556655565274342
@@ -148,7 +149,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4613535805955036771}
         m_TargetAssemblyTypeName: UICanvasGroupFadeEffect, Assembly-CSharp
-        m_MethodName: FadeIn
+        m_MethodName: FadeCanvasOut
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -175,7 +176,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4613535805955036771}
         m_TargetAssemblyTypeName: UICanvasGroupFadeEffect, Assembly-CSharp
-        m_MethodName: FadeOut
+        m_MethodName: FadeCanvasIn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -148,9 +148,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 364d27d9696e70443a48462daa3b697a, type: 2}
-        m_TargetAssemblyTypeName: SOScoreKeeper, Assembly-CSharp
-        m_MethodName: ResetScore
+      - m_Target: {fileID: 11400000, guid: d89de8e89b8ad3f4c8df728203c45d3c, type: 2}
+        m_TargetAssemblyTypeName: SOInteger, Assembly-CSharp
+        m_MethodName: ResetValue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

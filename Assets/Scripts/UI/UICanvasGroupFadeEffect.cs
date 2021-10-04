@@ -3,7 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(CanvasGroup))]
 public class UICanvasGroupFadeEffect : MonoBehaviour
 {
-    [SerializeField] private bool fadeInAtStart;
+    [SerializeField] private bool fadeCanvasInAtStart;
+    [SerializeField] private bool fadeCanvasOutAtStart;
     [SerializeField] private float fadeOutTime = 1f;
     [SerializeField] private float fadeInTime = 1f;
 
@@ -16,23 +17,28 @@ public class UICanvasGroupFadeEffect : MonoBehaviour
 
     private void Start()
     {
-        if (fadeInAtStart)
+        if (fadeCanvasInAtStart)
         {
-            canvasGroup.alpha = 1;
-            FadeIn();
-            
+            FadeCanvasIn();
+
         }
+        else if (fadeCanvasOutAtStart)
+        {
+            FadeCanvasOut();
+        }
+
+
     }
 
-    public void FadeIn()
-    {
-        canvasGroup.alpha = 1;
-        LeanTween.alphaCanvas(canvasGroup, 0, fadeInTime).setIgnoreTimeScale(true);
-    }
-
-    public void FadeOut()
+    public void FadeCanvasIn()
     {
         canvasGroup.alpha = 0;
-        LeanTween.alphaCanvas(canvasGroup, 1, fadeOutTime).setIgnoreTimeScale(true);
+        LeanTween.alphaCanvas(canvasGroup, 1, fadeInTime).setIgnoreTimeScale(true);
+    }
+
+    public void FadeCanvasOut()
+    {
+        canvasGroup.alpha = 1;
+        LeanTween.alphaCanvas(canvasGroup, 0, fadeOutTime).setIgnoreTimeScale(true);
     }
 }

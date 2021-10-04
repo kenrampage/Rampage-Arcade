@@ -20,15 +20,15 @@ public class MassSpawnObjects : MonoBehaviour
 
     private Vector3 GetRandomSpawnLocation()
     {
-        Vector3 _spawnRange = spawnArea.bounds.extents;
-        Vector3 _spawnPos = new Vector3(Random.Range(-_spawnRange.x, _spawnRange.x), 0, Random.Range(-_spawnRange.z, _spawnRange.z));
-        return _spawnPos;
+        Vector3 spawnRange = spawnArea.bounds.extents;
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRange.x, spawnRange.x), 0, Random.Range(-spawnRange.z, spawnRange.z));
+        return spawnPos;
     }
 
     private int GetRandomSpawnIndex()
     {
-        var _spawnIndex = Random.Range(0, objectsToSpawn.Length);
-        return _spawnIndex;
+        var spawnIndex = Random.Range(0, objectsToSpawn.Length);
+        return spawnIndex;
     }
 
     public void SpawnObjects()
@@ -42,24 +42,24 @@ public class MassSpawnObjects : MonoBehaviour
 
     public void SpawnObject(int i)
     {
-        var _spawnedObject = Instantiate(objectsToSpawn[i], GetRandomSpawnLocation(), objectsToSpawn[i].transform.rotation);
-        var _newScale = Random.Range(minScale, maxScale);
+        var spawnedObject = Instantiate(objectsToSpawn[i], GetRandomSpawnLocation(), objectsToSpawn[i].transform.rotation);
+        var newScale = Random.Range(minScale, maxScale);
 
-        spawnedObjects.Add(_spawnedObject);
+        spawnedObjects.Add(spawnedObject);
 
-        _spawnedObject.transform.localScale = new Vector3(_newScale, _newScale, _newScale);
+        spawnedObject.transform.localScale = new Vector3(newScale, newScale, newScale);
 
     }
 
     public void SpawnRandomObject()
     {
-        var _spawnIndex = GetRandomSpawnIndex();
-        var _spawnedObject = Instantiate(objectsToSpawn[_spawnIndex], GetRandomSpawnLocation(), objectsToSpawn[_spawnIndex].transform.rotation);
-        var _newScale = Random.Range(minScale, maxScale);
-        var _currentScale = _spawnedObject.transform.localScale;
-        _spawnedObject.transform.localScale = _currentScale * _newScale;
+        var spawnIndex = GetRandomSpawnIndex();
+        var spawnedObject = Instantiate(objectsToSpawn[spawnIndex], GetRandomSpawnLocation(), objectsToSpawn[spawnIndex].transform.rotation);
+        var newScale = Random.Range(minScale, maxScale);
+        var currentScale = spawnedObject.transform.localScale;
+        spawnedObject.transform.localScale = currentScale * newScale;
 
-        spawnedObjects.Add(_spawnedObject);
+        spawnedObjects.Add(spawnedObject);
 
     }
 

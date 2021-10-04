@@ -49,8 +49,6 @@ MonoBehaviour:
   parameterName: SkidPerc
   ignoreSeekSpeed: 0
   startOnEnable: 1
-  playAttached: 1
-  attachTarget: {fileID: 2688345979548863197}
 --- !u!114 &5193260905528585906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,8 +165,6 @@ MonoBehaviour:
   parameterName: RPM
   ignoreSeekSpeed: 0
   startOnEnable: 1
-  playAttached: 1
-  attachTarget: {fileID: 2688345979548863197}
 --- !u!114 &2058270906298270016
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +241,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 486015814185541469}
-  - component: {fileID: 2819239848670595505}
   - component: {fileID: 6181936389711023952}
   - component: {fileID: 108273618902488907}
   m_Layer: 0
@@ -269,20 +264,6 @@ Transform:
   m_Father: {fileID: 8490917998177497457}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -0, y: 270, z: 0}
---- !u!114 &2819239848670595505
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1147128145952565525}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3695e1a62d654384f97e234b8388b673, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particleSystems:
-  - {fileID: 6181936389711023952}
 --- !u!198 &6181936389711023952
 ParticleSystem:
   m_ObjectHideFlags: 0
@@ -5368,10 +5349,10 @@ MonoBehaviour:
   onTriggerEnterEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2819239848670595505}
-        m_TargetAssemblyTypeName: ParticlePlayer, Assembly-CSharp
-        m_MethodName: PlayParticle
-        m_Mode: 3
+      - m_Target: {fileID: 6181936389711023952}
+        m_TargetAssemblyTypeName: UnityEngine.ParticleSystem, UnityEngine
+        m_MethodName: Play
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine

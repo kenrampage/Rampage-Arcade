@@ -7,7 +7,7 @@ public class SOIntegerHelper : MonoBehaviour
     
     [SerializeField] private bool resetValueOnAwake;
 
-    [SerializeField] private UnityAction<int> onValueChanged;
+    [SerializeField] private UnityEvent<int> onValueChanged;
     [SerializeField] private UnityEvent onMinValueMet;
     [SerializeField] private UnityEvent onMaxValueMet;
     [SerializeField] private UnityEvent onValueReset;
