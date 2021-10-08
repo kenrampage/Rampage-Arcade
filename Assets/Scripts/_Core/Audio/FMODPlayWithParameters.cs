@@ -9,6 +9,7 @@ public class FMODPlayWithParameters : MonoBehaviour
     [SerializeField] private string parameterName;
     [SerializeField] private bool ignoreSeekSpeed;
     [SerializeField] private bool startOnEnable;
+    [SerializeField] private FMOD.Studio.PLAYBACK_STATE playbackState;
 
     private bool playAttached;
 
@@ -30,6 +31,7 @@ public class FMODPlayWithParameters : MonoBehaviour
         RuntimeManager.GetEventDescription(fmodEvent).is3D(out is3D);
 
         playAttached = is3D = true ? true : false;
+        GetPlaybackState();
     }
 
     private void OnEnable()
@@ -50,27 +52,36 @@ public class FMODPlayWithParameters : MonoBehaviour
 
     public void StartEvent()
     {
-        eventInstance.start();
+        GetPlaybackState();
+        if(playbackState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
+        {
+            eventInstance.start();
+        }
+        
     }
 
     public void PauseEvent()
     {
         eventInstance.setPaused(true);
+        GetPlaybackState();
     }
 
     public void UnpauseEvent()
     {
         eventInstance.setPaused(false);
+        GetPlaybackState();
     }
 
     public void StopEventNoFadeout()
     {
         eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+        GetPlaybackState();
     }
 
     public void StopEventWithFadeout()
     {
         eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        GetPlaybackState();
     }
 
     public void SetParameterByName(float value)
@@ -82,5 +93,10 @@ public class FMODPlayWithParameters : MonoBehaviour
     {
         eventInstance.release();
         playAttached = false;
+    }
+
+    public void GetPlaybackState()
+    {
+        eventInstance.getPlaybackState(out playbackState);
     }
 }

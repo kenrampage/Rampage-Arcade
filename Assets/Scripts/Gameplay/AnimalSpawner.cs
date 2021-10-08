@@ -16,7 +16,7 @@ public class AnimalSpawner : MonoBehaviour
     private Vector3 spawnPos;
 
     [SerializeField] private SOGameStateKeeper gameStateKeeper;
-    [SerializeField] private SOScoreKeeper scoreKeeper;
+    [SerializeField] private SOInteger score;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +41,7 @@ public class AnimalSpawner : MonoBehaviour
                 SpawnRandomAnimal();
                 if (spawnIntervalCurrent > spawnIntervalMin)
                 {
-                    spawnIntervalCurrent = spawnIntervalStart - (scoreKeeper.Score * spawnIntervalDecrease);
+                    spawnIntervalCurrent = spawnIntervalStart - (score.GetValue() * spawnIntervalDecrease);
                 }
                 spawnTimer = spawnIntervalCurrent;
             }

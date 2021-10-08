@@ -8,6 +8,7 @@ public class RunnerController : MonoBehaviour
 {
 
     [SerializeField] private SOGameStateKeeper gameStateKeeper;
+    [SerializeField] private SOFMODParameterData fmodVertVelocity;
     private Rigidbody playerRb;
 
     [SerializeField] private float jumpTimeCurrent;
@@ -20,13 +21,12 @@ public class RunnerController : MonoBehaviour
     private bool jumpInput;
     private bool isOnGround;
     private bool isJumping;
-    private float vertVelocity;
+    [SerializeField] private float vertVelocity;
 
     [SerializeField] private UnityEvent onJump;
     [SerializeField] private UnityEvent onLand;
     [SerializeField] private UnityEvent onHoverStart;
     [SerializeField] private UnityEvent onHoverEnd;
-    [SerializeField] private UnityEvent onStep;
 
     private void Awake()
     {
@@ -119,6 +119,7 @@ public class RunnerController : MonoBehaviour
                 vertVelocity = vertVelocity - (Time.deltaTime * fallRate);
                 playerRb.velocity = new Vector3(0, vertVelocity, 0);
                 onHoverStart?.Invoke();
+                fmodVertVelocity.FloatValue = vertVelocity;
 
                 // if (!sfxEmitterHover.IsPlaying())
                 // {
@@ -142,11 +143,6 @@ public class RunnerController : MonoBehaviour
             }
         }
 
-    }
-
-    public void PlayerStep()
-    {
-        onStep?.Invoke();
     }
 
     private void ApplyGravity()

@@ -35,7 +35,7 @@ public class SpawnManager3 : MonoBehaviour
     private Vector3 pickupPos;
 
     [SerializeField] private SOGameStateKeeper gameStateKeeper;
-    [SerializeField] private SOScoreKeeper scoreKeeper;
+    [SerializeField] private SOInteger score;
 
     // Start is called before the first frame update
     void Start()
@@ -60,7 +60,7 @@ public class SpawnManager3 : MonoBehaviour
                 SpawnObstacle();
                 if (obstacleIntervalMultiplier > obstacleIntervalMultiplierMin)
                 {
-                    obstacleIntervalMultiplier = obstacleIntervalMultiplierStart - (scoreKeeper.Score * obstacleIntervalMultiplierDecrease);
+                    obstacleIntervalMultiplier = obstacleIntervalMultiplierStart - (score.GetValue() * obstacleIntervalMultiplierDecrease);
                 }
                 obstacleTimer = Random.Range(obstacleIntervalMin, obstacleIntervalMax) * obstacleIntervalMultiplier;
             }
@@ -70,7 +70,7 @@ public class SpawnManager3 : MonoBehaviour
                 SpawnPickup();
                 if (pickupIntervalMultiplier > pickupIntervalMultiplierMin)
                 {
-                    pickupIntervalMultiplier = pickupIntervalMultiplierStart - (scoreKeeper.Score * pickupIntervalMultiplierDecrease);
+                    pickupIntervalMultiplier = pickupIntervalMultiplierStart - (score.GetValue() * pickupIntervalMultiplierDecrease);
                 }
                 pickupTimer = Random.Range(pickupIntervalMin, pickupIntervalMax) * pickupIntervalMultiplier;
             }

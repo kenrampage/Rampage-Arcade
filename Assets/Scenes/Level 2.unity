@@ -1906,7 +1906,7 @@ MonoBehaviour:
   spawnIntervalCurrent: 0
   spawnIntervalDecrease: 0.05
   gameStateKeeper: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
-  scoreKeeper: {fileID: 11400000, guid: 364d27d9696e70443a48462daa3b697a, type: 2}
+  score: {fileID: 11400000, guid: d89de8e89b8ad3f4c8df728203c45d3c, type: 2}
 --- !u!4 &675010929
 Transform:
   m_ObjectHideFlags: 0
