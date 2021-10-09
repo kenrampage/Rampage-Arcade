@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CarMovement : MonoBehaviour
+public class CarController : MonoBehaviour
 {
     [SerializeField] private SOFMODParameterData fmodDataEngineRPM;
     private float engineRPM;

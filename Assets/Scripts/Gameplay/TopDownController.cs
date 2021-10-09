@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class TopDownMovement : MonoBehaviour
+public class TopDownController : MonoBehaviour
 {
     [SerializeField] private UnityEvent onFire;
     [SerializeField] private UnityEvent onFireEmpty;

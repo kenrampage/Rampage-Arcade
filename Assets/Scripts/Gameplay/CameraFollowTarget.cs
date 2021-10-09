@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CameraFollowCar : MonoBehaviour
+public class CameraFollowTarget : MonoBehaviour
 {
 
     [SerializeField] private Vector3 offset;
@@ -10,6 +10,8 @@ public class CameraFollowCar : MonoBehaviour
     private Transform target;
     private bool followOn = false;
 
+    [SerializeField] private string targetTag;
+
     private void Awake()
     {
         followOn = false;
@@ -17,7 +19,7 @@ public class CameraFollowCar : MonoBehaviour
 
     public void SetFollowTarget()
     {
-        target = GameObject.FindGameObjectWithTag("Player").transform;
+        target = GameObject.FindGameObjectWithTag(targetTag).transform;
         followOn = true;
     }
 
@@ -31,8 +33,6 @@ public class CameraFollowCar : MonoBehaviour
         }
 
     }
-
-
 
     void HandleTranslation()
     {

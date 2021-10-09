@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!21 &-3490332654547873639
+--- !u!21 &-4149092397332419068
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Mont Royal SDF Material
-  m_Shader: {fileID: 4800000, guid: 35c0401b9b7647e4a8de4787bfc796d6, type: 3}
+  m_Shader: {fileID: 4800000, guid: 68e6db2ebdc24f95958faec2be5558d6, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -32,7 +32,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 7355569061164836861}
+        m_Texture: {fileID: 8242147238572053041}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OutlineTex:
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: Mont Royal SDF
   m_EditorClassIdentifier: 
   hashCode: 1752532928
-  material: {fileID: -3490332654547873639}
+  material: {fileID: -4149092397332419068}
   materialHashCode: 717572064
   m_Version: 1.1.0
   m_SourceFontFileGUID: cf78fc5fff6501b4eb0fced118db7b41
@@ -1298,12 +1298,8 @@ MonoBehaviour:
     m_Unicode: 122
     m_GlyphIndex: 55
     m_Scale: 1
-  - m_ElementType: 1
-    m_Unicode: 160
-    m_GlyphIndex: 3
-    m_Scale: 1
   m_AtlasTextures:
-  - {fileID: 7355569061164836861}
+  - {fileID: 8242147238572053041}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
   m_ClearDynamicDataOnBuild: 0
@@ -1804,8 +1800,8 @@ MonoBehaviour:
     packingMode: 0
     atlasWidth: 512
     atlasHeight: 512
-    characterSetSelectionMode: 0
-    characterSequence: 32 - 126, 160, 8203, 8230, 9633
+    characterSetSelectionMode: 6
+    characterSequence: 20-7E
     referencedFontAssetGUID: 
     referencedTextAssetGUID: 
     fontStyle: 0
@@ -1840,7 +1836,7 @@ MonoBehaviour:
   boldSpacing: 7
   italicStyle: 35
   tabSize: 10
---- !u!28 &7355569061164836861
+--- !u!28 &8242147238572053041
 Texture2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

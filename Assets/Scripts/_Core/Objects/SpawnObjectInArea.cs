@@ -15,7 +15,6 @@ public class SpawnObjectInArea : MonoBehaviour
         Random.Range(-spawnRange.y + spawnArea.bounds.center.y, spawnRange.y + spawnArea.bounds.center.y) + spawnArea.gameObject.transform.position.y,
         Random.Range(-spawnRange.z + spawnArea.bounds.center.z, spawnRange.z + spawnArea.bounds.center.z) + spawnArea.gameObject.transform.position.z
         );
-        print(spawnPos);
         return spawnPos;
     }
 

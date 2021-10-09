@@ -49,6 +49,7 @@ MonoBehaviour:
   parameterName: SkidPerc
   ignoreSeekSpeed: 0
   startOnEnable: 1
+  playbackState: 0
 --- !u!114 &5193260905528585906
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,6 +166,7 @@ MonoBehaviour:
   parameterName: RPM
   ignoreSeekSpeed: 0
   startOnEnable: 1
+  playbackState: 0
 --- !u!114 &2058270906298270016
 MonoBehaviour:
   m_ObjectHideFlags: 0

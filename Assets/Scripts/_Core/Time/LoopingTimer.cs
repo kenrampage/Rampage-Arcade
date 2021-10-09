@@ -11,8 +11,8 @@ public class LoopingTimer : MonoBehaviour
     [SerializeField] private float initialStartTime;
 
     [SerializeField] private float minTime;
-    [SerializeField] private float startTime;
-    [SerializeField] private float currentTime;
+    private float startTime;
+    private float currentTime;
 
     [SerializeField] private bool timerOn;
 
