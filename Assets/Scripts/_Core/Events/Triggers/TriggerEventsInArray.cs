@@ -7,7 +7,6 @@ public class TriggerEventsInArray : MonoBehaviour
     public void InvokeEventByIndex(int i)
     {
         unityEventData[i].unityEvent?.Invoke();
-        print(unityEventData[i].name + " Event Invoked by Index");
     }
 
     public void InvokeEventByName(string value)
@@ -17,7 +16,6 @@ public class TriggerEventsInArray : MonoBehaviour
             if(item.name == value)
             {
                 item.unityEvent?.Invoke();
-                print(value + " Event Invoked by Name");
                 break;
             }
         }

@@ -3,7 +3,8 @@ using UnityEngine.Events;
 
 public class LoopingTimer : MonoBehaviour
 {
-    [SerializeField] private SOFloat multiplier;
+    [SerializeField] private SOFloat changePerLoopMultiplier;
+    [SerializeField] private bool useMultiplier;
 
     [SerializeField] private float changePerLoop;
 
@@ -34,21 +35,41 @@ public class LoopingTimer : MonoBehaviour
         timerOn = true;
     }
 
+    public void StopTimer()
+    {
+        timerOn = false;
+    }
+
     public void ResetTimer()
     {
-
-        if (startTime - (changePerLoop * multiplier.GetValue()) > minTime)
+        if (useMultiplier)
         {
-            startTime -= changePerLoop * multiplier.GetValue();
+            if (startTime - (changePerLoop * changePerLoopMultiplier.GetValue()) > minTime)
+            {
+                startTime -= changePerLoop * changePerLoopMultiplier.GetValue();
+            }
+            else
+            {
+                startTime = minTime;
+            }
         }
         else
         {
-            startTime = minTime;
+            if (startTime - changePerLoop > minTime)
+            {
+                startTime -= changePerLoop;
+            }
+            else
+            {
+                startTime = minTime;
+            }
         }
+
 
         currentTime = startTime;
 
     }
+
 
     public void TimerDone()
     {
