@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
+    [SerializeField] private SOFloat soTimerPercent;
     [SerializeField] private UnityEvent onTimerDone;
 
     public float currentTime;
@@ -23,6 +24,7 @@ public class Timer : MonoBehaviour
         if (timerOn)
         {
             TimerProgress();
+            soTimerPercent.SetValue(timePercent);
         }
     }
 
@@ -48,7 +50,7 @@ public class Timer : MonoBehaviour
         }
     }
 
-    public void TimerCountdown()
+    private void TimerCountdown()
     {
         currentTime -= Time.deltaTime;
         timePercent = (currentTime - targetTime)  / startTime;
@@ -60,7 +62,7 @@ public class Timer : MonoBehaviour
 
     }
 
-    public void TimerCountUp()
+    private void TimerCountUp()
     {
         currentTime += Time.deltaTime;
         timePercent = (currentTime - startTime) / targetTime;

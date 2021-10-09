@@ -2,6 +2,7 @@
 
 public class BallController : MonoBehaviour
 {
+    [SerializeField] private SOFMODParameterData ballSpeed;
     private Rigidbody playerRb;
     [SerializeField] private GameObject directionTarget;
 
@@ -18,6 +19,7 @@ public class BallController : MonoBehaviour
     void Update()
     {
         currentSpeed = playerRb.velocity.magnitude;
+        ballSpeed.FloatValue = currentSpeed;
     }
 
     private void FixedUpdate()

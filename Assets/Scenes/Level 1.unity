@@ -11565,6 +11565,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80e0f30dbb5add04b8c3ab6e979cbda3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  soTimerPercent: {fileID: 11400000, guid: 7053c580cdeba41479309e91c86ed458, type: 2}
   onTimerDone:
     m_PersistentCalls:
       m_Calls:
@@ -16707,7 +16708,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1985401234
 RectTransform:
   m_ObjectHideFlags: 0
@@ -17957,7 +17958,7 @@ MonoBehaviour:
   image: {fileID: 2097999167}
   startColor: {r: 0.03844783, g: 0.9056604, b: 0.14804055, a: 1}
   endColor: {r: 0.9056604, g: 0.060377363, b: 0, a: 1}
-  timer: {fileID: 1245669352}
+  timer: {fileID: 11400000, guid: 7053c580cdeba41479309e91c86ed458, type: 2}
 --- !u!225 &2097999170
 CanvasGroup:
   m_ObjectHideFlags: 0

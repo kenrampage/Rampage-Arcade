@@ -7583,8 +7583,8 @@ MonoBehaviour:
   Max: 51
   Default: 0
   ID:
-    data1: 0
-    data2: 0
+    data1: 1125083557
+    data2: 3999657525
   Exists: 1
 --- !u!114 &-6551035775645684817
 MonoBehaviour:
@@ -10420,8 +10420,8 @@ MonoBehaviour:
   Max: 12
   Default: 2
   ID:
-    data1: 0
-    data2: 0
+    data1: 2314644093
+    data2: 4257195232
   Exists: 1
 --- !u!114 &-5611891231448102228
 MonoBehaviour:
@@ -26527,8 +26527,8 @@ MonoBehaviour:
   Max: 12
   Default: 2
   ID:
-    data1: 0
-    data2: 0
+    data1: 2314644093
+    data2: 4257195232
   Exists: 1
 --- !u!114 &553383259421337653
 MonoBehaviour:
@@ -35933,8 +35933,8 @@ MonoBehaviour:
   Max: 12
   Default: 2
   ID:
-    data1: 0
-    data2: 0
+    data1: 2314644093
+    data2: 4257195232
   Exists: 1
 --- !u!114 &4319868647028300377
 MonoBehaviour:
@@ -38150,8 +38150,8 @@ MonoBehaviour:
   Max: 12
   Default: 2
   ID:
-    data1: 0
-    data2: 0
+    data1: 2314644093
+    data2: 4257195232
   Exists: 1
 --- !u!114 &5161871212127885146
 MonoBehaviour:
@@ -42933,8 +42933,8 @@ MonoBehaviour:
   Max: 12
   Default: 2
   ID:
-    data1: 0
-    data2: 0
+    data1: 2314644093
+    data2: 4257195232
   Exists: 1
 --- !u!114 &6992263656574469994
 MonoBehaviour:

@@ -56,6 +56,7 @@ public class FMODPlayWithParameters : MonoBehaviour
         if(playbackState != FMOD.Studio.PLAYBACK_STATE.PLAYING)
         {
             eventInstance.start();
+            GetPlaybackState();
         }
         
     }

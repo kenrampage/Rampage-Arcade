@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8926576537846574866}
   - component: {fileID: 4772634989860951495}
   - component: {fileID: 1487423160}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Points +5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 3707346081467035821}
   - component: {fileID: 3707346081467035822}
   - component: {fileID: 3707346081467035823}
-  m_Layer: 5
+  m_Layer: 0
   m_Name: Score Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}

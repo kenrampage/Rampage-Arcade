@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9c4413dc8ff9ed49a60ef5850226f79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreKeeper: {fileID: 11400000, guid: 364d27d9696e70443a48462daa3b697a, type: 2}
+  score: {fileID: 11400000, guid: d89de8e89b8ad3f4c8df728203c45d3c, type: 2}
   value: 1
 --- !u!114 &-3445933273665903130
 MonoBehaviour:
@@ -197,7 +197,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 3878023017810076372}
         m_TargetAssemblyTypeName: PointValue, Assembly-CSharp
-        m_MethodName: UpdateScore
+        m_MethodName: AddToScore
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

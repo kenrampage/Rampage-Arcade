@@ -16,7 +16,6 @@ public class SOFloat : ScriptableObject
     public Action onValueReset;
 
 
-
     public void IncrementValue()
     {
 
@@ -44,6 +43,11 @@ public class SOFloat : ScriptableObject
     public float GetValue()
     {
         return value;
+    }
+
+    public float GetPercentage()
+    {
+        return value / defaultValue;
     }
 
 
@@ -81,5 +85,10 @@ public class SOFloat : ScriptableObject
             onMaxValueMet?.Invoke();
         }
 
+    }
+
+    public void SetDefaultValue(float f)
+    {
+        defaultValue = f;
     }
 }
