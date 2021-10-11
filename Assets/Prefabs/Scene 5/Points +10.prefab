@@ -251,7 +251,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyOnSpawn: 1
-  delay: 1.5
+  delay: 1
 --- !u!114 &6925056460408382467
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeCanvasInAtStart: 0
   fadeCanvasOutAtStart: 1
-  fadeOutTime: 1
+  fadeOutTime: 0.75
   fadeInTime: 1
 --- !u!225 &6467417578016284374
 CanvasGroup:
@@ -292,4 +292,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dad548fd91882e54c9841fdd0e395b66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: {x: 0, y: 0.0075, z: 0}
+  speed: {x: 0, y: 0.005, z: 0}

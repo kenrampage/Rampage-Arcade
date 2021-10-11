@@ -23,9 +23,15 @@ public class HandleControlSchemeChanged : MonoBehaviour
         InputUser.onChange -= HandleInputUserChange;
     }
 
-    private void Start()
+    private void Awake()
     {
-        InvokeEvent("KBM");
+        InvokeEvent(GetCurrentControlScheme());
+    }
+
+    [ContextMenu("Print Current Control Scheme")]
+    private string GetCurrentControlScheme()
+    {
+        return PlayerInput.GetPlayerByIndex(0).currentControlScheme;
     }
 
     private void HandleInputUserChange(InputUser user, InputUserChange change, InputDevice device)
@@ -51,6 +57,7 @@ public class HandleControlSchemeChanged : MonoBehaviour
             default:
                 break;
         }
+
     }
 
 }
