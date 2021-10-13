@@ -78,11 +78,13 @@ public class SOFloat : ScriptableObject
         if (value <= minValue)
         {
             onMinValueMet?.Invoke();
+            value = minValue;
         }
 
         if (value >= maxValue)
         {
             onMaxValueMet?.Invoke();
+            value = maxValue;
         }
 
     }

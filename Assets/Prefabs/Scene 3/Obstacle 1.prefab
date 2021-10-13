@@ -9,9 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8896917293675416969}
-  - component: {fileID: 3320054820060680757}
   - component: {fileID: 7101183322120449959}
   - component: {fileID: 5579455675658138500}
+  - component: {fileID: 2745510924729759338}
+  - component: {fileID: 3347664761964084652}
   m_Layer: 0
   m_Name: Obstacle 1
   m_TagString: Obstacle
@@ -34,19 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &3320054820060680757
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8896917293675057577}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.9385843, y: 1.7753509, z: 0.9668753}
-  m_Center: {x: 0.0056700706, y: 0.87068456, z: -0.0033124685}
 --- !u!114 &7101183322120449959
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -77,6 +65,32 @@ MonoBehaviour:
   scaleOnAwake: 1
   minScaleMultiplier: 0.8
   maxScaleMultiplier: 2
+--- !u!65 &2745510924729759338
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8896917293675057577}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6838393, y: 1.7447577, z: 0.6896218}
+  m_Center: {x: -0.00309968, y: 0.8799865, z: 0}
+--- !u!65 &3347664761964084652
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8896917293675057577}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9318085, y: 1.4463438, z: 0.91930264}
+  m_Center: {x: 0.009298801, y: 0.7253086, z: 0}
 --- !u!1 &8896917293675057583
 GameObject:
   m_ObjectHideFlags: 0

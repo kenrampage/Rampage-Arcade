@@ -16,6 +16,7 @@ public class HandleControlSchemeChanged : MonoBehaviour
     private void OnEnable()
     {
         InputUser.onChange += HandleInputUserChange;
+        InvokeEvent(GetCurrentControlScheme());
     }
 
     private void OnDisable()

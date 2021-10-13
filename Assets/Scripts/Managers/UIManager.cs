@@ -1,86 +1,59 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public GameObject startUI;
-    public GameObject pauseUI;
-    public GameObject gameUI;
-    public GameObject endUI;
-    public GameObject bgCanvas;
-
-    // private void OnEnable()
-    // {
-    //     GameManager.onGameStateChanged += HandleGameStateChanged;
-    // }
-
-    // private void OnDisable()
-    // {
-    //     GameManager.onGameStateChanged -= HandleGameStateChanged;
-    // }
-
-    // private void HandleGameStateChanged(GameState currentGameState)
-    // {
-    //     switch (currentGameState)
-    //     {
-    //         case GameState.LEVELSTART:
-    //             StartUIOn();
-    //             break;
-
-    //         case GameState.GAMEACTIVE:
-    //             GameUIOn();
-    //             break;
-
-    //         case GameState.GAMEPAUSED:
-    //             PauseUIOn();
-    //             break;
-
-    //         case GameState.LEVELEND:
-    //             EndUIOn();
-    //             break;
-
-    //         default:
-    //             break;
-    //     }
-    // }
-
+    [SerializeField] private GameObject[] startUI;
+    [SerializeField] private GameObject[] pauseUI;
+    [SerializeField] private GameObject[] gameUI;
+    [SerializeField] private GameObject[] endUI;
 
     public void StartUIOn()
     {
-        startUI.SetActive(true);
-        pauseUI.SetActive(false);
-        gameUI.SetActive(false);
-        endUI.SetActive(false);
-        bgCanvas.SetActive(true);
+        DisableObjects(pauseUI);
+        DisableObjects(gameUI);
+        DisableObjects(endUI);
+        EnableObjects(startUI);
     }
 
     public void GameUIOn()
     {
-        startUI.SetActive(false);
-        pauseUI.SetActive(false);
-        gameUI.SetActive(true);
-        endUI.SetActive(false);
-        bgCanvas.SetActive(false);
+        DisableObjects(pauseUI);
+        DisableObjects(startUI);
+        DisableObjects(endUI);
+        EnableObjects(gameUI);
     }
 
 
     public void PauseUIOn()
     {
-        startUI.SetActive(false);
-        pauseUI.SetActive(true);
-        gameUI.SetActive(false);
-        endUI.SetActive(false);
-        bgCanvas.SetActive(true);
+        DisableObjects(startUI);
+        DisableObjects(gameUI);
+        DisableObjects(endUI);
+        EnableObjects(pauseUI);
     }
 
     public void EndUIOn()
     {
-        startUI.SetActive(false);
-        pauseUI.SetActive(false);
-        gameUI.SetActive(false);
-        endUI.SetActive(true);
-        bgCanvas.SetActive(true);
+        DisableObjects(pauseUI);
+        DisableObjects(gameUI);
+        DisableObjects(startUI);
+        EnableObjects(endUI);
+    }
+
+    private void EnableObjects(GameObject[] objects)
+    {
+        foreach (var item in objects)
+        {
+            item.SetActive(true);
+        }
+    }
+
+    private void DisableObjects(GameObject[] objects)
+    {
+        foreach (var item in objects)
+        {
+            item.SetActive(false);
+        }
     }
 
 }
