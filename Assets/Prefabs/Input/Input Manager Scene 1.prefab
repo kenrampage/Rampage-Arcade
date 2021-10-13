@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 952997241863813017, guid: 3f88e53e6c76c5e4ca7e85cff48f5a3a, type: 3}
       propertyPath: m_Name
-      value: Input Manager Scene 1
+      value: Input Manager
       objectReference: {fileID: 0}
     - target: {fileID: 952997241863813018, guid: 3f88e53e6c76c5e4ca7e85cff48f5a3a, type: 3}
       propertyPath: m_RootOrder

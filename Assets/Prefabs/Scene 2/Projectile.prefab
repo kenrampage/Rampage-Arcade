@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1fc1d7fd91284439d33d5892a2bea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 40
+  speed: 30
   gameStateKeeper: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
 --- !u!135 &7406056963405125523
 SphereCollider:
@@ -214,7 +214,7 @@ GameObject:
   - component: {fileID: 2896896709643661141}
   - component: {fileID: 2896896709646528373}
   - component: {fileID: 2896896709645561269}
-  - component: {fileID: 2896896709643301748}
+  - component: {fileID: 1036391990421017130}
   m_Layer: 0
   m_Name: Food_Sandwich_01
   m_TagString: Untagged
@@ -285,7 +285,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2896896709643301748
+--- !u!114 &1036391990421017130
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -297,9 +297,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7079aa8b51bfc5b4d8f636e67252f5e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameStateKeeper: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
-  rotationSpeedMin: 2
-  rotationSpeedMax: 5
+  rotationSpeedMin: 0
+  rotationSpeedMax: 15
 --- !u!1 &4686711105838509132
 GameObject:
   m_ObjectHideFlags: 0

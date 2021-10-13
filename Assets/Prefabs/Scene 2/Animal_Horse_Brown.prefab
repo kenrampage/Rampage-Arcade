@@ -709,7 +709,6 @@ GameObject:
   - component: {fileID: 3058574747650206929}
   - component: {fileID: 3058574747650206931}
   - component: {fileID: -2401950440715102617}
-  - component: {fileID: 2298656944384653585}
   - component: {fileID: 7523637315934290465}
   - component: {fileID: -5036178971537588642}
   - component: {fileID: -1246129948755593789}
@@ -772,7 +771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba1fc1d7fd91284439d33d5892a2bea5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 18
+  speed: 15
   gameStateKeeper: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
 --- !u!65 &3058574747650206931
 BoxCollider:
@@ -801,19 +800,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   score: {fileID: 11400000, guid: d89de8e89b8ad3f4c8df728203c45d3c, type: 2}
   value: 1
---- !u!114 &2298656944384653585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3058574747650206933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 021af687381af5d4ea70cbd76c8458bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gameStateKeeper: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
 --- !u!114 &7523637315934290465
 MonoBehaviour:
   m_ObjectHideFlags: 0

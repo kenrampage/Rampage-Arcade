@@ -500,7 +500,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7904992862134574893
 RectTransform:
   m_ObjectHideFlags: 0
@@ -955,7 +955,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 503638906432128586, guid: 517aeb0d52ba0d54a8834b98f89f1e2c, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 503638906432128598, guid: 517aeb0d52ba0d54a8834b98f89f1e2c, type: 3}
       propertyPath: m_Pivot.x
@@ -1167,6 +1167,10 @@ PrefabInstance:
     - target: {fileID: 7825523254434109616, guid: 0be7e60af37be154ea622025888bba65, type: 3}
       propertyPath: m_Name
       value: Pause Button
+      objectReference: {fileID: 0}
+    - target: {fileID: 7825523254434109616, guid: 0be7e60af37be154ea622025888bba65, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0be7e60af37be154ea622025888bba65, type: 3}

@@ -115,6 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3aee010cc05a8914abcf4552a112c288, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 6598556655565274342}
   fadeCanvasInAtStart: 0
   fadeCanvasOutAtStart: 0
   fadeOutTime: 1
