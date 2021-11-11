@@ -3,7 +3,8 @@ using UnityEngine;
 public class RotationController : MonoBehaviour
 {
     [SerializeField] private float rotationSpeed = 125f;
-    private float rotateInput;
+    [SerializeField] private SOVector2 rotateDirection;
+    
 
     private void FixedUpdate()
     {
@@ -12,11 +13,7 @@ public class RotationController : MonoBehaviour
 
     public void Rotate()
     {
-        transform.Rotate(Vector3.up, rotateInput * rotationSpeed * Time.deltaTime);
+        transform.Rotate(Vector3.up, rotateDirection.value.x * rotationSpeed * Time.deltaTime);
     }
 
-    public void SetRotateInput(Vector2 value)
-    {
-        rotateInput = value.x;
-    }
 }

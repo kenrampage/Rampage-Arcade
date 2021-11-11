@@ -1083,6 +1083,7 @@ GameObject:
   - component: {fileID: 503638906432128584}
   - component: {fileID: 503638906432128587}
   - component: {fileID: 503638906432128599}
+  - component: {fileID: 63530886}
   m_Layer: 5
   m_Name: Volume Control Canvas Vertical
   m_TagString: Untagged
@@ -1185,6 +1186,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicVolumeSO: {fileID: 11400000, guid: ef479367bc2942140a32bbece10550d9, type: 2}
   effectsVolumeSO: {fileID: 11400000, guid: 5ee16030db2feee4384e81de5c67b9a3, type: 2}
+--- !u!114 &63530886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503638906432128586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78adf8dbccfa1ce4a81abe64da92ea52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameStateKeeper: {fileID: 11400000, guid: af424ca69ed1a134db98d0cc9735da21, type: 2}
+  onTransitionIn:
+    m_PersistentCalls:
+      m_Calls: []
+  onLevelStart:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 503638906432128599}
+        m_TargetAssemblyTypeName: FMODVolumeControl, Assembly-CSharp
+        m_MethodName: GetBusReferences
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onGameActivated:
+    m_PersistentCalls:
+      m_Calls: []
+  onGamePaused:
+    m_PersistentCalls:
+      m_Calls: []
+  onLevelEnd:
+    m_PersistentCalls:
+      m_Calls: []
+  onTransitionOut:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &503638906563412347
 GameObject:
   m_ObjectHideFlags: 0

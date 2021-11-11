@@ -906,7 +906,7 @@
                     "name": "Move",
                     "type": "Value",
                     "id": "f285ae71-7dda-4bd2-bc0f-9ccf0fc49060",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Stick",
                     "processors": "",
                     "interactions": ""
                 },
@@ -914,7 +914,7 @@
                     "name": "Rotate",
                     "type": "Value",
                     "id": "da27ed58-f843-4f4d-8d6d-e85be4216bf3",
-                    "expectedControlType": "Vector2",
+                    "expectedControlType": "Stick",
                     "processors": "",
                     "interactions": ""
                 }
@@ -946,39 +946,6 @@
                     "name": "down",
                     "id": "c928d8f8-1416-4aa7-9286-b219af45d381",
                     "path": "<Gamepad>/dpad/down",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "Gamepad Left Stick",
-                    "id": "142597d5-961f-4bc3-846e-dce001d2672d",
-                    "path": "2DVector",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": true,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "up",
-                    "id": "e3d2aca2-cb93-49e6-bc08-5d47eec15a9f",
-                    "path": "<Gamepad>/leftStick/up",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Move",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "down",
-                    "id": "3f81e51b-9e46-47ca-ad7f-dd442f1dad8b",
-                    "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1053,37 +1020,15 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "Gamepad Right Stick",
-                    "id": "b16aaa62-da88-4554-99e3-18ea843c9f56",
-                    "path": "2DVector",
+                    "name": "",
+                    "id": "f16085b1-a647-4414-b80b-af8a75fcdf95",
+                    "path": "<Gamepad>/leftStick",
                     "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotate",
-                    "isComposite": true,
+                    "processors": "NormalizeVector2",
+                    "groups": "Gamepad",
+                    "action": "Move",
+                    "isComposite": false,
                     "isPartOfComposite": false
-                },
-                {
-                    "name": "left",
-                    "id": "faec91a8-a48a-4bc7-9df5-a7233efcea40",
-                    "path": "<Gamepad>/rightStick/left",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
-                },
-                {
-                    "name": "right",
-                    "id": "338de1d1-beaf-414b-823d-fee14d079476",
-                    "path": "<Gamepad>/rightStick/right",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Rotate",
-                    "isComposite": false,
-                    "isPartOfComposite": true
                 },
                 {
                     "name": "Keyboard WASD",
@@ -1150,6 +1095,17 @@
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "0f46404b-05ac-41f0-9bbf-e803793f3df8",
+                    "path": "<Gamepad>/rightStick",
+                    "interactions": "",
+                    "processors": "NormalizeVector2",
+                    "groups": "Gamepad",
+                    "action": "Rotate",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         },

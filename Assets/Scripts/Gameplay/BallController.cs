@@ -3,12 +3,12 @@
 public class BallController : MonoBehaviour
 {
     [SerializeField] private SOFMODParameterData ballSpeed;
+    [SerializeField] private SOVector2 ballMoveDirection;
     private Rigidbody playerRb;
     [SerializeField] private GameObject directionTarget;
 
     [SerializeField] private float speed = 5f;
 
-    private float moveInput;
     private float currentSpeed;
 
     private void Awake()
@@ -29,16 +29,7 @@ public class BallController : MonoBehaviour
 
     public void Move()
     {
-        playerRb.AddForce(directionTarget.transform.forward * moveInput * speed);
+        playerRb.AddForce(directionTarget.transform.forward * ballMoveDirection.value.y * speed);
     }
-
-    public void SetMoveInput(Vector2 value)
-    {
-        moveInput = value.y;
-    }
-
-
-
-
 
 }

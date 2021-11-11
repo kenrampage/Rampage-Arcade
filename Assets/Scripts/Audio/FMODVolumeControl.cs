@@ -11,8 +11,7 @@ public class FMODVolumeControl : MonoBehaviour
 
     private void Awake()
     {
-        effectsBus = RuntimeManager.GetBus("bus:/SFX");
-        musicBus = RuntimeManager.GetBus("bus:/Music");
+        GetBusReferences();
         SyncSOValues();
     }
 
@@ -30,11 +29,13 @@ public class FMODVolumeControl : MonoBehaviour
 
     public void SetMusicVolume(float v)
     {
+        GetBusReferences();
         musicBus.setVolume(v);
     }
 
     public void SetEffectsVolume(float v)
     {
+        GetBusReferences();
         effectsBus.setVolume(v);
     }
 
@@ -58,6 +59,16 @@ public class FMODVolumeControl : MonoBehaviour
         effectsVolumeSO.SetValue(GetEffectsVolume());
     }
 
+    public void GetBusReferences()
+    {
+        if (effectsBus.isValid() == false)
+        {
+            effectsBus = RuntimeManager.GetBus("bus:/SFX");
+        }
 
-
+        if (musicBus.isValid() == false)
+        {
+            musicBus = RuntimeManager.GetBus("bus:/Music");
+        }
+    }
 }

@@ -1,67 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Events;
-
-[System.Serializable] public class OnBallMove : UnityEvent<Vector2> { }
-[System.Serializable] public class OnBallRotate : UnityEvent<Vector2> { }
 
 public class BallInput_Player : MonoBehaviour
 {
     [SerializeField] private InputActionAsset inputActionAsset;
+    [SerializeField] private SOVector2 moveDirection;
+    [SerializeField] private SOVector2 rotateDirection;
+
     private InputActionMap inputActionMap;
 
-    private InputAction ballMove;
-    private InputAction ballRotate;
-
-    [SerializeField] private OnBallMove onBallMove;
-    [SerializeField] private OnBallRotate onBallRotate;
+    private InputAction ballMoveDirection;
+    private InputAction ballRotateDirection;
 
     private void Awake()
     {
         inputActionMap = inputActionAsset.FindActionMap("Ball");
 
-        ballMove = inputActionMap.FindAction("Move");
-        ballRotate = inputActionMap.FindAction("Rotate");
+        ballMoveDirection = inputActionMap.FindAction("Move");
+        ballRotateDirection = inputActionMap.FindAction("Rotate");
     }
 
-    private void OnEnable()
+    private void Update()
     {
-        ballMove.started += DoBallMoveStart;
-        ballMove.canceled += DoBallMoveStop;
-
-        ballRotate.started += DoBallRotateStart;
-        ballRotate.canceled += DoBallRotateStop;
+        if (inputActionMap.enabled)
+        {
+            GetMoveDirection();
+            GetRotateDirection();
+        }
     }
 
-    private void OnDisable()
+    private void GetMoveDirection()
     {
-        ballMove.started -= DoBallMoveStart;
-        ballMove.canceled -= DoBallMoveStop;
-
-        ballRotate.started -= DoBallRotateStart;
-        ballRotate.canceled -= DoBallRotateStop;
+        moveDirection.value = new Vector3(ballMoveDirection.ReadValue<Vector2>().x, ballMoveDirection.ReadValue<Vector2>().y, 0);
     }
 
-    private void DoBallMoveStart(InputAction.CallbackContext context)
+    private void GetRotateDirection()
     {
-        onBallMove?.Invoke(context.ReadValue<Vector2>());
-    }
+        rotateDirection.value = new Vector3(ballRotateDirection.ReadValue<Vector2>().x, ballRotateDirection.ReadValue<Vector2>().y, 0);
 
-    private void DoBallMoveStop(InputAction.CallbackContext context)
-    {
-        onBallMove?.Invoke(new Vector2(0, 0));
-    }
-
-    private void DoBallRotateStart(InputAction.CallbackContext context)
-    {
-        onBallRotate?.Invoke(context.ReadValue<Vector2>());
-    }
-
-    private void DoBallRotateStop(InputAction.CallbackContext context)
-    {
-        onBallRotate?.Invoke(new Vector2(0, 0));
     }
 
 }

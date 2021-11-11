@@ -419,6 +419,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballSpeed: {fileID: 11400000, guid: cebf09d967b9434409ff891f28024f19, type: 2}
+  ballMoveDirection: {fileID: 11400000, guid: 46e7542be71ac9249b03223cec2e2734, type: 2}
   directionTarget: {fileID: 659585526}
   speed: 10
 --- !u!114 &159557064
@@ -434,24 +435,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputActionAsset: {fileID: -944628639613478452, guid: dc1d8a7bfd405ba4a832db4a33b0109d, type: 3}
-  onBallMove:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 159557063}
-        m_TargetAssemblyTypeName: PlayerController4, Assembly-CSharp
-        m_MethodName: SetMoveInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onBallRotate:
-    m_PersistentCalls:
-      m_Calls: []
+  moveDirection: {fileID: 11400000, guid: 46e7542be71ac9249b03223cec2e2734, type: 2}
+  rotateDirection: {fileID: 11400000, guid: 0ad0f79862a412c488244de397263415, type: 2}
 --- !u!114 &159557065
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1245,7 +1230,6 @@ GameObject:
   m_Component:
   - component: {fileID: 338522318}
   - component: {fileID: 338522317}
-  - component: {fileID: 338522319}
   m_Layer: 0
   m_Name: Rotating Camera
   m_TagString: Untagged
@@ -1266,6 +1250,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 125
+  rotateDirection: {fileID: 11400000, guid: 0ad0f79862a412c488244de397263415, type: 2}
 --- !u!4 &338522318
 Transform:
   m_ObjectHideFlags: 0
@@ -1281,37 +1266,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &338522319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 338522316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6107d905e9d66ce4a912482ceca211e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputActionAsset: {fileID: -944628639613478452, guid: dc1d8a7bfd405ba4a832db4a33b0109d, type: 3}
-  onBallMove:
-    m_PersistentCalls:
-      m_Calls: []
-  onBallRotate:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 338522317}
-        m_TargetAssemblyTypeName: RotationController, Assembly-CSharp
-        m_MethodName: SetRotateInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &353736368
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,7 +2108,6 @@ GameObject:
   m_Component:
   - component: {fileID: 659585527}
   - component: {fileID: 659585529}
-  - component: {fileID: 659585528}
   m_Layer: 0
   m_Name: Direction Target
   m_TagString: Untagged
@@ -2176,37 +2129,6 @@ Transform:
   m_Father: {fileID: 1812814726}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &659585528
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 659585526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6107d905e9d66ce4a912482ceca211e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputActionAsset: {fileID: -944628639613478452, guid: dc1d8a7bfd405ba4a832db4a33b0109d, type: 3}
-  onBallMove:
-    m_PersistentCalls:
-      m_Calls: []
-  onBallRotate:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 659585529}
-        m_TargetAssemblyTypeName: RotationController, Assembly-CSharp
-        m_MethodName: SetRotateInput
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &659585529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2220,6 +2142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 125
+  rotateDirection: {fileID: 11400000, guid: 0ad0f79862a412c488244de397263415, type: 2}
 --- !u!1 &665623937
 GameObject:
   m_ObjectHideFlags: 0
